@@ -63,14 +63,14 @@ Après arrondis :
 Le prix de vente de l’article 1 est de 107 centimes, soit 1 euros et 7 centimes.
 
 ### Livrables
-L2-1 Dossier de conception
-L2-2 Code source via un accès d’un repo public sur github ( par exemple )
-L2-3 Documentation sur le fonctionnement du code, des algorithmes, recherches techniques réalisées au cours du développement.
+- L2-1 Dossier de conception
+- L2-2 Code source via un accès d’un repo public sur github ( par exemple )
+- L2-3 Documentation sur le fonctionnement du code, des algorithmes, recherches techniques réalisées au cours du développement.
 Cette documentation doit être illustrée par des captures d’écran et clairement expliquer le fonctionnement du code.
-L2-4 Script de la base de données
-L2-5 Rapport de réunion écrit et daté attestant des échanges réalisés entre les différents développeurs.
-L2-6 Manuel d’utilisation pour l’administrateur. Réunissant des captures d’écran de l’application commentée.
-L2-7 Démonstration de l’application présentant les différentes étapes de création. ( Visioconférences )
+- L2-4 Script de la base de données
+- L2-5 Rapport de réunion écrit et daté attestant des échanges réalisés entre les différents développeurs.
+- L2-6 Manuel d’utilisation pour l’administrateur. Réunissant des captures d’écran de l’application commentée.
+- L2-7 Démonstration de l’application présentant les différentes étapes de création. ( Visioconférences )
 
 ### Contraintes :
 Utilisation de SWING, Java, Mysql
