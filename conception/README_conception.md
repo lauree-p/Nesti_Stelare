@@ -4,7 +4,7 @@
 
 ## MCD
 
-![MCD](https://octodex.github.com/images/minion.png)
+![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/Class_diagram.png)
 
 ## Diagramme de classe
 
