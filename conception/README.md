@@ -6,13 +6,13 @@
 
 ## Dictionnaire de données
 
-# Acteurs :
+### Acteurs :
 
 - Admin/Administrateur : Personne qui gère l'application, le stock, Mais n'a pas accès à la gestion des rôles d'administration.
 
 - SuperAdmin : A les même droit qu'un admin et à accès a la gestion des administrateurs.
 
-# Spécificités :
+### Spécificités :
 
 - Article : Produit à vendre, un ustensile de cuisine ou un ingredient (banane, oeuf etc).
 - Fournisseur : Personne qui vend l'article en question, est rentré dans la base de données par un admin, n'a pas accés au logiciel.
@@ -24,7 +24,7 @@
 
 ![Use Case](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/UseCaseV2.png)
 
-# Documentation Use Case
+### Documentation Use Case
 
 - Manage Admin : permet d'ajouter, de mettre à jour ou de supprimer les administrateurs.
 - Manage Supplier : permet d'ajouter, de mettre à jour ou de supprimer les fournisseurs.
@@ -42,8 +42,33 @@
 
 ![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/MVCV2.png)
 
+## Maquette
+
+![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/maquette_articles.png)
+
+![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/maquette_stock.png)
+
+![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/maquette_fournisseurs.png)
+
+![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/maquette_mon_compte.png)
+
+![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/maquette_mon_compte_modifier.png)
+
+![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/maquette_gestion_administrateurs.png)
+
+## Outils
+
+### Répartition des taches
+
+Utilisation de Trello
+
 Trello : https://trello.com/b/Ixz1jhAb/nestistelare
 
-Logiciels utilisés : 
-- https://staruml.io/
-- https://www.looping-mcd.fr/
+### Logiciels utilisés
+
+- StarUML (https://staruml.io/)
+- Looping (https://www.looping-mcd.fr/)
+
+
+ 2021©Nesti_Stelare Réalisé par Stéphane, Laurélenne et Rémi
+

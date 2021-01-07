@@ -81,3 +81,19 @@ Trello : https://trello.com/b/Ixz1jhAb/nestistelare
 Logiciels utilisés : 
 - https://staruml.io/
 - https://www.looping-mcd.fr/
+
+## Outils
+
+### Répartition des taches
+
+Utilisation de Trello
+
+Trello : https://trello.com/b/Ixz1jhAb/nestistelare
+
+### Logiciels utilisés
+
+- StarUML (https://staruml.io/)
+- Looping (https://www.looping-mcd.fr/)
+
+
+ 2021©Nesti_Stelare Réalisé par Stéphane, Laurélenne et Rémi
