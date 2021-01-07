@@ -8,27 +8,21 @@
 
 # Acteurs :
 
-  - Admin/Administrateur : Personne qui gère l'application, le stock, Mais n'a pas accès à la gestion des rôles d'administration.
+- Admin/Administrateur : Personne qui gère l'application, le stock, Mais n'a pas accès à la gestion des rôles d'administration.
 
-  - SuperAdmin : A les même droit qu'un admin et à accès a la gestion des administrateurs.
+- SuperAdmin : A les même droit qu'un admin et à accès a la gestion des administrateurs.
 
 # Spécificités :
 
-  - Article : Produit à vendre, un ustensile de cuisine ou un ingredient (banane, oeuf etc).
-  - Fournisseur : Personne qui vend l'article en question, est rentré dans la base de données par un admin, n'a pas accés au logiciel.
-  - Stock : Liste le nombre d'articles disponibles (ou non).
-  (-onglet alerte : un onglet dans lequel il y a la liste de tous les articles "en deficit")
+- Article : Produit à vendre, un ustensile de cuisine ou un ingredient (banane, oeuf etc).
+- Fournisseur : Personne qui vend l'article en question, est rentré dans la base de données par un admin, n'a pas accés au logiciel.
+- Stock : Liste le nombre d'articles disponibles (ou non).
+(-onglet alerte : un onglet dans lequel il y a la liste de tous les articles "en deficit")
 
 
 ## Use Case
 
-# Use Case v1
-
 ![Use Case](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/UseCaseV2.png)
-
-# Use Case v2
-
-![Use Case](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/UseCaseV1.png)
 
 # Documentation Use Case
 
@@ -42,23 +36,11 @@
 
 ## Diagramme de classe
 
-# Diagramme de classe v1
-
 ![Diagramme de classe](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/Class_diagramV2.png)
-
-# Diagramme de classe v2
-
-![Diagramme de classe](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/Class_diagramV1.png)
 
 ## MCD
 
-# MCD v1
-
 ![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/MVCV2.png)
-
-# MCD v2
-
-![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/MVCV1.png)
 
 Trello : https://trello.com/b/Ixz1jhAb/nestistelare
 
