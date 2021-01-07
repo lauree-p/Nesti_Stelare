@@ -47,17 +47,18 @@ Prévoir un affichage qui permet de saisir une entrée dans le stock d’un arti
 Par exemple :
 - Achat de 100 articles ( 1kg de farine ) au fournisseur X.
 Et ainsi le stock de cet article sera augmenté de 100 unités.
-Un article peut être vendu par plusieurs fournisseurs. Le prix d’achat peut varier d’un
-fournisseur à l’autre.
+Un article peut être vendu par plusieurs fournisseurs. Le prix d’achat peut varier d’un fournisseur à l’autre.
 Le prix d’achat permet de déterminer le prix de vente de l’article .
 Le prix de vente est égal au prix d’achat le plus élevé, augmenté de 20%.
+
 Par exemple :
 L’article 1 est un paquet de 1kg de farine.
 Le fournisseur A vend cet article 89 centimes
 Le fournisseur B vend cet article 69 centimes
-CDA 2020-2021 - agnes@needemand.com 1/3
+
 Le prix de vente est :
 89 + ( 89 * 20 / 100 ) = 89 + 17.8 = 106,9
+
 Après arrondis :
 Le prix de vente de l’article 1 est de 107 centimes, soit 1 euros et 7 centimes.
 
