@@ -1,6 +1,6 @@
 # Nesti_Stelare
 
-![Logo_Nesti_Stelare](https://octodex.github.com/images/minion.png)
+![Logo_Nesti_Stelare](https://github.com/lauree-p/Nesti_Stelare/blob/main/img/Nesti_Stelare-logo.png)
 
 ## Gestion de stock en JAVA
 
