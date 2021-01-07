@@ -22,7 +22,11 @@
 
 ## Use Case
 
+# Use Case v1
+
 ![Use Case](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/UseCaseV2.png)
+
+# Use Case v2
 
 ![Use Case](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/UseCaseV1.png)
 
@@ -38,13 +42,21 @@
 
 ## Diagramme de classe
 
+# Diagramme de classe v1
+
 ![Diagramme de classe](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/Class_diagramV2.png)
+
+# Diagramme de classe v2
 
 ![Diagramme de classe](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/Class_diagramV1.png)
 
 ## MCD
 
+# MCD v1
+
 ![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/MVCV2.png)
+
+# MCD v2
 
 ![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/MVCV1.png)
 

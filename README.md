@@ -45,7 +45,7 @@ Les prix varient aussi en fonction du temps.
 Prévoir un affichage qui permet de saisir une entrée dans le stock d’un article.
 
 Par exemple :
-- Achat de 100 articles ( 1kg de farine ) au fournisseur X.
+Achat de 100 articles ( 1kg de farine ) au fournisseur X.
 Et ainsi le stock de cet article sera augmenté de 100 unités.
 Un article peut être vendu par plusieurs fournisseurs. Le prix d’achat peut varier d’un fournisseur à l’autre.
 Le prix d’achat permet de déterminer le prix de vente de l’article .
@@ -72,7 +72,7 @@ L2-5 Rapport de réunion écrit et daté attestant des échanges réalisés entr
 L2-6 Manuel d’utilisation pour l’administrateur. Réunissant des captures d’écran de l’application commentée.
 L2-7 Démonstration de l’application présentant les différentes étapes de création. ( Visioconférences )
 
-Contraintes :
+### Contraintes :
 Utilisation de SWING, Java, Mysql
 Pour des raisons pédagogiques : on ne tiendra pas compte de la TVA.
 
