@@ -8,7 +8,7 @@
 
 ## Diagramme de classe
 
-![Diagramme de classe](https://octodex.github.com/images/minion.png)
+![Diagramme de classe](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/UseCase.png)
 
 
 Trello : https://trello.com/b/Ixz1jhAb/nestistelare
