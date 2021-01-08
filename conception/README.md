@@ -9,17 +9,13 @@
 ### Acteurs :
 
 - Admin/Administrateur : Personne qui gère l'application, le stock, Mais n'a pas accès à la gestion des rôles d'administration.
-
 - SuperAdmin : A les même droit qu'un admin et à accès a la gestion des administrateurs.
 
 ### Spécificités :
 
-- Article : Produit à vendre, un ustensile de cuisine ou un ingredient (banane, oeuf etc).
-- Fournisseur : Personne qui vend l'article en question, est rentré dans la base de données par un admin, n'a pas accés au logiciel.
-- Stock : Liste le nombre d'articles disponibles (ou non).
-(-onglet alerte : un onglet dans lequel il y a la liste de tous les articles "en deficit")
+![Data dictionary](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/functional_dependency_matrix_and_concepts_found.png)
 
-## Liste des concepts trouvés et matrice de dépendance fonctionnelle
+## Matrice de dépendance fonctionnelle
 
 ![Matrice](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/functional_dependency_matrix_and_concepts_found.png)
 

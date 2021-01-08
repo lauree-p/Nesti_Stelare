@@ -674,7 +674,7 @@
 											"font": "Arial;13;1",
 											"left": 829,
 											"top": 623,
-											"width": 96.4716796875,
+											"width": 121.2529296875,
 											"height": 13,
 											"text": "Ingredients"
 										},
@@ -709,7 +709,7 @@
 									"font": "Arial;13;0",
 									"left": 824,
 									"top": 616,
-									"width": 106.4716796875,
+									"width": 131.2529296875,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF21/RbX8hLdCE="
@@ -746,16 +746,16 @@
 											"font": "Arial;13;0",
 											"left": 829,
 											"top": 646,
-											"width": 96.4716796875,
+											"width": 121.2529296875,
 											"height": 13,
-											"text": "+Expiration Date",
+											"text": "+ExpirationTimeLimit",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 824,
 									"top": 641,
-									"width": 106.4716796875,
+									"width": 131.2529296875,
 									"height": 23
 								},
 								{
@@ -770,7 +770,7 @@
 									"font": "Arial;13;0",
 									"left": 824,
 									"top": 664,
-									"width": 106.4716796875,
+									"width": 131.2529296875,
 									"height": 10
 								},
 								{
@@ -810,7 +810,7 @@
 							"containerChangeable": true,
 							"left": 824,
 							"top": 616,
-							"width": 106.4716796875,
+							"width": 131.2529296875,
 							"height": 58,
 							"nameCompartment": {
 								"$ref": "AAAAAAF21/RbX8hKE94="
@@ -3463,7 +3463,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 824,
+									"left": 831,
 									"top": 585,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -3484,8 +3484,8 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 811,
-									"top": 593,
+									"left": 819,
+									"top": 594,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -3505,7 +3505,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 849,
+									"left": 856,
 									"top": 568,
 									"height": 13,
 									"alpha": -1.5707963267948966,
@@ -3524,7 +3524,7 @@
 								"$ref": "AAAAAAF21/RbX8hJ7So="
 							},
 							"lineStyle": 1,
-							"points": "857:615;817:552",
+							"points": "868:615;821:552",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAF24ja8a81AQts="
@@ -5157,8 +5157,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF21/RbX8hH9BM="
 							},
-							"name": "Expiration Date",
-							"type": ""
+							"name": "ExpirationTimeLimit"
 						}
 					]
 				},
