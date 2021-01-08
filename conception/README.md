@@ -66,6 +66,8 @@
 
 ## MLD
 
+![MLD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mld2.png)
+
 ![MLD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mld.png)
 
 ## Maquette
