@@ -67,6 +67,10 @@ Utilisation de Trello
 
 Trello : https://trello.com/b/Ixz1jhAb/nestistelare
 
+#### Diagramme de GANTT
+
+![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/Diagramme_de_GANTT.png)
+
 ### Logiciels utilisés
 
 - StarUML (https://staruml.io/)
