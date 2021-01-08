@@ -48,9 +48,6 @@
 
 ### Documentation Use Case
 
-
-Documention UseCase
-
 - Manage Admin : permet d'ajouter, de mettre à jour ou de supprimer les administrateurs.
 - Manage Supplier : permet d'ajouter, de mettre à jour ou de supprimer les fournisseurs.
 - Manage Article : permet d'ajouter, de mettre à jour ou de supprimer les articles.
