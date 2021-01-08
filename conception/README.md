@@ -13,11 +13,11 @@
 
 ### Spécificités :
 
-Image manquante
+![Dictionary_data](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/dictionary_data.png)
 
 ## Matrice de dépendance fonctionnelle
 
-![Matrice](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/functional_dependency_matrix_and_concepts_found.png)
+![Matrice](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/functional_dependency_matrix.png)
 
 ## Convention de Nommage :
 
