@@ -13,7 +13,7 @@
 
 ### Spécificités :
 
-![Data dictionary](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/functional_dependency_matrix_and_concepts_found.png)
+![Data dictionary]()
 
 ## Matrice de dépendance fonctionnelle
 
