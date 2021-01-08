@@ -21,7 +21,7 @@
 
 ## Liste des concepts trouvés et matrice de dépendance fonctionnelle
 
-![Use Case](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/Liste_des_concepts_trouves_et_matrice_de_dependance_fonctionnelle.png)
+![Use Case](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/functional_dependency_matrix_and_concepts_found.png)
 
 ## Convention de Nommage :
 
@@ -44,7 +44,7 @@
 
 ## Use Case
 
-![Use Case](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/UseCase.png)
+![Use Case](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/use_case.png)
 
 ### Documentation Use Case
 
@@ -58,29 +58,29 @@
 
 ## Diagramme de classe
 
-![Diagramme de classe](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/Class_diagram.png)
+![Diagramme de classe](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/class_diagram.png)
 
 ## MCD
 
-![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/MVC.png)
+![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mcd.png)
 
 ## MLD
 
-![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/MLD.png)
+![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mld.png)
 
 ## Maquette
 
-![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/maquette_articles.png)
+![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mockup_product.png)
 
-![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/maquette_stock.png)
+![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mockup_stock.png)
 
-![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/maquette_fournisseurs.png)
+![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mockup_suppliers.png)
 
-![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/maquette_mon_compte.png)
+![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mockup_my_account.png)
 
-![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/maquette_mon_compte_modifier.png)
+![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mockup_my_account_update.png)
 
-![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/maquette_gestion_administrateurs.png)
+![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mockup_manage_admin.png)
 
 ## Outils
 
@@ -92,7 +92,7 @@ Trello : https://trello.com/b/Ixz1jhAb/nestistelare
 
 #### Diagramme de GANTT
 
-![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/Diagramme_de_GANTT.png)
+![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/gantt_diagram.png)
 
 ### Logiciels utilisés
 
