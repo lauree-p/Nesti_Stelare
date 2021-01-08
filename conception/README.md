@@ -21,7 +21,7 @@
 
 ## Liste des concepts trouvés et matrice de dépendance fonctionnelle
 
-![Use Case](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/functional_dependency_matrix_and_concepts_found.png)
+![Matrice](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/functional_dependency_matrix_and_concepts_found.png)
 
 ## Convention de Nommage :
 
@@ -66,21 +66,21 @@
 
 ## MLD
 
-![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mld.png)
+![MLD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mld.png)
 
 ## Maquette
 
-![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mockup_product.png)
+![Maquette](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mockup_product.png)
 
-![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mockup_stock.png)
+![Maquette](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mockup_stock.png)
 
-![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mockup_suppliers.png)
+![Maquette](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mockup_suppliers.png)
 
-![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mockup_my_account.png)
+![Maquette](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mockup_my_account.png)
 
-![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mockup_my_account_update.png)
+![Maquette](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mockup_my_account_update.png)
 
-![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mockup_manage_admin.png)
+![Maquette](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mockup_manage_admin.png)
 
 ## Outils
 
@@ -92,7 +92,7 @@ Trello : https://trello.com/b/Ixz1jhAb/nestistelare
 
 #### Diagramme de GANTT
 
-![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/gantt_diagram.png)
+![GANTT](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/gantt_diagram.png)
 
 ### Logiciels utilisés
 
