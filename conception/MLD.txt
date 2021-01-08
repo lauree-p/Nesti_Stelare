@@ -1,9 +1,9 @@
-PRODUCTS = (Id_PRODUCTS COUNTER, name VARCHAR(255), weight DECIMAL(15,2), unit_quantity DECIMAL(15,2), sell_price DECIMAL(15,2));
-INGREDIENTS = (#Id_PRODUCTS, expiration_date DATE);
-SUPPLIERS = (Id_SUPPLIERS COUNTER, company_name VARCHAR(255), company_adress VARCHAR(255), contact_name VARCHAR(255), contact_firstName VARCHAR(255), tel_number INT);
 CONSUMERS = (Id_CONSUMER COUNTER, role LOGICAL, nickname VARCHAR(255), passWord VARCHAR(255));
-ORDERS = (Id_ORDERS COUNTER, state VARCHAR(255), quantity INT, buy_price DECIMAL(15,2), date_order DATE);
+ORDERS = (Id_ORDERS COUNTER, state VARCHAR(255), quantity INT, buy_price DECIMAL(15,2), date_order DATE, #Id_CONSUMER);
+PRODUCTS = (Id_PRODUCTS COUNTER, name VARCHAR(255), weight DECIMAL(15,2), unit_quantity DECIMAL(15,2), sell_price DECIMAL(15,2), #Id_CONSUMER);
+INGREDIENTS = (#Id_PRODUCTS, expiration_date DATE);
+SUPPLIERS = (Id_SUPPLIERS COUNTER, company_name VARCHAR(255), company_adress VARCHAR(255), contact_name VARCHAR(255), contact_firstName VARCHAR(255), tel_number INT, #Id_CONSUMER);
 KITCHEN_UTENSILS = (#Id_PRODUCTS);
 sell = (#Id_PRODUCTS, #Id_SUPPLIERS);
-is_passed = (#Id_SUPPLIERS, #Id_ORDERS);
+provide = (#Id_SUPPLIERS, #Id_ORDERS);
 is_contained = (#Id_PRODUCTS, #Id_ORDERS);

@@ -70,17 +70,7 @@
 
 ## Maquette
 
-![Maquette](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mockup_product.png)
-
-![Maquette](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mockup_stock.png)
-
-![Maquette](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mockup_suppliers.png)
-
-![Maquette](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mockup_my_account.png)
-
-![Maquette](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mockup_my_account_update.png)
-
-![Maquette](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mockup_manage_admin.png)
+![Maquette](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mockup.png)
 
 ## Outils
 
