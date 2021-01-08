@@ -65,7 +65,11 @@ liste des adminstrateurs.
 
 ## MLD
 
+### Model relationnelle
+
 ![MLD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mld2.png)
+
+### Model logique
 
 ![MLD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mld.png)
 
