@@ -19,9 +19,9 @@
 - Stock : Liste le nombre d'articles disponibles (ou non).
 (-onglet alerte : un onglet dans lequel il y a la liste de tous les articles "en deficit")
 
-## Liste des concepts trouvés données et matrice de dépendance fonctionnelle
+## Liste des concepts trouvés et matrice de dépendance fonctionnelle
 
-![Use Case](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/Liste_des_concepts_trouves_donnees_et_matrice_de_dependance_fonctionnelle.png)
+![Use Case](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/Liste_des_concepts_trouves_et_matrice_de_dependance_fonctionnelle.png)
 
 ## Use Case
 
