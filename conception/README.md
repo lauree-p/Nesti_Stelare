@@ -13,7 +13,7 @@
 
 ### Spécificités :
 
-![Data dictionary]()
+Image manquante
 
 ## Matrice de dépendance fonctionnelle
 
