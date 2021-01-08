@@ -9,6 +9,8 @@ Documention UseCase
 
 - Manage on Order : permet d'ajouter, de mettre à jour ou de supprimer les commandes.
 
+- Manage Product : permet d'ajouter, de mettre à jour ou de supprimer les produits.
+
 - Connect : permet une connexion et une déconnexion.
 
 - Administrator : Cest lui qui joue sur l'application, c'est à dire qu'il rentre des données et modifie
