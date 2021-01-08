@@ -1912,7 +1912,7 @@
 											"top": 687,
 											"width": 101.50537109375,
 											"height": 13,
-											"text": "Super admin"
+											"text": "Super Admin"
 										},
 										{
 											"_type": "LabelView",
@@ -3611,7 +3611,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF21/1YS8usP08="
 							},
-							"name": "IdAdmin"
+							"name": "IdAdmin",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3779,7 +3780,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Super admin",
+					"name": "Super Admin",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -3898,7 +3899,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF24T8i8Tp/ev0="
 							},
-							"name": "IdOrder"
+							"name": "IdOrder",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
