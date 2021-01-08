@@ -23,6 +23,25 @@
 
 ![Use Case](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/Liste_des_concepts_trouves_et_matrice_de_dependance_fonctionnelle.png)
 
+## Convention de Nommage :
+
+### Diagramme de classe : 
+
+- Nous avons utilisé le "CamelCase" dans le diagramme de classe.
+- Langage en Anglais.
+
+### MCD :
+
+- Nous avons utilisé le "Snake_Case" dans le MCD.
+- Le nom des entités sont en majuscules.
+- Le nom des associations sont en minuscules.
+- Langage en Anglais.
+
+### UseCase : 
+
+- Nous avons utilisé le "CamelCase" dans l'UseCase.
+- Langage en Anglais.
+
 ## Use Case
 
 ![Use Case](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/UseCaseV3.png)
@@ -44,6 +63,10 @@
 ## MCD
 
 ![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/MVCV3.png)
+
+## MLD
+
+![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/MLD.png)
 
 ## Maquette
 
