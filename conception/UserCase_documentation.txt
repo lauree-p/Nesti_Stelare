@@ -7,7 +7,7 @@ Documention UseCase
 
 - Manage Article : permet d'ajouter, de mettre à jour ou de supprimer les articles.
 
-- Manage on Order : permet d'ajouter, de mettre à jour ou de supprimer les commandes.
+- Manage An Order : permet d'ajouter, de mettre à jour ou de supprimer les commandes.
 
 - Manage Product : permet d'ajouter, de mettre à jour ou de supprimer les produits.
 
