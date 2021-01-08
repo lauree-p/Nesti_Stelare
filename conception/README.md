@@ -39,8 +39,6 @@
 
 ## Diagramme de classe
 
-![Diagramme de classe](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/Class_diagramV3.png)
-
 ## MCD
 
 ![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/MVCV3.png)
