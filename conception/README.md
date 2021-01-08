@@ -22,25 +22,25 @@
 
 ## Use Case
 
-![Use Case](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/UseCaseV2.png)
+![Use Case](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/UseCaseV3.png)
 
 ### Documentation Use Case
 
 - Manage Admin : permet d'ajouter, de mettre à jour ou de supprimer les administrateurs.
 - Manage Supplier : permet d'ajouter, de mettre à jour ou de supprimer les fournisseurs.
 - Manage Article :  permet d'ajouter, de mettre à jour ou de supprimer les articles.
-- Place on Order : permet de passer une commande quand les stocks d'articles sont bas.
+- Manage on Order : permet d'ajouter, de mettre à jour ou de supprimer les commandes.
 - Connect : permet une connexion et une déconnexion.
 - Administrator : Cest lui qui joue sur l'application, c'est à dire qu'il rentre des données et modifie les valeurs. Il peut tout gérer sauf la liste des administrateurs.
 - Super Admin : Il a les mêmes fonctionnalités que l' « Administrator » sauf qu'il peut aussi gérer la liste des adminstrateurs.
 
 ## Diagramme de classe
 
-![Diagramme de classe](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/Class_diagramV2.png)
+![Diagramme de classe](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/Class_diagramV3.png)
 
 ## MCD
 
-![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/MVCV2.png)
+![MCD](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/MVCV3.png)
 
 ## Maquette
 
