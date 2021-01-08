@@ -44,7 +44,7 @@
 
 ## Use Case
 
-![Use Case](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/use_case.png)
+![Use Case](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/use_case2.png)
 
 ### Documentation Use Case
 
