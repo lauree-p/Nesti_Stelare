@@ -76,12 +76,6 @@ Cette documentation doit être illustrée par des captures d’écran et clairem
 Utilisation de SWING, Java, Mysql
 Pour des raisons pédagogiques : on ne tiendra pas compte de la TVA.
 
-Trello : https://trello.com/b/Ixz1jhAb/nestistelare
-
-Logiciels utilisés : 
-- https://staruml.io/
-- https://www.looping-mcd.fr/
-
 ## Outils
 
 ### Répartition des taches
