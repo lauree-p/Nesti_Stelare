@@ -21,7 +21,7 @@
 
 ## Liste des concepts trouvés données et matrice de dépendance fonctionnelle
 
-![Use Case](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/Liste des concepts trouvés données et matrice de dépendance fonctionnelle.png)
+![Use Case](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/Liste_des_concepts_trouves_donnees_et_matrice_de_dependance_fonctionnelle.png)
 
 ## Use Case
 
