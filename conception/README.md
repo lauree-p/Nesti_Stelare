@@ -1,6 +1,6 @@
-# Nesti_Stelare
-
-![Logo_Nesti_Stelare](https://github.com/lauree-p/Nesti_Stelare/blob/main/img/Nesti_Stelare-logo.png)
+<p align="center">
+  <img src="https://github.com/lauree-p/Nesti_Stelare/blob/main/img/Nesti_Stelare-logo.png">
+</p>
 
 ## Conception
 
