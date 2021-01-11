@@ -2,7 +2,7 @@
   <img src="https://github.com/lauree-p/Nesti_Stelare/blob/main/img/Nesti_Stelare-logo.png">
 </p>
 
-## Gestion de stock en JAVA
+<h2 align="center" style="color: red">Gestion de stock en JAVA</h2>
 
 Contexte :
 L’entreprise Nesti souhaite gérer ses stocks via une application. 
@@ -11,14 +11,14 @@ Pour cela, L’entreprise Nesti vous propose de développer une application en J
 ### Entreprise Nesti
 Cliquer le lien https://agnes.needemand.com/nesti-site/ pour ouvrir la ressource.
 
-### Objectif :
+### Objectif
 Le but de cette application est de gérer les articles de type ustensile de cuisine, ainsi que les ingrédients nécessaires aux recettes.
 L’outil doit être clair et intuitif.
 
-### Connexion :
+### Connexion
 L’application sera accessible après une étape de connexion par un administrateur.
 
-### Ingrédients :
+### Ingrédients
 L’application doit permettre de créer, modifier, supprimer et mettre à jour les informations des ingrédients.
 A partir d’ingrédient, l’administrateur peut choisir de créer un article vendable.
 
@@ -36,10 +36,10 @@ Exemples d'ingrédients :
 - oeuf
 - lait
 
-### Ustensiles :
+### Ustensiles
 L'administrateur peut aussi ajouter des articles de type ustensiles de cuisine.
 
-Exemples d'ustensiles
+Exemples d'ustensiles :
 - cuillère en bois
 - fouet
 - manic
@@ -49,7 +49,7 @@ Exemples d'ustensiles
 - fouet
 - balance
 
-### Articles :
+### Articles
 Les articles peuvent être de type ustensile ou de type ingrédient. Les frais de livraison varient en fonction du poids de l’article. Les articles seront achetés à différents fournisseurs.
 Un article peut être fourni par plusieurs fournisseurs.
 
@@ -87,7 +87,7 @@ Pas besoin d'image pour la partie administrative Java
 Seul un superAdministrateur pourra ajouter un autre administrateur. Les informations login et mot de passe, seront fourni au moment de la livraison au client.
 Dans le jargon de l'entreprise Nesti, on appelle "Product" l'ensemble des ingrédients et des ustensiles. Produits = ( Ingrédients + Ustensiles )
 
-### Bonnes Idées :
+### Bonnes Idées
 Indiquer la date de consommation limite sur les articles de type ingrédients
 
 Conséquences :
@@ -109,34 +109,33 @@ Le diagramme de classe, la maquette ... etc devront correspondre au projet déve
 S'il y a des modifications, il faudra fournir une nouvelle version du document, et être de nouveau validé par le client. Il faudra alors préciser pourquoi, il y a eu un changement.
 
 ### Livrables
-- L2-1 Dossier de conception
-- L2-2 Code source via un accès d’un repo public sur github ( par exemple )
-- L2-3 Documentation sur le fonctionnement du code, des algorithmes, recherches techniques réalisées au cours du développement.
+- Dossier de conception
+- Code source via un accès d’un repo public sur github ( par exemple )
+- Documentation sur le fonctionnement du code, des algorithmes, recherches techniques réalisées au cours du développement.
 Cette documentation doit être illustrée par des captures d’écran et clairement expliquer le fonctionnement du code.
-- L2-4 Script de la base de données
-- L2-5 Rapport de réunion écrit et daté attestant des échanges réalisés entre les différents développeurs.
-- L2-6 Manuel d’utilisation pour l’administrateur. Réunissant des captures d’écran de l’application commentée.
-- L2-7 Démonstration de l’application présentant les différentes étapes de création. ( Visioconférences )
+- Script de la base de données
+- Rapport de réunion écrit et daté attestant des échanges réalisés entre les différents développeurs.
+- Manuel d’utilisation pour l’administrateur. Réunissant des captures d’écran de l’application commentée.
+- Démonstration de l’application présentant les différentes étapes de création. ( Visioconférences )
 
-### Contraintes :
-Utilisation de SWING, Java, Mysql
+### Contraintes
+Utilisation de SWING, Java, Mysql.
 Pour des raisons pédagogiques : on ne tiendra pas compte de la TVA.
 
-## Outils
+### Outils
 
-### Répartition des taches
+#### Répartition des taches
 
 Utilisation de Trello
 
 Trello : https://trello.com/b/Ixz1jhAb/nestistelare
 
-### Logiciels utilisés
+#### Logiciels utilisés
 
 - StarUML (https://staruml.io/)
 - Looping (https://www.looping-mcd.fr/)
 - SmartSheet (https://fr.smartsheet.com/)
 
+##### Projet réalisé dans le cadre d'un projet pédagogique par Stéphane, Laurélenne et Rémi
 
-
-
- 2021©Nesti_Stelare Réalisé par Stéphane, Laurélenne et Rémi
+##### Nesti_Stelare©2021 
