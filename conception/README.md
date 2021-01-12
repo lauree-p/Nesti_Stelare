@@ -6,13 +6,6 @@
 
 ## Dictionnaire de données
 
-### Acteurs :
-
-- Admin/Administrateur : Personne qui gère l'application, le stock, Mais n'a pas accès à la gestion des rôles d'administration.
-- SuperAdmin : A les même droit qu'un admin et à accès a la gestion des administrateurs.
-
-### Spécificités :
-
 ![Dictionary_data](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/dictionary_data.png)
 
 ## Matrice de dépendance fonctionnelle
