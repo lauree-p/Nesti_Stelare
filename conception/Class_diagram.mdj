@@ -570,7 +570,7 @@
 											"top": 655,
 											"width": 155.74609375,
 											"height": 13,
-											"text": "+Tell_Sell_Price()",
+											"text": "+TellSellPrice()",
 											"horizontalAlignment": 0
 										}
 									],
@@ -750,7 +750,7 @@
 											"top": 646,
 											"width": 139.318359375,
 											"height": 13,
-											"text": "+Expiration Time Limit",
+											"text": "+ExpirationTimeLimit",
 											"horizontalAlignment": 0
 										}
 									],
@@ -1026,12 +1026,12 @@
 										"$ref": "AAAAAAF21/Uj/8jBKzY="
 									},
 									"font": "Arial;13;0",
-									"left": 593,
-									"top": 398,
+									"left": 576,
+									"top": 391,
 									"width": 37.2353515625,
 									"height": 13,
-									"alpha": -4.588035382761285,
-									"distance": 7.0710678118654755,
+									"alpha": -4.373096486141868,
+									"distance": 25.495097567963924,
 									"hostEdge": {
 										"$ref": "AAAAAAF21/UkAMjFd6M="
 									},
@@ -2240,7 +2240,7 @@
 											"top": 386,
 											"width": 115.9716796875,
 											"height": 13,
-											"text": "+Calcul_buy_price()",
+											"text": "+CalculBuyprice()",
 											"horizontalAlignment": 0
 										}
 									],
@@ -2597,12 +2597,12 @@
 										"$ref": "AAAAAAF24UFNMzwn/hA="
 									},
 									"font": "Arial;13;0",
-									"left": 407,
+									"left": 431,
 									"top": 459,
 									"width": 78.380859375,
 									"height": 13,
-									"alpha": 1.5707963267948966,
-									"distance": 15,
+									"alpha": 1.5748872496881503,
+									"distance": 38.01315561749642,
 									"hostEdge": {
 										"$ref": "AAAAAAF24UFNMzwr3Js="
 									},
@@ -4025,12 +4025,12 @@
 										"$ref": "AAAAAAF24lg4jfCxASo="
 									},
 									"font": "Arial;13;0",
-									"left": 223,
-									"top": 394,
+									"left": 191,
+									"top": 424,
 									"width": 84.9189453125,
 									"height": 13,
-									"alpha": 1.5707963267948966,
-									"distance": 15,
+									"alpha": -1.6388116344175714,
+									"distance": 29.068883707497267,
 									"hostEdge": {
 										"$ref": "AAAAAAF24lg4jvC12hM="
 									},
@@ -4567,12 +4567,12 @@
 										"$ref": "AAAAAAF24nMowRS9iLk="
 									},
 									"font": "Arial;13;0",
-									"left": 759,
+									"left": 791,
 									"top": 385,
 									"width": 84.1826171875,
 									"height": 13,
-									"alpha": 1.5707963267948966,
-									"distance": 15,
+									"alpha": 1.5784483122730288,
+									"distance": 46.010868281309364,
 									"hostEdge": {
 										"$ref": "AAAAAAF24nMowhTBaAE="
 									},
@@ -5097,7 +5097,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF21+yedsep2pQ="
 							},
-							"name": "Tell_Sell_Price"
+							"name": "TellSellPrice"
 						}
 					]
 				},
@@ -5143,7 +5143,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF21/RbX8hH9BM="
 							},
-							"name": "Expiration Time Limit"
+							"name": "ExpirationTimeLimit"
 						}
 					]
 				},
@@ -5661,7 +5661,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF24T8i8Tp/ev0="
 							},
-							"name": "Calcul_buy_price"
+							"name": "CalculBuyprice"
 						}
 					]
 				},
