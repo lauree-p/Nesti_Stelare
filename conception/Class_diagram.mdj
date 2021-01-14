@@ -63,7 +63,7 @@
 											"top": 311,
 											"width": 123.22705078125,
 											"height": 13,
-											"text": "Articles"
+											"text": "Article"
 										},
 										{
 											"_type": "LabelView",
@@ -362,7 +362,7 @@
 											"top": 743,
 											"width": 155.74609375,
 											"height": 13,
-											"text": "Suppliers"
+											"text": "Supplier"
 										},
 										{
 											"_type": "LabelView",
@@ -712,7 +712,7 @@
 											"top": 39,
 											"width": 139.318359375,
 											"height": 13,
-											"text": "Ingredients"
+											"text": "Ingredient"
 										},
 										{
 											"_type": "LabelView",
@@ -907,7 +907,7 @@
 											"top": 47,
 											"width": 65.03173828125,
 											"height": 13,
-											"text": "Utensils"
+											"text": "Utensil"
 										},
 										{
 											"_type": "LabelView",
@@ -1083,7 +1083,7 @@
 											"top": 263,
 											"width": 121.7607421875,
 											"height": 13,
-											"text": "Administrators"
+											"text": "Administrator"
 										},
 										{
 											"_type": "LabelView",
@@ -1705,7 +1705,7 @@
 											"top": 503,
 											"width": 115.9716796875,
 											"height": 13,
-											"text": "Orders"
+											"text": "Order"
 										},
 										{
 											"_type": "LabelView",
@@ -2535,7 +2535,7 @@
 											"top": 151,
 											"width": 133.30712890625,
 											"height": 13,
-											"text": "Products"
+											"text": "Product"
 										},
 										{
 											"_type": "LabelView",
@@ -2954,7 +2954,7 @@
 											"top": 359,
 											"width": 63.2353515625,
 											"height": 13,
-											"text": "Units"
+											"text": "Unit"
 										},
 										{
 											"_type": "LabelView",
@@ -5672,7 +5672,7 @@
 											"top": 803,
 											"width": 111.2490234375,
 											"height": 13,
-											"text": "+Search()",
+											"text": "+search()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -6273,7 +6273,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Articles",
+					"name": "Article",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -6438,7 +6438,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Suppliers",
+					"name": "Supplier",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -6493,7 +6493,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF21+yedsep2pQ="
 							},
-							"name": "CompanyStreet"
+							"name": "CompanyStreet",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6501,7 +6502,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF21+yedsep2pQ="
 							},
-							"name": "CompanyCity"
+							"name": "CompanyCity",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6509,7 +6511,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF21+yedsep2pQ="
 							},
-							"name": "CompanyCp"
+							"name": "CompanyCp",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6565,7 +6568,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Ingredients",
+					"name": "Ingredient",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -6612,7 +6615,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Utensils",
+					"name": "Utensil",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -6714,7 +6717,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Administrators",
+					"name": "Administrator",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -6994,7 +6997,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Orders",
+					"name": "Order",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -7134,7 +7137,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Products",
+					"name": "Product",
 					"ownedElements": [
 						{
 							"_type": "UMLInterfaceRealization",
@@ -7188,7 +7191,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Units",
+					"name": "Unit",
 					"ownedElements": [
 						{
 							"_type": "UMLInterfaceRealization",
@@ -7431,7 +7434,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF2++Z/C4SBXOQ="
 							},
-							"name": "Search"
+							"name": "search"
 						},
 						{
 							"_type": "UMLOperation",
