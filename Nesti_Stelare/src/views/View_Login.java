@@ -12,8 +12,6 @@ import java.awt.BorderLayout;
 import javax.swing.SwingConstants;
 
 import models.MyConnexion;
-import nesti.Profil;
-import nesti.Query;
 
 import java.awt.Font;
 import javax.swing.JTextField;
@@ -103,21 +101,21 @@ public class View_Login {
 		JButton btn_connection = new JButton("SE CONNECTER");
 		btn_connection.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				String user = name.getText();
 				String userPassword = passWord.getText();
-				
+
 				if (MyConnexion.selectUser(user, userPassword) == true) {
 
-					frame.dispose();
-					
+					new View_App();
+
 				} else {
 
-					//JOptionPane.showMessageDialog(frame,
-						//	"Connexion impossible, les champs marqués d'un astérique sont obligatoires ou l'utilisateur est inconnu!");
+					JOptionPane.showMessageDialog(frame,
+							"Connexion impossible, les champs marqués d'un astérique sont obligatoires ou l'utilisateur est inconnu!");
 				}
 			}
-			
+
 		});
 		btn_connection.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btn_connection.setForeground(Color.WHITE);
