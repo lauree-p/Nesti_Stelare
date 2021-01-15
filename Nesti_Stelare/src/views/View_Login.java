@@ -5,14 +5,22 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import java.awt.BorderLayout;
 import javax.swing.SwingConstants;
+
+import models.MyConnexion;
+import nesti.Profil;
+import nesti.Query;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class View_Login {
 
@@ -93,6 +101,24 @@ public class View_Login {
 		 * Button to connect.
 		 */
 		JButton btn_connection = new JButton("SE CONNECTER");
+		btn_connection.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String user = name.getText();
+				String userPassword = passWord.getText();
+				
+				if (MyConnexion.selectUser(user, userPassword) == true) {
+
+					frame.dispose();
+					
+				} else {
+
+					//JOptionPane.showMessageDialog(frame,
+						//	"Connexion impossible, les champs marqués d'un astérique sont obligatoires ou l'utilisateur est inconnu!");
+				}
+			}
+			
+		});
 		btn_connection.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btn_connection.setForeground(Color.WHITE);
 		btn_connection.setBackground(new Color(88, 55, 30));
