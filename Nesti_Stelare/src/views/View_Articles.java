@@ -4,10 +4,20 @@ import java.awt.FlowLayout;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import javax.swing.SwingConstants;
+import javax.swing.JButton;
+import java.awt.Font;
+import javax.swing.border.LineBorder;
+import javax.swing.border.EmptyBorder;
 
 public class View_Articles {
 	
 	static JPanel panel_articles;
+	private JTextField textField_article_name;
+	private JTextField textField_article_poids;
 	
 	public View_Articles() {
 		initialize();
@@ -45,17 +55,81 @@ public class View_Articles {
 		scrollPane_articles.setViewportView(table_article);
         scrollPane_articles.setColumnHeaderView(table_article.getTableHeader());
         
-        JPanel panel = new JPanel();
-        panel.setBounds(898, 11, 328, 273);
-        panel.setBackground(Color.BLUE);
-        panel_articles.add(panel);
-        panel.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 5));
+        JPanel panel_create_article = new JPanel();
+        panel_create_article.setBorder(new LineBorder(new Color(0, 0, 0)));
+        panel_create_article.setBounds(898, 11, 328, 273);
+        panel_create_article.setBackground(Color.WHITE);
+        panel_articles.add(panel_create_article);
+        panel_create_article.setLayout(null);
         
-        JPanel panel_1 = new JPanel();
-        panel_1.setBackground(Color.BLUE);
-        panel_1.setBounds(898, 295, 328, 279);
-        panel_articles.add(panel_1);
-        panel_1.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 5));
+        JLabel lbl_article_title = new JLabel("Cr\u00E9er un nouvel article");
+        lbl_article_title.setForeground(Color.BLACK);
+        lbl_article_title.setBackground(Color.LIGHT_GRAY);
+        lbl_article_title.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_article_title.setFont(new Font("Tahoma", Font.BOLD, 12));
+        lbl_article_title.setBounds(0, 0, 328, 35);
+        panel_create_article.add(lbl_article_title);
+        
+        JLabel lbl_article_name = new JLabel("Nom de l'article :");
+        lbl_article_name.setBounds(23, 44, 277, 14);
+        panel_create_article.add(lbl_article_name);
+        
+        textField_article_name = new JTextField();
+        textField_article_name.setBounds(23, 59, 277, 20);
+        panel_create_article.add(textField_article_name);
+        textField_article_name.setColumns(10);
+        
+        JLabel lbl_article_select_product = new JLabel("S\u00E9lection du produit :");
+        lbl_article_select_product.setBounds(23, 90, 277, 20);
+        panel_create_article.add(lbl_article_select_product);
+        
+        JComboBox comboBox_article_product = new JComboBox();
+        comboBox_article_product.setBounds(23, 109, 277, 20);
+        panel_create_article.add(comboBox_article_product);
+        
+        JLabel lbl_article_poids = new JLabel("Poids :");
+        lbl_article_poids.setBounds(23, 140, 46, 14);
+        panel_create_article.add(lbl_article_poids);
+        
+        textField_article_poids = new JTextField();
+        textField_article_poids.setBounds(23, 156, 143, 20);
+        panel_create_article.add(textField_article_poids);
+        textField_article_poids.setColumns(10);
+        
+        JComboBox comboBox_article_poids = new JComboBox();
+        comboBox_article_poids.setBounds(176, 156, 124, 20);
+        panel_create_article.add(comboBox_article_poids);
+        
+        JLabel lbl_article_conditionnement = new JLabel("Conditionnement :");
+        lbl_article_conditionnement.setBounds(23, 187, 109, 20);
+        panel_create_article.add(lbl_article_conditionnement);
+        
+        JComboBox comboBox_article_conditionnement = new JComboBox();
+        comboBox_article_conditionnement.setBounds(23, 208, 277, 20);
+        panel_create_article.add(comboBox_article_conditionnement);
+        
+        JButton btn_article_create = new JButton("Cr\u00E9er l'article");
+        btn_article_create.setBounds(101, 239, 136, 23);
+        panel_create_article.add(btn_article_create);
+        
+        JPanel panel_list_suppliers = new JPanel();
+        panel_list_suppliers.setBorder(new LineBorder(new Color(0, 0, 0)));
+        panel_list_suppliers.setBackground(Color.WHITE);
+        panel_list_suppliers.setBounds(898, 295, 328, 279);
+        panel_articles.add(panel_list_suppliers);
+        panel_list_suppliers.setLayout(null);
+        
+        JScrollPane scrollPane_list_suppliers = new JScrollPane();
+        scrollPane_list_suppliers.setEnabled(false);
+        scrollPane_list_suppliers.setViewportBorder(null);
+        scrollPane_list_suppliers.setBounds(0, 34, 328, 245);
+        panel_list_suppliers.add(scrollPane_list_suppliers);
+        
+        JLabel lbl_title_list_suppliers = new JLabel("Liste des fournisseurs de l'article s\u00E9lectionn\u00E9");
+        lbl_title_list_suppliers.setFont(new Font("Tahoma", Font.BOLD, 12));
+        lbl_title_list_suppliers.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_title_list_suppliers.setBounds(0, 0, 328, 34);
+        panel_list_suppliers.add(lbl_title_list_suppliers);
 
 	}
 }

@@ -46,12 +46,12 @@ public class View_Orders {
         
         JPanel panel = new JPanel();
         panel.setBounds(898, 11, 328, 273);
-        panel.setBackground(Color.ORANGE);
+        panel.setBackground(Color.WHITE);
         panel_orders.add(panel);
         panel.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 5));
         
         JPanel panel_1 = new JPanel();
-        panel_1.setBackground(Color.ORANGE);
+        panel_1.setBackground(Color.WHITE);
         panel_1.setBounds(898, 295, 328, 279);
         panel_orders.add(panel_1);
         panel_1.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 5));

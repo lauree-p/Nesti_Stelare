@@ -47,12 +47,12 @@ public class View_Suppliers {
         
         JPanel panel = new JPanel();
         panel.setBounds(898, 11, 328, 273);
-        panel.setBackground(Color.YELLOW);
+        panel.setBackground(Color.WHITE);
         panel_suppliers.add(panel);
         panel.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 5));
         
         JPanel panel_1 = new JPanel();
-        panel_1.setBackground(Color.YELLOW);
+        panel_1.setBackground(Color.WHITE);
         panel_1.setBounds(898, 295, 328, 279);
         panel_suppliers.add(panel_1);
         panel_1.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 5));
