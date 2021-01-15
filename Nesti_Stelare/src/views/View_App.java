@@ -1,7 +1,6 @@
 package views;
 
 import java.awt.Color;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -10,9 +9,10 @@ import javax.swing.JTabbedPane;
 import javax.swing.SwingConstants;
 
 public class View_App {
-	
-	private JFrame frame;
 
+
+	static JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+	
 	/**
 	 * Create the application.
 	 */
@@ -23,7 +23,7 @@ public class View_App {
 	private void initialize() {
 		
 		// Frame Principale
-		frame = new JFrame();
+		JFrame frame = new JFrame();
 		frame.setResizable(false);
 		frame.setVisible(true);
 		frame.getContentPane().setBackground(new Color(46, 22, 14));
@@ -53,38 +53,19 @@ public class View_App {
 		frame.getContentPane().add(panel_log);
 		
 		// TabbedPane
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
 		tabbedPane.setBounds(10, 57, 1241, 613);
 		
+		// Ajout du tabbedPane à la frame
 		frame.getContentPane().add(tabbedPane);
 		
-		// All Panels (TabbedPane)
-		JPanel panel_articles = new JPanel();
-		panel_articles.setBackground(Color.WHITE);
-		tabbedPane.addTab("Articles", null, panel_articles, null);
-		panel_articles.setLayout(null);
-		
-		JPanel panel_suppliers = new JPanel();
-		panel_articles.setBackground(Color.WHITE);
-		tabbedPane.addTab("Fournisseurs", null, panel_suppliers, null);
-		panel_articles.setLayout(null);
-		
-		JPanel panel_orders = new JPanel();
-		tabbedPane.addTab("Commandes", null, panel_orders, null);
-		panel_articles.setLayout(null);
-		
-		JPanel panel_products = new JPanel();
-		tabbedPane.addTab("Produits", null, panel_products, null);
-		panel_articles.setLayout(null);
-		
-		JPanel panel_myAccount = new JPanel();
-		tabbedPane.addTab("Mon compte", null, panel_myAccount, null);
-		panel_articles.setLayout(null);
-		
-		JPanel panel_administrators = new JPanel();
-		tabbedPane.addTab("Administrateurs", null, panel_administrators, null);
-		panel_articles.setLayout(null);
+		// Initialisations des views (tabbedPane)
+		View_Articles view_articles = new View_Articles();
+		View_Suppliers view_suppliers = new View_Suppliers();
+		View_Orders view_orders = new View_Orders();
+		View_Products view_products = new View_Products();
+		View_MyAccount view_myAccount = new View_MyAccount();
+		View_Administrators view_administrators = new View_Administrators();
 		
 	}
 }
