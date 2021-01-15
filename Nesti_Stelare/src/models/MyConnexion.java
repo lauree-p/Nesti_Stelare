@@ -34,7 +34,7 @@ public class MyConnexion {
 	ex);
 	 }
 	 }
- public static boolean selectUser(String UserMailOrPseudo, String userPassword) {
+ public static boolean selectUser(String nickName, String passWord) {
 
      boolean flag = false;
 
@@ -42,11 +42,11 @@ public class MyConnexion {
 
          openConnection();
 
-         String query = "SELECT * FROM administrators WHERE nickName = ? OR AND passWord= ?";
+         String query = "SELECT * FROM administrators WHERE nickName = ? AND passWord= ?";
          PreparedStatement declaration = accessDataBase.prepareStatement(query);
 
-         declaration.setString(1, UserMailOrPseudo);
-         declaration.setString(2, userPassword);
+         declaration.setString(1, nickName);
+         declaration.setString(2, passWord);
 
          ResultSet resultat = declaration.executeQuery();
 
