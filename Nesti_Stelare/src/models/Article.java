@@ -1,16 +1,20 @@
 package models;
 //TODO : recup id depuis l'app, pas en dur, changer le tableau de données que l'on recupere
+//rajouter "	System.out.println(Arrays.toString(Article.readAll()));"" dans view_article
+//faire requete pour update create et delete
 
 import java.sql.ResultSet;
 import java.util.Arrays;
 
 public class Article {
 	private static Double buy_price_article = 0.0;
+public static void main(String[] args) {
+	readAll();
+}
 
-	public static void main(String[] args) {
-	}
-
-	public static void readAll() {
+	public static Object[] row = null;
+	public static int i=0;
+	public static Object[] readAll() {
 		try {
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
@@ -18,18 +22,21 @@ public class Article {
 			ResultSet resultat = declaration.executeQuery(query);
 			/* Récupération des données */
 			while (resultat.next()) {
-				Object[] row = new Object[] { resultat.getInt("id_articles"), resultat.getString("name"),
+				
+				row = new Object[]{ resultat.getInt("id_articles"), resultat.getString("name"),
 						resultat.getString("conditioning"), resultat.getDouble("weight"),
 						resultat.getDouble("quantity"), resultat.getString("state"),
 						resultat.getInt("id_administrators"), resultat.getInt("id_products"),
 						resultat.getInt("id_unity")
 
 				};
-				System.out.println(Arrays.toString(row));
+
+		
 			}
 		} catch (Exception e) {
 			System.err.println("erreur lors de la recuperation");
 		}
+		return row;
 	}
 
 	public static void readOne(int id) {
