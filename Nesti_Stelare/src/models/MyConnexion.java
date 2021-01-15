@@ -1,4 +1,5 @@
 package models;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -11,68 +12,67 @@ import java.util.logging.Logger;
 import com.mysql.cj.xdevapi.Statement;
 
 public class MyConnexion {
- static Connection accessDataBase = null;
- /**
- * Testons la connexion
- * @param args
- */
+	static Connection accessDataBase = null;
 
+	/**
+	 * Testons la connexion
+	 * 
+	 * @param args
+	 */
 
- public static void openConnection() {
-	 /* Parametres de connexion */
-	 
-	 String url = "jdbc:mysql://localhost/nestistelare?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
-	 // nesti = nom de ma bdd
-	 String utilisateur = "root";
-	 String motDePasse = "";
-	 try {
-	 // on ajoute nos paramètres
-	 accessDataBase = DriverManager.getConnection(
-	 url, utilisateur, motDePasse);
-	 } catch (SQLException ex) {
-	 Logger.getLogger(MyConnexion.class.getName()).log(Level.SEVERE, null,
-	ex);
-	 }
-	 }
- public static boolean selectUser(String nickName, String passWord) {
+	public static void openConnection() {
+		/* Parametres de connexion */
 
-     boolean flag = false;
+		String url = "jdbc:mysql://localhost/nestistelare?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
+		// nesti = nom de ma bdd
+		String utilisateur = "root";
+		String motDePasse = "";
+		try {
+			// on ajoute nos paramètres
+			accessDataBase = DriverManager.getConnection(url, utilisateur, motDePasse);
+		} catch (SQLException ex) {
+			Logger.getLogger(MyConnexion.class.getName()).log(Level.SEVERE, null, ex);
+		}
+	}
 
-     try {
+	public static boolean selectUser(String nickName, String passWord) {
 
-         openConnection();
+		boolean flag = false;
 
-         String query = "SELECT * FROM administrators WHERE nickName = ? AND passWord= ?";
-         PreparedStatement declaration = accessDataBase.prepareStatement(query);
+		try {
 
-         declaration.setString(1, nickName);
-         declaration.setString(2, passWord);
+			openConnection();
 
-         ResultSet resultat = declaration.executeQuery();
+			String query = "SELECT * FROM administrators WHERE nickName = ? AND passWord= ?";
+			PreparedStatement declaration = accessDataBase.prepareStatement(query);
 
-         if (resultat.next() == true) {
-             flag = true;
-         }
+			declaration.setString(1, nickName);
+			declaration.setString(2, passWord);
 
-     } catch (Exception e) {
+			ResultSet resultat = declaration.executeQuery();
 
-         System.err.println("user display error: " + e.getMessage());
-     }
+			if (resultat.next() == true) {
+				flag = true;
+			}
 
-     closeConnection();
+		} catch (Exception e) {
 
-     return flag;
- }
- 
-public static void closeConnection() {
-	 if (accessDataBase != null) {
-	 try {
-	 accessDataBase.close();
-	 System.out.println("Close connection");
-	 } catch (SQLException e) {
-	 System.err.println(
-	 "Erreur fermreture: " + e.getMessage()
-	 );
-	 }}}}
-	 
-	
+			System.err.println("user display error: " + e.getMessage());
+		}
+
+		closeConnection();
+
+		return flag;
+	}
+
+	public static void closeConnection() {
+		if (accessDataBase != null) {
+			try {
+				accessDataBase.close();
+				System.out.println("Close connection");
+			} catch (SQLException e) {
+				System.err.println("Erreur fermreture: " + e.getMessage());
+			}
+		}
+	}
+}
