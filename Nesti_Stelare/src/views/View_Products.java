@@ -1,15 +1,17 @@
 package views;
+
 import java.awt.Color;
 import java.awt.FlowLayout;
+
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-public class View_Articles {
+public class View_Products {
 	
-	static JPanel panel_articles;
+	static JPanel panel_products;
 	
-	public View_Articles() {
+	public View_Products() {
 		initialize();
 	}
 
@@ -19,42 +21,42 @@ public class View_Articles {
 	private void initialize() {
 		
 		// Data Arrays
-	    String data_articles[][]={ 
+	    String data_products[][]={ 
 	    		{"Boite de 6 oeufs","Ingrédient","2.50$","800g","boîte","actif","2"},    
 	    		{"Paquet de farine","Ingrédient","1.45$","430g","paquet","en attente","4"},
 	    		{"Lot de 2 fourchette","Ustensile","4.20$","100g","lot","bloqué","1"}
                 };    
-	    String[] columnNames_articles={"Nom","Type","Prix","Poid","Conditionnement","Etat","Stock"};
+	    String[] columnNames_products={"Nom","Type","Prix","Poid","Conditionnement","Etat","Stock"};
 	    
 	    
 		// All Panels (TabbedPane)
-		panel_articles = new JPanel();
-		panel_articles.setBackground(Color.WHITE);
-		View_App.tabbedPane.addTab("Articles", null, panel_articles, null);
-		panel_articles.setLayout(null);
+		panel_products = new JPanel();
+		panel_products.setBackground(Color.WHITE);
+		View_App.tabbedPane.addTab("Produits", null, panel_products, null);
+		panel_products.setLayout(null);
 		
 	    // Création du ScrollPane
-		JScrollPane scrollPane_articles = new JScrollPane();
-		scrollPane_articles.setBounds(0, 0, 888, 585);
+		JScrollPane scrollPane_products = new JScrollPane();
+		scrollPane_products.setBounds(0, 0, 888, 585);
 		
 		// Ajout du ScrollPane à panel_articles
-		panel_articles.add(scrollPane_articles);
+		panel_products.add(scrollPane_products);
 		
-		JTable table_article = new JTable(data_articles,columnNames_articles);
+		JTable table_products = new JTable(data_products,columnNames_products);
 		
-		scrollPane_articles.setViewportView(table_article);
-        scrollPane_articles.setColumnHeaderView(table_article.getTableHeader());
+		scrollPane_products.setViewportView(table_products);
+        scrollPane_products.setColumnHeaderView(table_products.getTableHeader());
         
         JPanel panel = new JPanel();
         panel.setBounds(898, 11, 328, 273);
-        panel.setBackground(Color.BLUE);
-        panel_articles.add(panel);
+        panel.setBackground(Color.RED);
+        panel_products.add(panel);
         panel.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 5));
         
         JPanel panel_1 = new JPanel();
-        panel_1.setBackground(Color.BLUE);
+        panel_1.setBackground(Color.RED);
         panel_1.setBounds(898, 295, 328, 279);
-        panel_articles.add(panel_1);
+        panel_products.add(panel_1);
         panel_1.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 5));
 
 	}
