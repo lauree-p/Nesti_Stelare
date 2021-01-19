@@ -32,10 +32,11 @@ public class View_Articles {
 	private void initialize() {
 
 		// Data Arrays
-		String data_articles[][] = { { "Boite de 6 oeufs", "Ingrédient", "2.50$", "800g", "boîte", "actif", "2" },
-				{ "Paquet de farine", "Ingrédient", "1.45$", "430g", "paquet", "en attente", "4" },
-				{ "Lot de 2 fourchette", "Ustensile", "4.20$", "100g", "lot", "bloqué", "1" } };
-		String[] columnNames_articles = { "Nom", "Type", "Prix", "Poid", "Conditionnement", "Etat", "Stock" };
+		String[] columnNames_articles = { "Nom", "Type", "Prix", "Poid", "Conditionnement", "Etat", "Stock","+","-"};
+		Object[][] data_articles = { { "Boite de 6 oeufs", "Ingrédient", "2.50$", "800g", "boîte", "actif", "2","+","-" },
+				{ "Paquet de farine", "Ingrédient", "1.45$", "430g", "paquet", "en attente", "4","+","-" },
+				{ "Lot de 2 fourchette", "Ustensile", "4.20$", "100g", "lot", "bloqué", "1","+","-"} };
+		
 
 	    //Header de JTable 
 	    String[] columns_articles_suppliers = new String[] {"Fournisseurs","Prix","+","-"};
@@ -61,6 +62,33 @@ public class View_Articles {
 		panel_articles.add(scrollPane_articles);
 
 		JTable table_article = new JTable(data_articles, columnNames_articles);
+		table_article.setModel(new DefaultTableModel(
+			new Object[][] {
+				{"Boite de 6 oeufs", "Ingr\u00E9dient", "2.50$", "800g", "bo\u00EEte", "actif", "2", "+", "-"},
+				{"Paquet de farine", "Ingr\u00E9dient", "1.45$", "430g", "paquet", "en attente", "4", "+", "-"},
+				{"Lot de 2 fourchette", "Ustensile", "4.20$", "100g", "lot", "bloqu\u00E9", "1", "+", "-"},
+			},
+			new String[] {
+				"Nom", "Type", "Prix", "Poid", "Conditionnement", "Etat", "Stock", "+", "-"
+			}
+		) {
+			boolean[] columnEditables = new boolean[] {
+				false, false, false, false, false, false, false, false, false
+			};
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
+			}
+		});
+		table_article.getColumnModel().getColumn(0).setResizable(false);
+		table_article.getColumnModel().getColumn(1).setResizable(false);
+		table_article.getColumnModel().getColumn(2).setResizable(false);
+		table_article.getColumnModel().getColumn(3).setResizable(false);
+		table_article.getColumnModel().getColumn(3).setPreferredWidth(56);
+		table_article.getColumnModel().getColumn(4).setResizable(false);
+		table_article.getColumnModel().getColumn(5).setResizable(false);
+		table_article.getColumnModel().getColumn(6).setResizable(false);
+		table_article.getColumnModel().getColumn(7).setResizable(false);
+		table_article.getColumnModel().getColumn(8).setResizable(false);
 
 		scrollPane_articles.setViewportView(table_article);
 		scrollPane_articles.setColumnHeaderView(table_article.getTableHeader());
@@ -148,6 +176,14 @@ public class View_Articles {
 		scrollPane_list_suppliers.setViewportView(table_article_suppliers);
 	    
 	    //définir notre Renderer sur la colonne " "
+		table_article.getColumn("+").setCellRenderer(new MyRendererAndEditor(table_article, "Ajouter"));
+		table_article.getColumn("+").setCellEditor(new MyRendererAndEditor(table_article, "Ajouter"));
+		
+		//définir notre Renderer sur la colonne " "
+		table_article.getColumn("-").setCellRenderer(new MyRendererAndEditor(table_article, "Supprimer"));
+		table_article.getColumn("-").setCellEditor(new MyRendererAndEditor(table_article, "Supprimer"));
+		
+		//définir notre Renderer sur la colonne " "
 		table_article_suppliers.getColumn("+").setCellRenderer(new MyRendererAndEditor(table_article_suppliers, "Ajouter"));
 		table_article_suppliers.getColumn("+").setCellEditor(new MyRendererAndEditor(table_article_suppliers, "Ajouter"));
 		
