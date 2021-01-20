@@ -99,7 +99,7 @@ public class View_Orders {
  					{"Lot de 2 fourchette", "Ustensile", 4.24+"€", "100g",null, "bloqu\u00E9", "1", " ","-"},
  				},
  				new String[] {
- 					"Nom", "Type", "Prix", "Poids", "Jour avant péremption", "Etat", "Stock", " ","-"}
+ 					"Nom", "Type", "Prix", "Poids", "Jour avant péremption", "Etat", "Quantité", " ","-"}
  		) {
 			private static final long serialVersionUID = -8814775745908591959L;
 			boolean[] columnEditables = new boolean[] {
