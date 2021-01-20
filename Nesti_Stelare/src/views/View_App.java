@@ -22,7 +22,7 @@ public class View_App {
 
 	private void initialize() {
 		
-		// Frame Principale
+		// Principal Frame
 		JFrame frame = new JFrame();
 		frame.setResizable(false);
 		frame.setVisible(true);
@@ -37,11 +37,11 @@ public class View_App {
 		panel_log.setBounds(0, 0, 1274, 46);
 		panel_log.setLayout(null);
 		
-		// Bouton deconnexion
+		// Btn disconnect
 		JButton btn_disconnect = new JButton("Deconnexion");
 		btn_disconnect.setBounds(1124, 14, 124, 23);
 		
-		// Label Nickname
+		// Label nickname
 		JLabel lbl_nickname = new JLabel("SuperAdministrateur01");
 		lbl_nickname.setBounds(910, 11, 204, 29);
 		lbl_nickname.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -56,7 +56,7 @@ public class View_App {
 		tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
 		tabbedPane.setBounds(10, 57, 1241, 613);
 		
-		// Ajout du tabbedPane à la frame
+		// Add tabbedPane to principal frame
 		frame.getContentPane().add(tabbedPane);
 		
 		// Initialisations des views (tabbedPane)
