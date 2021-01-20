@@ -35,7 +35,36 @@ public class MyConnexion {
 		}
 	}
 
-	public static boolean selectUser(String nickName, String passWord) {
+	public static boolean checkUser(String nickName) {
+
+		boolean flag = false;
+
+		try {
+
+			openConnection();
+
+			String query = "SELECT * FROM administrators WHERE nickName = ?";
+			PreparedStatement declaration = accessDataBase.prepareStatement(query);
+
+			declaration.setString(1, nickName);
+
+			ResultSet resultat = declaration.executeQuery();
+
+			if (resultat.next() == true) {
+				flag = true;
+			}
+
+		} catch (Exception e) {
+
+			System.err.println("user display error: " + e.getMessage());
+		}
+
+		closeConnection();
+
+		return flag;
+	}
+
+	public static boolean checkId(String nickName, String passWord) {
 
 		boolean flag = false;
 
