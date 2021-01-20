@@ -1,33 +1,29 @@
 package models;
 
-//TODO : recup id depuis l'app, pas en dur, changer le tableau de données que l'on recupere
-
-//rajouter "	System.out.println(Arrays.toString(Article.readAll()));"" dans view_article
-//faire requete pour update create et delete
+//TODO : recup id depuis l'app, pas en dur, 
 
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Article {
 	private static ResultSet resultat = null;
 	private static Double buy_price_article = 0.0;
-	public static ArrayList<String> articles = new ArrayList<String>();
+
+	static String oneArticle;
 
 	public static void main(String[] args) {
+		calculNbItem(8);
 
 	}
 
 	public static ArrayList<String> readAll() {
-
+		ArrayList<String> articles = new ArrayList<String>();
 		try {
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
 			String query = "SELECT a.name,a.weight,a.state,p.type,u.NAME FROM articles a INNER JOIN products p ON a.id_products=p.Id_products INNER JOIN unity u ON a.id_unity=u.Id_unity;";
 			resultat = declaration.executeQuery(query);
-
-			ResultSetMetaData rsmd;
 
 			while (resultat.next()) {
 
@@ -46,48 +42,45 @@ public class Article {
 		return articles;
 	}
 
-	public static void readOne(int id) {
+	public static String readOne(int id) {
 		try {
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
-			String query = "SELECT * FROM articles WHERE id_articles =" + id + ";";
-			ResultSet resultat = declaration.executeQuery(query);
+			String query = "SELECT a.name,a.weight,a.state,p.type,u.NAME FROM articles a INNER JOIN products p ON a.id_products=p.Id_products INNER JOIN unity u ON a.id_unity=u.Id_unity WHERE id_articles ="
+					+ id + ";";
+			resultat = declaration.executeQuery(query);
 			/* Récupération des données */
 			while (resultat.next()) {
-				Object[] row = new Object[] { resultat.getInt("id_articles"), resultat.getString("name"),
-						resultat.getString("conditioning"), resultat.getDouble("weight"),
-						resultat.getDouble("quantity"), resultat.getString("state"),
-						resultat.getInt("id_administrators"), resultat.getInt("id_products"),
-						resultat.getInt("id_unity")
-
-				};
-
+				oneArticle = resultat.getString("a.name") + " " + resultat.getString("a.weight") + " "
+						+ resultat.getString("u.NAME") + " " + resultat.getString("a.state") + " "
+						+ resultat.getString("p.type");
 			}
+
 		} catch (Exception e) {
 			System.err.println("erreur lors de la recuperation");
 		}
+		return oneArticle;
+
 	}
 
-	public static void readSuppliersByArticle(int id) {
+	public static ArrayList<String> readSuppliersByArticle(int id) {
+		ArrayList<String> suppliers = new ArrayList<String>();
 		try {
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
-			String query = "SELECT DISTINCT *, buy_price_article FROM suppliers su INNER JOIN sell se ON su.id_suppliers=se.id_suppliers WHERE id_articles ="
+			String query = "SELECT su.company_name,se.buy_price_article FROM sell se INNER JOIN suppliers su ON se.Id_suppliers=su.id_suppliers WHERE se.Id_articles ="
 					+ id + ";";
 			ResultSet resultat = declaration.executeQuery(query);
 			/* Récupération des données */
 			while (resultat.next()) {
-				Object[] row = new Object[] { resultat.getString("company_name"), resultat.getString("company_street"),
-						resultat.getString("company_city"), resultat.getInt("company_cp"),
-						resultat.getString("contact_name"), resultat.getString("state"),
-						resultat.getDouble("buy_price_article")
-
-				};
-
+				suppliers.add(resultat.getString("su.company_name") + " " + resultat.getString("se.buy_price_article"));
 			}
+
 		} catch (Exception e) {
 			System.err.println("erreur lors de la recuperation");
 		}
+
+		return suppliers;
 	}
 
 	public static Double calculSellPrice(int id_article) {
@@ -95,11 +88,11 @@ public class Article {
 		try {
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
-			String query = "SELECT MAX(buy_price_article) FROM `sell` s INNER JOIN articles a ON s.Id_articles=a.id_articles WHERE a.Id_articles="
+			String query = "SELECT MAX(buy_price) FROM `is_contained` s  WHERE Id_articles="
 					+ id_article + ";";
 			ResultSet resultat = declaration.executeQuery(query);
 			while (resultat.next()) {
-				buy_price_article = resultat.getDouble("MAX(buy_price_article)");
+				buy_price_article = resultat.getDouble("MAX(buy_price)");
 			}
 
 		} catch (Exception e) {
@@ -109,16 +102,50 @@ public class Article {
 		return price_calculated;
 	}
 
-	private void create() {
-		// TODO Auto-generated method stub
 
+	public static void createArticle(String articleName, Double articleWeight, int idProduct,
+			int idAdministrators, int idUnity) {
+		try {
+			MyConnexion.openConnection();
+			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
+			String query = "INSERT INTO `articles` (`id_articles`,`name`,`weight`,`state`,`id_administrators`,`id_products`,`id_unity`) VALUES (NULL, '"
+					+ articleName + "', '" + articleWeight + "', 'a', '" + idAdministrators + "', '"+idProduct+"', '"+idUnity+"' )";
+			declaration.executeUpdate(query);
+
+		} catch (Exception e) {
+			System.err.println("erreur lors de la creation");
+		}
 	}
 
-	private void update() {
+	public static void update(String name, Double weight,String state, int idProduct, int idUnity,int id_article ) {
 
+		
+		try {
+			MyConnexion.openConnection();
+			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
+			String query = "UPDATE articles SET name='"+name+"', weight='"+weight+"', state='"+state+"', id_products='"+idProduct+"', id_Unity='"+idUnity+"' WHERE id_articles="+id_article+";";
+			declaration.executeUpdate(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.err.println("erreur lors de la mise a jour");
+		}
+		
 	}
 
-	public void calculNbItem() {
+	public static int calculNbItem(int id_article) {
+		int stock = 0; 
+		try {
+			MyConnexion.openConnection();
+			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
+			String query = "SELECT SUM(quantity) FROM is_contained WHERE Id_articles ="+id_article;
+			ResultSet resultat = declaration.executeQuery(query);
+			while (resultat.next()) {
+				stock = resultat.getInt("SUM(quantity)");
+			}
 
+		} catch (Exception e) {
+			System.err.println("erreur lors de la récupération");
+		}
+return stock;
 	}
 }
