@@ -1,42 +1,49 @@
 package models;
+
 //TODO : recup id depuis l'app, pas en dur, changer le tableau de données que l'on recupere
+
 //rajouter "	System.out.println(Arrays.toString(Article.readAll()));"" dans view_article
 //faire requete pour update create et delete
 
 import java.sql.ResultSet;
-import java.util.Arrays;
+import java.sql.ResultSetMetaData;
+
+import java.util.ArrayList;
 
 public class Article {
+	private static ResultSet resultat = null;
 	private static Double buy_price_article = 0.0;
-public static void main(String[] args) {
-	readAll();
-}
+	public static ArrayList<String> articles = new ArrayList<String>();
 
-	public static Object[] row = null;
-	public static int i=0;
-	public static Object[] readAll() {
+	public static void main(String[] args) {
+
+	}
+
+	public static ArrayList<String> readAll() {
+
 		try {
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
-			String query = "SELECT * FROM articles;";
-			ResultSet resultat = declaration.executeQuery(query);
-			/* Récupération des données */
+			String query = "SELECT a.name,a.weight,a.state,p.type,u.NAME FROM articles a INNER JOIN products p ON a.id_products=p.Id_products INNER JOIN unity u ON a.id_unity=u.Id_unity;";
+			resultat = declaration.executeQuery(query);
+
+			ResultSetMetaData rsmd;
+
 			while (resultat.next()) {
-				
-				row = new Object[]{ resultat.getInt("id_articles"), resultat.getString("name"),
-						resultat.getString("conditioning"), resultat.getDouble("weight"),
-						resultat.getDouble("quantity"), resultat.getString("state"),
-						resultat.getInt("id_administrators"), resultat.getInt("id_products"),
-						resultat.getInt("id_unity")
 
-				};
+				articles.add(resultat.getString("a.name") + " " + resultat.getString("a.weight") + " "
+						+ resultat.getString("u.NAME") + " " + resultat.getString("a.state") + " "
+						+ resultat.getString("p.type"));
 
-		
 			}
+
+			;
+
 		} catch (Exception e) {
 			System.err.println("erreur lors de la recuperation");
 		}
-		return row;
+		System.out.println(articles);
+		return articles;
 	}
 
 	public static void readOne(int id) {
@@ -100,5 +107,18 @@ public static void main(String[] args) {
 		}
 		Double price_calculated = buy_price_article * 1.20;
 		return price_calculated;
+	}
+
+	private void create() {
+		// TODO Auto-generated method stub
+
+	}
+
+	private void update() {
+
+	}
+
+	public void calculNbItem() {
+
 	}
 }
