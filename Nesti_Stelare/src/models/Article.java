@@ -10,7 +10,7 @@ public class Article {
 	private static ResultSet resultat = null;
 	private static Double buy_price_article = 0.0;
 
-	static String oneArticle;
+
 
 	public static void main(String[] args) {
 		calculNbItem(8);
@@ -43,6 +43,7 @@ public class Article {
 	}
 
 	public static String readOne(int id) {
+		String oneArticle = null;
 		try {
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
