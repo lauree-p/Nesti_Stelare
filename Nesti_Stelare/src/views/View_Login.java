@@ -5,14 +5,20 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import java.awt.BorderLayout;
 import javax.swing.SwingConstants;
+
+import models.MyConnexion;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class View_Login {
 
@@ -51,29 +57,25 @@ public class View_Login {
 		frame = new JFrame();
 		frame.setResizable(false);
 		frame.getContentPane().setBackground(new Color(46, 22, 14));
-		frame.getContentPane().setLayout(null);
 		frame.setBounds(100, 100, 496, 400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		/**
-		 * Nesti logo.
-		 */
+		frame.getContentPane().setLayout(null);
 		JLabel img = new JLabel(new ImageIcon(View_Login.class.getResource("/img/connect-image.png")));
 		img.setBounds(0, 0, 480, 127);
 		frame.getContentPane().add(img);
 
 		JLabel name_user = new JLabel("Nom utilisateur");
+		name_user.setBounds(-12, 170, 157, 14);
 		name_user.setForeground(new Color(230, 167, 86));
 		name_user.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		name_user.setHorizontalAlignment(SwingConstants.CENTER);
-		name_user.setBounds(-12, 170, 157, 14);
 		frame.getContentPane().add(name_user);
 
 		JLabel passWord_user = new JLabel("Mot de passe");
+		passWord_user.setBounds(-12, 248, 146, 14);
 		passWord_user.setForeground(new Color(230, 167, 86));
 		passWord_user.setHorizontalAlignment(SwingConstants.CENTER);
 		passWord_user.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		passWord_user.setBounds(-12, 248, 146, 14);
 		frame.getContentPane().add(passWord_user);
 
 		/**
@@ -89,14 +91,60 @@ public class View_Login {
 		frame.getContentPane().add(passWord);
 		passWord.setColumns(10);
 
+		JLabel lbl_Msg_Name_Error = new JLabel("Aucun compte n'est li\u00E9 \u00E0 ce nom d'utilisateur");
+		lbl_Msg_Name_Error.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lbl_Msg_Name_Error.setForeground(Color.RED);
+		lbl_Msg_Name_Error.setHorizontalAlignment(SwingConstants.LEFT);
+		lbl_Msg_Name_Error.setBounds(124, 203, 346, 14);
+		frame.getContentPane().add(lbl_Msg_Name_Error);
+		lbl_Msg_Name_Error.setVisible(false);
+
+		JLabel lbl_Msg_PassWord_Error = new JLabel("Mot de passe incorrect");
+		lbl_Msg_PassWord_Error.setForeground(Color.RED);
+		lbl_Msg_PassWord_Error.setHorizontalAlignment(SwingConstants.LEFT);
+		lbl_Msg_PassWord_Error.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lbl_Msg_PassWord_Error.setBounds(124, 280, 346, 14);
+		frame.getContentPane().add(lbl_Msg_PassWord_Error);
+		lbl_Msg_PassWord_Error.setVisible(false);
+
 		/**
 		 * Button to connect.
 		 */
 		JButton btn_connection = new JButton("SE CONNECTER");
+		btn_connection.setBounds(172, 306, 157, 33);
+		btn_connection.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				String user = name.getText();
+				String userPassword = passWord.getText();
+				
+				
+				if (MyConnexion.checkUser(user) == true) {
+					if (MyConnexion.checkId(user, userPassword) == true) {
+
+						new View_App();
+
+					} else {
+
+						
+						lbl_Msg_PassWord_Error.setVisible(true);
+
+					}
+					
+
+				} else {
+
+					
+					lbl_Msg_Name_Error.setVisible(true);
+
+				}
+				
+			}
+
+		});
 		btn_connection.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btn_connection.setForeground(Color.WHITE);
 		btn_connection.setBackground(new Color(88, 55, 30));
-		btn_connection.setBounds(171, 306, 157, 33);
 		frame.getContentPane().add(btn_connection);
 
 	}
