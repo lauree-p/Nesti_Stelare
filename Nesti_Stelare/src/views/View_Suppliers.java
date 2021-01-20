@@ -92,12 +92,12 @@ public class View_Suppliers {
 		JTable table_suppliers_articles = new JTable();
 	    table_suppliers_articles.setModel(new DefaultTableModel(
 	    		new Object[][] {
-					{"Boite de 6 oeufs", "Ingr\u00E9dient", 2.52+"€", "800g", "actif", "2", " ", "-"},
-					{"Paquet de farine", "Ingr\u00E9dient", 1.45+"€", "430g", "en attente", "4", " ", "-"},
-					{"Lot de 2 fourchette", "Ustensile", 4.24+"€", "100g", "bloqu\u00E9", "1", " ", "-"},
+					{"Boite de 6 oeufs", "Ingr\u00E9dient", 2.52+"€", "800g", "En stock", " ", "-"},
+					{"Paquet de farine", "Ingr\u00E9dient", 1.45+"€", "430g", "En stock", " ", "-"},
+					{"Lot de 2 fourchette", "Ustensile", 4.24+"€", "100g", "En stock", " ", "-"},
 				},
 				new String[] {
-					"Nom", "Type", "Prix", "Poids", "Etat", "Stock", " ", "-"}
+					"Nom", "Type", "Prix", "Poids", "Stock", " ", "-"}
 		) {
 			private static final long serialVersionUID = 6230086957304435761L;
 			boolean[] columnEditables = new boolean[] {
@@ -115,7 +115,6 @@ public class View_Suppliers {
 		table_suppliers_articles.getColumnModel().getColumn(4).setResizable(false);
 		table_suppliers_articles.getColumnModel().getColumn(5).setResizable(false);
 		table_suppliers_articles.getColumnModel().getColumn(6).setResizable(false);
-		table_suppliers_articles.getColumnModel().getColumn(7).setResizable(false);
 		// Add btn upload
 		table_suppliers_articles.getColumn(" ").setCellRenderer(new MyRendererAndEditor(table_suppliers_articles, "Modifier"));
 		table_suppliers_articles.getColumn(" ").setCellEditor(new MyRendererAndEditor(table_suppliers_articles, "Modifier"));
