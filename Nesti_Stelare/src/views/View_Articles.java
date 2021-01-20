@@ -88,7 +88,7 @@ public class View_Articles {
 		// Create panel_create_article
 		JPanel panel_create_article = new JPanel();
 		panel_create_article.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_create_article.setBounds(898, 11, 328, 273);
+		panel_create_article.setBounds(898, 11, 328, 238);
 		panel_create_article.setBackground(Color.WHITE);
 		panel_articles.add(panel_create_article);
 		panel_create_article.setLayout(null);
@@ -114,10 +114,6 @@ public class View_Articles {
 		lbl_article_select_product.setBounds(23, 90, 277, 20);
 		panel_create_article.add(lbl_article_select_product);
 		
-		JLabel lbl_article_conditionnement = new JLabel("Conditionnement :");
-		lbl_article_conditionnement.setBounds(23, 187, 109, 20);
-		panel_create_article.add(lbl_article_conditionnement);
-		
 		// TextField
 		JTextField textField_article_name = new JTextField();
 		textField_article_name.setBounds(23, 59, 277, 20);
@@ -138,13 +134,9 @@ public class View_Articles {
 		comboBox_article_poids.setBounds(176, 156, 124, 20);
 		panel_create_article.add(comboBox_article_poids);
 
-		JComboBox comboBox_article_conditionnement = new JComboBox();
-		comboBox_article_conditionnement.setBounds(23, 208, 277, 20);
-		panel_create_article.add(comboBox_article_conditionnement);
-
 		// Btn create article
 		JButton btn_article_create = new JButton("Cr\u00E9er l'article");
-		btn_article_create.setBounds(101, 239, 136, 23);
+		btn_article_create.setBounds(101, 198, 136, 23);
 		panel_create_article.add(btn_article_create);
 
 		/**
