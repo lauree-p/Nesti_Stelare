@@ -56,12 +56,12 @@ public class View_Orders {
 		JTable table_orders = new JTable();
 		table_orders.setModel(new DefaultTableModel(
 				new Object[][] {
-						{ "18/02/21", "22/02/21", 50 + "€", "en attente", "Sugarcraft", "Stephane-cad55", " ", "-" },
-						{ "18/02/21", "22/02/21", 50 + "€", "en attente", "Sugarcraft", "Stephane-cad55", " ", "-" },
-						{ "18/02/21", "22/02/21", 50 + "€", "en attente", "Sugarcraft", "Stephane-cad55", " ", "-" },
-						{ "18/02/21", "22/02/21", 50 + "€", "en attente", "Sugarcraft", "Stephane-cad55", " ", "-" },
-						{ "18/02/21", "22/02/21", 50 + "€", "en attente", "Sugarcraft", "Stephane-cad55", " ", "-" } },
-				new String[] { "Date de la commande", "Date de réception", "Prix Total", "Etat", "Producteur",
+						{ "18/02/21", "22/02/21", 50 + "ï¿½", "en attente", "Sugarcraft", "Stephane-cad55", " ", "-" },
+						{ "18/02/21", "22/02/21", 50 + "ï¿½", "en attente", "Sugarcraft", "Stephane-cad55", " ", "-" },
+						{ "18/02/21", "22/02/21", 50 + "ï¿½", "en attente", "Sugarcraft", "Stephane-cad55", " ", "-" },
+						{ "18/02/21", "22/02/21", 50 + "ï¿½", "en attente", "Sugarcraft", "Stephane-cad55", " ", "-" },
+						{ "18/02/21", "22/02/21", 50 + "ï¿½", "en attente", "Sugarcraft", "Stephane-cad55", " ", "-" } },
+				new String[] { "Date de la commande", "Date de rï¿½ception", "Prix Total", "Etat", "Producteur",
 						"Administrateur", " ", "-" }) {
 			private static final long serialVersionUID = -779283527594587689L;
 			boolean[] columnEditables = new boolean[] { false, false, false, false, false, false, false, false, false };
@@ -92,21 +92,22 @@ public class View_Orders {
 		/**
 		 * Table articles by order
 		 */
-
-		JScrollPane scrollPane_orders_articles = new JScrollPane();
-		scrollPane_orders_articles.setBounds(0, 297, 888, 288);
-		panel_orders.add(scrollPane_orders_articles);
-
-		// Create table_suppliers
-		JTable table_orders_articles = new JTable();
-		table_orders_articles.setModel(new DefaultTableModel(
-				new Object[][] {
-						{ "Boite de 6 oeufs", "Ingr\u00E9dient", 2.52 + "€", "800g", 25, "actif", "2", " ", "-" },
-						{ "Paquet de farine", "Ingr\u00E9dient", 1.45 + "€", "430g", 25, "en attente", "4", " ", "-" },
-						{ "Lot de 2 fourchette", "Ustensile", 4.24 + "€", "100g", null, "bloqu\u00E9", "1", " ",
-								"-" }, },
-				new String[] { "Nom", "Type", "Prix", "Poids", "Jour avant péremption", "Etat", "Quantité", " ",
-						"-" }) {
+        
+        JScrollPane scrollPane_orders_articles = new JScrollPane();
+        scrollPane_orders_articles.setBounds(0, 297, 888, 288);
+        panel_orders.add(scrollPane_orders_articles);
+        
+        // Create table_suppliers
+ 		JTable table_orders_articles = new JTable();
+ 	    table_orders_articles.setModel(new DefaultTableModel(
+ 	    		new Object[][] {
+ 					{"Boite de 6 oeufs", "Ingr\u00E9dient", 2.52+"ï¿½", "800g",25, "actif", "2", " ","-"},
+ 					{"Paquet de farine", "Ingr\u00E9dient", 1.45+"ï¿½", "430g",25, "en attente", "4", " ","-"},
+ 					{"Lot de 2 fourchette", "Ustensile", 4.24+"ï¿½", "100g",null, "bloqu\u00E9", "1", " ","-"},
+ 				},
+ 				new String[] {
+ 					"Nom", "Type", "Prix", "Poids", "Jour avant pï¿½remption", "Etat", "Quantitï¿½", " ","-"}
+ 		) {
 			private static final long serialVersionUID = -8814775745908591959L;
 			boolean[] columnEditables = new boolean[] { false, false, false, false, false, false, false, false, false };
 
@@ -255,7 +256,7 @@ public class View_Orders {
 		JTable table_article_orders = new JTable();
 		table_article_orders.setModel(new DefaultTableModel(new Object[][] { { "Boite d'oeuf", 6, 6 } },
 
-				new String[] { "Nom de l'article", "Quantité", "Prix (à l'unité)" }) {
+				new String[] { "Nom de l'article", "Quantitï¿½", "Prix (ï¿½ l'unitï¿½)" }) {
 
 			private static final long serialVersionUID = 4046897769807276788L;
 			boolean[] columnEditables = new boolean[] { false, false };
