@@ -7,30 +7,21 @@ import java.awt.Font;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-<<<<<<< HEAD
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import javax.swing.border.LineBorder;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
-public class View_Orders {
-
-	static JPanel panel_orders;
-	private JTextField _Number_Product;
-	private JTable table;
-
-=======
 import javax.swing.table.DefaultTableModel;
 
 import tools.MyRendererAndEditor;
+import javax.swing.border.LineBorder;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+import javax.swing.JButton;
 
 public class View_Orders {
-	
->>>>>>> main
+	private JTextField textField;
+	private JTextField textField_Price;
+
 	public View_Orders() {
 		initialize();
 	}
@@ -39,147 +30,42 @@ public class View_Orders {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-<<<<<<< HEAD
 
-		// Data Arrays
-		String data_orders[][] = { { "02/02/21", "06/02/21", "Boite de 6 oeufs", "10", "en attente",
-				"Le Comptoir Paysans d'Oc", "Stephane-cad55" } };
-		String[] columnNames_orders = { "Date de la commande", "Date de réception", "Article", "Quantité", "Etat",
-				"Producteur", "Administrateur", };
-
-		// Data Arrays
-		String data_orders_list_orders[][] = { { "Boite de 6 oeufs", "Ingrédient" },
-				{ "Paquet de farine", "Ingrédient" }, { "Lot de 2 fourchette", "Ustensile" } };
-		String[] columnNames_list_orders = { "Nom", "Type" };
-
-		// All Panels (TabbedPane)
-		panel_orders = new JPanel();
-		panel_orders.setBackground(Color.WHITE);
-		View_App.tabbedPane.addTab("Commandes", null, panel_orders, null);
-		panel_orders.setLayout(null);
-
-		// Création du ScrollPane
-		JScrollPane scrollPane_orders = new JScrollPane();
-		scrollPane_orders.setBounds(0, 0, 888, 585);
-
-		// Ajout du ScrollPane à panel_articles
-		panel_orders.add(scrollPane_orders);
-
-		JTable table_orders = new JTable(data_orders, columnNames_orders);
-
-		scrollPane_orders.setViewportView(table_orders);
-		scrollPane_orders.setColumnHeaderView(table_orders.getTableHeader());
-
-		JPanel panel = new JPanel();
-		panel.setBounds(898, 11, 328, 214);
-		panel.setBackground(Color.WHITE);
-		panel_orders.add(panel);
-		panel.setLayout(null);
-
-		JLabel lbl_Orders = new JLabel("Ajouter un produit \u00E0 la commande");
-		lbl_Orders.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lbl_Orders.setBounds(62, 11, 220, 14);
-		lbl_Orders.setHorizontalAlignment(SwingConstants.CENTER);
-		panel.add(lbl_Orders);
-
-		JLabel lbl_Company_Name = new JLabel("S\u00E9lectionnez l'entreprise");
-		lbl_Company_Name.setBounds(10, 47, 148, 14);
-		panel.add(lbl_Company_Name);
-
-		JLabel lbl_Name_Product = new JLabel("Nom du produit :");
-		lbl_Name_Product.setBounds(10, 103, 176, 14);
-		panel.add(lbl_Name_Product);
-
-		JButton btn_Add_Orders = new JButton("Ajouter \u00E0 la commande");
-		btn_Add_Orders.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btn_Add_Orders.setBounds(79, 171, 191, 23);
-		panel.add(btn_Add_Orders);
-
-		JComboBox comboBox_Name_Product = new JComboBox();
-		comboBox_Name_Product.setBounds(10, 128, 176, 22);
-		panel.add(comboBox_Name_Product);
-
-		_Number_Product = new JTextField();
-		_Number_Product.setBounds(196, 129, 122, 20);
-		panel.add(_Number_Product);
-		_Number_Product.setColumns(10);
-
-		JLabel lbl_Number_Products = new JLabel("Nombre de produits :");
-		lbl_Number_Products.setBounds(196, 103, 191, 14);
-		panel.add(lbl_Number_Products);
-
-		JComboBox comboBox_Company = new JComboBox();
-		comboBox_Company.setBounds(10, 72, 308, 22);
-		panel.add(comboBox_Company);
-
-		JPanel panel_List_Orders = new JPanel();
-		panel_List_Orders.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_List_Orders.setBackground(Color.WHITE);
-		panel_List_Orders.setBounds(898, 295, 328, 279);
-		panel_orders.add(panel_List_Orders);
-		panel_List_Orders.setLayout(null);
-
-		JScrollPane scrollPane_List_Orders = new JScrollPane();
-		scrollPane_List_Orders.setBounds(0, 34, 328, 184);
-		panel_List_Orders.add(scrollPane_List_Orders);
-
-		JTable table_Articles_Orders = new JTable(data_orders_list_orders, columnNames_list_orders);
-		scrollPane_List_Orders.setColumnHeaderView(table_Articles_Orders);
-		scrollPane_List_Orders.setViewportView(table_Articles_Orders);
-
-		JLabel lbl_title_list_orders = new JLabel("Liste des produits de la commande");
-		lbl_title_list_orders.setBounds(0, 0, 328, 34);
-		lbl_title_list_orders.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lbl_title_list_orders.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_List_Orders.add(lbl_title_list_orders);
-
-		JButton btn_Add_This_Orders = new JButton("Ajouter cette commande");
-		btn_Add_This_Orders.setBounds(81, 234, 182, 23);
-		panel_List_Orders.add(btn_Add_This_Orders);
-
-=======
-		
 		/**
 		 * Panels_orders
 		 */
-			    
+
 		// Create panel_orders (TabbedPane)
 		JPanel panel_orders = new JPanel();
 		panel_orders.setBackground(Color.WHITE);
 		View_App.tabbedPane.addTab("Commandes", null, panel_orders, null);
 		panel_orders.setLayout(null);
-		
+
 		/**
-		 *  Table orders
+		 * Table orders
 		 */
-		
-	    // Create scrollPane_orders
+
+		// Create scrollPane_orders
 		JScrollPane scrollPane_orders = new JScrollPane();
 		scrollPane_orders.setBounds(0, 0, 888, 286);
-		
+
 		// Add scrollPane_orders tp panel_orders
 		panel_orders.add(scrollPane_orders);
-		
+
 		// Create table_orders
 		JTable table_orders = new JTable();
-	    table_orders.setModel(new DefaultTableModel(
-			new Object[][] {
-				{"18/02/21","22/02/21",50+"€", "en attente", "Sugarcraft", "Stephane-cad55"," ", "-"},
-				{"18/02/21","22/02/21", 50+"€","en attente", "Sugarcraft", "Stephane-cad55"," ", "-"},
-				{"18/02/21","22/02/21", 50+"€","en attente", "Sugarcraft", "Stephane-cad55"," ", "-"},
-				{"18/02/21","22/02/21", 50+"€","en attente", "Sugarcraft", "Stephane-cad55"," ", "-"},
-				{"18/02/21","22/02/21", 50+"€","en attente", "Sugarcraft", "Stephane-cad55"," ", "-"}
-			},
-			new String[] {
-				"Date de la commande", "Date de réception", "Prix Total","Etat", "Producteur", "Administrateur"," ", "-"}
-		) {
+		table_orders.setModel(new DefaultTableModel(
+				new Object[][] {
+						{ "18/02/21", "22/02/21", 50 + "€", "en attente", "Sugarcraft", "Stephane-cad55", " ", "-" },
+						{ "18/02/21", "22/02/21", 50 + "€", "en attente", "Sugarcraft", "Stephane-cad55", " ", "-" },
+						{ "18/02/21", "22/02/21", 50 + "€", "en attente", "Sugarcraft", "Stephane-cad55", " ", "-" },
+						{ "18/02/21", "22/02/21", 50 + "€", "en attente", "Sugarcraft", "Stephane-cad55", " ", "-" },
+						{ "18/02/21", "22/02/21", 50 + "€", "en attente", "Sugarcraft", "Stephane-cad55", " ", "-" } },
+				new String[] { "Date de la commande", "Date de réception", "Prix Total", "Etat", "Producteur",
+						"Administrateur", " ", "-" }) {
 			private static final long serialVersionUID = -779283527594587689L;
-			boolean[] columnEditables = new boolean[] {
-				false, false, false, false, false, false, false, false,false
-			};
+			boolean[] columnEditables = new boolean[] { false, false, false, false, false, false, false, false, false };
+
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
@@ -201,74 +87,194 @@ public class View_Orders {
 		table_orders.getColumn("-").setCellEditor(new MyRendererAndEditor(table_orders, "Supprimer"));
 		// Get table_orders visible in the scrollPane_orders
 		scrollPane_orders.setViewportView(table_orders);
-        scrollPane_orders.setColumnHeaderView(table_orders.getTableHeader());
-        
+		scrollPane_orders.setColumnHeaderView(table_orders.getTableHeader());
+
 		/**
-		 *  Table articles by order  
+		 * Table articles by order
 		 */
-        
-        JScrollPane scrollPane_orders_articles = new JScrollPane();
-        scrollPane_orders_articles.setBounds(0, 297, 888, 288);
-        panel_orders.add(scrollPane_orders_articles);
-        
-        // Create table_suppliers
- 		JTable table_orders_articles = new JTable();
- 	    table_orders_articles.setModel(new DefaultTableModel(
- 	    		new Object[][] {
- 					{"Boite de 6 oeufs", "Ingr\u00E9dient", 2.52+"€", "800g",25, "actif", "2", " ","-"},
- 					{"Paquet de farine", "Ingr\u00E9dient", 1.45+"€", "430g",25, "en attente", "4", " ","-"},
- 					{"Lot de 2 fourchette", "Ustensile", 4.24+"€", "100g",null, "bloqu\u00E9", "1", " ","-"},
- 				},
- 				new String[] {
- 					"Nom", "Type", "Prix", "Poids", "Jour avant péremption", "Etat", "Stock", " ","-"}
- 		) {
+
+		JScrollPane scrollPane_orders_articles = new JScrollPane();
+		scrollPane_orders_articles.setBounds(0, 297, 888, 288);
+		panel_orders.add(scrollPane_orders_articles);
+
+		// Create table_suppliers
+		JTable table_orders_articles = new JTable();
+		table_orders_articles.setModel(new DefaultTableModel(
+				new Object[][] {
+						{ "Boite de 6 oeufs", "Ingr\u00E9dient", 2.52 + "€", "800g", 25, "actif", "2", " ", "-" },
+						{ "Paquet de farine", "Ingr\u00E9dient", 1.45 + "€", "430g", 25, "en attente", "4", " ", "-" },
+						{ "Lot de 2 fourchette", "Ustensile", 4.24 + "€", "100g", null, "bloqu\u00E9", "1", " ",
+								"-" }, },
+				new String[] { "Nom", "Type", "Prix", "Poids", "Jour avant péremption", "Etat", "Quantité", " ",
+						"-" }) {
 			private static final long serialVersionUID = -8814775745908591959L;
-			boolean[] columnEditables = new boolean[] {
- 				false, false, false, false, false, false, false, false, false
- 			};
- 			public boolean isCellEditable(int row, int column) {
- 				return columnEditables[column];
- 			}
- 		});
- 	    // Columns Properties
- 		table_orders_articles.getColumnModel().getColumn(0).setResizable(false);
- 		table_orders_articles.getColumnModel().getColumn(1).setResizable(false);
- 		table_orders_articles.getColumnModel().getColumn(2).setResizable(false);
- 		table_orders_articles.getColumnModel().getColumn(3).setResizable(false);
- 		table_orders_articles.getColumnModel().getColumn(4).setResizable(false);
- 		table_orders_articles.getColumnModel().getColumn(5).setResizable(false);
- 		table_orders_articles.getColumnModel().getColumn(6).setResizable(false);
- 		table_orders_articles.getColumnModel().getColumn(7).setResizable(false);
- 		table_orders_articles.getColumnModel().getColumn(8).setResizable(false);
- 		// Add btn upload
- 		table_orders_articles.getColumn(" ").setCellRenderer(new MyRendererAndEditor(table_orders, "Modifier"));
- 		table_orders_articles.getColumn(" ").setCellEditor(new MyRendererAndEditor(table_orders, "Modifier"));
- 		// Add btn delete
- 		table_orders_articles.getColumn("-").setCellRenderer(new MyRendererAndEditor(table_orders, "Supprimer"));
- 		table_orders_articles.getColumn("-").setCellEditor(new MyRendererAndEditor(table_orders, "Supprimer"));
- 		// Get table_orders_articles visible in the scrollPane_orders_articles
- 		scrollPane_orders_articles.setViewportView(table_orders_articles);
- 		scrollPane_orders_articles.setColumnHeaderView(table_orders_articles.getTableHeader());
- 		
+			boolean[] columnEditables = new boolean[] { false, false, false, false, false, false, false, false, false };
+
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
+			}
+		});
+		// Columns Properties
+		table_orders_articles.getColumnModel().getColumn(0).setResizable(false);
+		table_orders_articles.getColumnModel().getColumn(1).setResizable(false);
+		table_orders_articles.getColumnModel().getColumn(2).setResizable(false);
+		table_orders_articles.getColumnModel().getColumn(3).setResizable(false);
+		table_orders_articles.getColumnModel().getColumn(4).setResizable(false);
+		table_orders_articles.getColumnModel().getColumn(5).setResizable(false);
+		table_orders_articles.getColumnModel().getColumn(6).setResizable(false);
+		table_orders_articles.getColumnModel().getColumn(7).setResizable(false);
+		table_orders_articles.getColumnModel().getColumn(8).setResizable(false);
+		// Add btn upload
+		table_orders_articles.getColumn(" ").setCellRenderer(new MyRendererAndEditor(table_orders, "Modifier"));
+		table_orders_articles.getColumn(" ").setCellEditor(new MyRendererAndEditor(table_orders, "Modifier"));
+		// Add btn delete
+		table_orders_articles.getColumn("-").setCellRenderer(new MyRendererAndEditor(table_orders, "Supprimer"));
+		table_orders_articles.getColumn("-").setCellEditor(new MyRendererAndEditor(table_orders, "Supprimer"));
+		// Get table_orders_articles visible in the scrollPane_orders_articles
+		scrollPane_orders_articles.setViewportView(table_orders_articles);
+		scrollPane_orders_articles.setColumnHeaderView(table_orders_articles.getTableHeader());
+
 		/**
-		 *  Panel add new order
+		 * Panel add new order
 		 */
-        
-        JPanel panel = new JPanel();
-        panel.setBounds(898, 11, 328, 273);
-        panel.setBackground(Color.RED);
-        panel_orders.add(panel);
-        panel.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 5));
-        
+
+		JPanel panel = new JPanel();
+		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel.setBounds(898, 0, 328, 332);
+		panel.setBackground(Color.WHITE);
+		panel_orders.add(panel);
+		panel.setLayout(null);
+
+		// Labels
+		JLabel lbl_Order_Date = new JLabel("Date de la commande : ");
+		lbl_Order_Date.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_Order_Date.setBounds(10, 54, 136, 14);
+		panel.add(lbl_Order_Date);
+
+		JLabel lbl_Orders = new JLabel("Ajouter un article \u00E0 la commande");
+		lbl_Orders.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lbl_Orders.setBounds(59, 23, 216, 14);
+		lbl_Orders.setHorizontalAlignment(SwingConstants.CENTER);
+		panel.add(lbl_Orders);
+
+		JLabel lbl_Day = new JLabel("Jour: ");
+		lbl_Day.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_Day.setBounds(0, 83, 46, 14);
+		panel.add(lbl_Day);
+
+		JLabel lbl_Month = new JLabel("Mois:");
+		lbl_Month.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_Month.setBounds(110, 83, 46, 14);
+		panel.add(lbl_Month);
+
+		JLabel lbl_Year = new JLabel("Ann\u00E9e:");
+		lbl_Year.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_Year.setBounds(215, 83, 46, 14);
+		panel.add(lbl_Year);
+
+		JLabel lbl_Select_Suppliers = new JLabel("S\u00E9lectionner un fournisseur :");
+		lbl_Select_Suppliers.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_Select_Suppliers.setBounds(10, 113, 169, 14);
+		panel.add(lbl_Select_Suppliers);
+
+		JLabel lbl_Select_Articles = new JLabel("S\u00E9lectionner un article : ");
+		lbl_Select_Articles.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_Select_Articles.setBounds(10, 171, 146, 14);
+		panel.add(lbl_Select_Articles);
+
+		JLabel lbl_Quantity = new JLabel("Quantit\u00E9:");
+		lbl_Quantity.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_Quantity.setBounds(159, 198, 77, 18);
+		panel.add(lbl_Quantity);
+
+		// TextField
+		textField = new JTextField();
+		textField.setBounds(232, 197, 86, 20);
+		panel.add(textField);
+		textField.setColumns(10);
+
+		// ComboBox
+		JComboBox comboBox_Day = new JComboBox();
+		comboBox_Day.setBounds(42, 79, 52, 22);
+		panel.add(comboBox_Day);
+
+		JComboBox comboBox_Month = new JComboBox();
+		comboBox_Month.setBounds(153, 79, 52, 22);
+		panel.add(comboBox_Month);
+
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(266, 79, 52, 22);
+		panel.add(comboBox);
+
+		JComboBox comboBox_Suppliers = new JComboBox();
+		comboBox_Suppliers.setBounds(10, 138, 216, 22);
+		panel.add(comboBox_Suppliers);
+
+		JComboBox comboBox_Articles = new JComboBox();
+		comboBox_Articles.setBounds(10, 196, 115, 22);
+		panel.add(comboBox_Articles);
+
+		JLabel lbl_Price = new JLabel("Prix (\u00E0 l'unit\u00E9) : ");
+		lbl_Price.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_Price.setBounds(10, 229, 101, 14);
+		panel.add(lbl_Price);
+
+		textField_Price = new JTextField();
+		textField_Price.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_Price.setBounds(10, 254, 101, 20);
+		panel.add(textField_Price);
+		textField_Price.setColumns(10);
+
+		JButton btn_Add_Articles = new JButton("Ajouter l'article \u00E0 la commande");
+		btn_Add_Articles.setBounds(59, 285, 226, 23);
+		panel.add(btn_Add_Articles);
+
 		/**
-		 *  Panel articles by order
+		 * Panel list articles order
 		 */
-        
-        JPanel panel_1 = new JPanel();
-        panel_1.setBackground(Color.RED);
-        panel_1.setBounds(898, 295, 328, 279);
-        panel_orders.add(panel_1);
-        panel_1.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 5));
->>>>>>> main
+
+		JPanel panel_list_articles_orders = new JPanel();
+		panel_list_articles_orders.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel_list_articles_orders.setBackground(Color.WHITE);
+		panel_list_articles_orders.setBounds(898, 343, 328, 231);
+		panel_orders.add(panel_list_articles_orders);
+		panel_list_articles_orders.setLayout(null);
+
+		JLabel lbl_List_Articles = new JLabel("Liste des articles de la commande");
+		lbl_List_Articles.setBounds(70, 11, 204, 15);
+		lbl_List_Articles.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_List_Articles.setFont(new Font("Tahoma", Font.BOLD, 12));
+		panel_list_articles_orders.add(lbl_List_Articles);
+
+		// Create scrollPane_list__orders
+		JScrollPane scrollPane_list_orders = new JScrollPane();
+		scrollPane_list_orders.setBounds(0, 34, 328, 40);
+		panel_list_articles_orders.add(scrollPane_list_orders);
+
+		// Create table_article_orders
+		JTable table_article_orders = new JTable();
+		table_article_orders.setModel(new DefaultTableModel(new Object[][] { { "Boite d'oeuf", 6, 6 } },
+
+				new String[] { "Nom de l'article", "Quantité", "Prix (à l'unité)" }) {
+
+			private static final long serialVersionUID = 4046897769807276788L;
+			boolean[] columnEditables = new boolean[] { false, false };
+
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
+			}
+		});
+		// Get table_article_orders visible in the scrollPane
+		scrollPane_list_orders.setColumnHeaderView(table_article_orders);
+		scrollPane_list_orders.setViewportView(table_article_orders);
+
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.setBounds(69, 183, 89, 23);
+		panel_list_articles_orders.add(btnNewButton);
+
+		JButton btnNewButton_1 = new JButton("New button");
+		btnNewButton_1.setBounds(181, 183, 89, 23);
+		panel_list_articles_orders.add(btnNewButton_1);
+
 	}
 }

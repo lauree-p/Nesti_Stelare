@@ -9,8 +9,16 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import tools.MyRendererAndEditor;
+import javax.swing.JLabel;
+import javax.swing.border.LineBorder;
+import javax.swing.SwingConstants;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.Font;
 
 public class View_Administrators {
+	private JTextField textField_User_Name;
+	private JTextField textField_PassWord;
 	
 	public View_Administrators() {
 		initialize();
@@ -82,10 +90,43 @@ public class View_Administrators {
         
         // Create panel_create_admin
         JPanel panel_create_admin = new JPanel();
-        panel_create_admin.setBounds(898, 11, 328, 273);
-        panel_create_admin.setBackground(Color.RED);
+        panel_create_admin.setBorder(new LineBorder(new Color(0, 0, 0)));
+        panel_create_admin.setBounds(898, 11, 328, 204);
+        panel_create_admin.setBackground(Color.WHITE);
         panel_administrators.add(panel_create_admin);
-        panel_create_admin.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 5));
+        panel_create_admin.setLayout(null);
+        
+        JLabel lbl_User_Name = new JLabel("Nom d'utilisateur");
+        lbl_User_Name.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_User_Name.setBounds(20, 43, 102, 14);
+        panel_create_admin.add(lbl_User_Name);
+        
+        JLabel lbl_Administratori = new JLabel("Ajouter un administrateur");
+        lbl_Administratori.setFont(new Font("Tahoma", Font.BOLD, 12));
+        lbl_Administratori.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_Administratori.setBounds(70, 11, 198, 14);
+        panel_create_admin.add(lbl_Administratori);
+        
+        textField_User_Name = new JTextField();
+        textField_User_Name.setHorizontalAlignment(SwingConstants.CENTER);
+        textField_User_Name.setBounds(20, 68, 287, 20);
+        panel_create_admin.add(textField_User_Name);
+        textField_User_Name.setColumns(10);
+        
+        JLabel lbl_PassWord = new JLabel("Mot de passe");
+        lbl_PassWord.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_PassWord.setBounds(10, 99, 102, 14);
+        panel_create_admin.add(lbl_PassWord);
+        
+        textField_PassWord = new JTextField();
+        textField_PassWord.setHorizontalAlignment(SwingConstants.CENTER);
+        textField_PassWord.setBounds(20, 124, 287, 20);
+        panel_create_admin.add(textField_PassWord);
+        textField_PassWord.setColumns(10);
+        
+        JButton btn_Create_Administrator = new JButton("Cr\u00E9er l'administrateur");
+        btn_Create_Administrator.setBounds(70, 163, 198, 23);
+        panel_create_admin.add(btn_Create_Administrator);
         
 
 	}
