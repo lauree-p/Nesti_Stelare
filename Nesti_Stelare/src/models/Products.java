@@ -75,7 +75,7 @@ public class Products {
 
 		if (type == "ing") {
 			// faire fonction qui rentre dans la table ustensile
-			createIngredients(name, expiration_time_limit);
+			//createIngredients(name, expiration_time_limit);
 			
 			
 		}

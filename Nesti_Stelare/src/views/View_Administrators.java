@@ -8,6 +8,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import models.Administrators;
 import tools.MyRendererAndEditor;
 import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
@@ -51,9 +52,10 @@ public class View_Administrators {
 		
 		// Create table_admin
 		JTable table_admin = new JTable();
+		
 		table_admin.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"Lauree","true","poussin2021"},    
+				{Administrators.readData(0,2),Administrators.readData(0,1),Administrators.readData(0,3)},
 				{"Stephane-cad55","false","cadeck2021"},
 				{"Dubanremi","false","duban2021"}
 		    },   
