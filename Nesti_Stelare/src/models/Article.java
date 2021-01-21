@@ -38,7 +38,7 @@ public class Article {
 		} catch (Exception e) {
 			System.err.println("erreur lors de la recuperation");
 		}
-		System.out.println(articles);
+
 		return articles;
 	}
 

@@ -68,7 +68,7 @@ liste des adminstrateurs.
 
 ## Maquette
 
-![Maquette](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/mockup.png)
+![Maquette](https://github.com/lauree-p/Nesti_Stelare/blob/main/conception/img/maquette_nesti.png)
 
 ## Outils
 
@@ -87,6 +87,7 @@ Trello : https://trello.com/b/Ixz1jhAb/nestistelare
 - StarUML (https://staruml.io/)
 - Looping (https://www.looping-mcd.fr/)
 - SmartSheet (https://fr.smartsheet.com/)
+- AdobeXD
 
  2021©Nesti_Stelare Réalisé par Stéphane, Laurélenne et Rémi
 
