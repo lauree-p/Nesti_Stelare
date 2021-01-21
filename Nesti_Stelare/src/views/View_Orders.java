@@ -56,12 +56,12 @@ public class View_Orders {
 		JTable table_orders = new JTable();
 		table_orders.setModel(new DefaultTableModel(
 				new Object[][] {
-						{ "18/02/21", "22/02/21", 50 + "�", "en attente", "Sugarcraft", "Stephane-cad55", " ", "-" },
-						{ "18/02/21", "22/02/21", 50 + "�", "en attente", "Sugarcraft", "Stephane-cad55", " ", "-" },
-						{ "18/02/21", "22/02/21", 50 + "�", "en attente", "Sugarcraft", "Stephane-cad55", " ", "-" },
-						{ "18/02/21", "22/02/21", 50 + "�", "en attente", "Sugarcraft", "Stephane-cad55", " ", "-" },
-						{ "18/02/21", "22/02/21", 50 + "�", "en attente", "Sugarcraft", "Stephane-cad55", " ", "-" } },
-				new String[] { "Date de la commande", "Date de r�ception", "Prix Total", "Etat", "Producteur",
+						{ "18/02/21", "22/02/21", 50 + "�", "En attente", "Sugarcraft", "Stephane-cad55", " ", "-" },
+						{ "18/02/21", "22/02/21", 50 + "�", "En attente", "Sugarcraft", "Stephane-cad55", " ", "-" },
+						{ "18/02/21", "22/02/21", 50 + "�", "En attente", "Sugarcraft", "Stephane-cad55", " ", "-" },
+						{ "18/02/21", "22/02/21", 50 + "�", "En attente", "Sugarcraft", "Stephane-cad55", " ", "-" },
+						{ "18/02/21", "22/02/21", 50 + "�", "En attente", "Sugarcraft", "Stephane-cad55", " ", "-" } },
+				new String[] { "Date de la commande", "Date de r�ception", "Prix Total", "Etat", "Fournisseur",
 						"Administrateur", " ", "-" }) {
 			private static final long serialVersionUID = -779283527594587689L;
 			boolean[] columnEditables = new boolean[] { false, false, false, false, false, false, false, false, false };
@@ -101,12 +101,12 @@ public class View_Orders {
  		JTable table_orders_articles = new JTable();
  	    table_orders_articles.setModel(new DefaultTableModel(
  	    		new Object[][] {
- 					{"Boite de 6 oeufs", "Ingr\u00E9dient", 2.52+"�", "800g",25, "actif", "2", " ","-"},
- 					{"Paquet de farine", "Ingr\u00E9dient", 1.45+"�", "430g",25, "en attente", "4", " ","-"},
- 					{"Lot de 2 fourchette", "Ustensile", 4.24+"�", "100g",null, "bloqu\u00E9", "1", " ","-"},
+ 					{"Boite de 6 oeufs", "Ingr�dient", 2.52+"�", "800g","25/03/21", "2", " ","-"},
+ 					{"Paquet de farine", "Ingr�dient", 1.45+"�", "430g","25/03/21", "4", " ","-"},
+ 					{"Lot de 2 fourchette", "Ustensile", 4.24+"�", "100g",null, "1", " ","-"},
  				},
  				new String[] {
- 					"Nom", "Type", "Prix", "Poids", "Jour avant p�remption", "Etat", "Quantit�", " ","-"}
+ 					"Nom", "Type", "Prix", "Poids", "DLC", "Etat", "Quantit�", " ","-"}
  		) {
 			private static final long serialVersionUID = -8814775745908591959L;
 			boolean[] columnEditables = new boolean[] { false, false, false, false, false, false, false, false, false };
@@ -249,14 +249,16 @@ public class View_Orders {
 
 		// Create scrollPane_list__orders
 		JScrollPane scrollPane_list_orders = new JScrollPane();
-		scrollPane_list_orders.setBounds(0, 34, 328, 40);
+		scrollPane_list_orders.setBounds(0, 34, 328, 129);
 		panel_list_articles_orders.add(scrollPane_list_orders);
 
 		// Create table_article_orders
 		JTable table_article_orders = new JTable();
-		table_article_orders.setModel(new DefaultTableModel(new Object[][] { { "Boite d'oeuf", 6, 6 } },
+		table_article_orders.setModel(new DefaultTableModel(
+			new Object[][] { 
+				{ "Boite d'oeuf", 6, 6 } },
 
-				new String[] { "Nom de l'article", "Quantit�", "Prix (� l'unit�)" }) {
+			new String[] { "Nom de l'article", "Quantit�", "Prix (� l'unitit�)" }) {
 
 			private static final long serialVersionUID = 4046897769807276788L;
 			boolean[] columnEditables = new boolean[] { false, false };
@@ -269,13 +271,22 @@ public class View_Orders {
 		scrollPane_list_orders.setColumnHeaderView(table_article_orders);
 		scrollPane_list_orders.setViewportView(table_article_orders);
 
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.setBounds(69, 183, 89, 23);
+		JButton btnNewButton = new JButton("Annuler");
+		btnNewButton.setBounds(30, 197, 89, 23);
 		panel_list_articles_orders.add(btnNewButton);
 
-		JButton btnNewButton_1 = new JButton("New button");
-		btnNewButton_1.setBounds(181, 183, 89, 23);
+		JButton btnNewButton_1 = new JButton("Ajouter la commande");
+		btnNewButton_1.setBounds(129, 197, 178, 23);
 		panel_list_articles_orders.add(btnNewButton_1);
+		
+		JLabel lblNewLabel = new JLabel("Total :");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel.setBounds(10, 174, 46, 14);
+		panel_list_articles_orders.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("36\u20AC");
+		lblNewLabel_1.setBounds(50, 174, 65, 14);
+		panel_list_articles_orders.add(lblNewLabel_1);
 
 	}
 }

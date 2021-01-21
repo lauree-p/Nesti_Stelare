@@ -51,16 +51,16 @@ public class View_Articles {
 		JTable table_article = new JTable();
 		table_article.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"Boite de 6 oeufs", "Ingr\u00E9dient", 2.52+"€", "800g", "actif", "2", " "},
-				{"Paquet de farine", "Ingr\u00E9dient", 1.45+"€", "430g", "en attente", "4", " "},
-				{"Lot de 2 fourchette", "Ustensile", 4.24+"€", "100g", "bloqu\u00E9", "1", " "},
+				{"Boite de 6 oeufs", "Ingr\u00E9dient", 2.52+"€", "800g", "actif", "2", " ","-"},
+				{"Paquet de farine", "Ingr\u00E9dient", 1.45+"€", "430g", "en attente", "4", " ","-"},
+				{"Lot de 2 fourchette", "Ustensile", 4.24+"€", "100g", "bloqu\u00E9", "1", " ","-"},
 			},
 			new String[] {
-				"Nom", "Type", "Prix", "Poids", "Etat", "Stock", " "}
+				"Nom", "Type", "Prix", "Poids", "Etat", "Stock", " ", "-"}
 		) {
 			private static final long serialVersionUID = 546831570763595984L;
 			boolean[] columnEditables = new boolean[] {
-				false, false, false, false, false, false, false, false
+				false, false, false, false, false, false, false, false, false
 			};
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
@@ -77,6 +77,9 @@ public class View_Articles {
 	    // Add btn upload
 		table_article.getColumn(" ").setCellRenderer(new MyRendererAndEditor(table_article, "Modifier"));
 		table_article.getColumn(" ").setCellEditor(new MyRendererAndEditor(table_article, "Modifier"));
+	    // Add btn delete
+		table_article.getColumn("-").setCellRenderer(new MyRendererAndEditor(table_article, "Supprimer"));
+		table_article.getColumn("-").setCellEditor(new MyRendererAndEditor(table_article, "Supprimer"));
 		// Get table_article visible in the scrollPane_articles
 		scrollPane_articles.setViewportView(table_article);
 		scrollPane_articles.setColumnHeaderView(table_article.getTableHeader());
