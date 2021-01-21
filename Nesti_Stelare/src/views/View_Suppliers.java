@@ -97,7 +97,7 @@ public class View_Suppliers {
 					{"Lot de 2 fourchette", "Ustensile", 4.24+"€", "100g", "En stock", " ", "-"},
 				},
 				new String[] {
-					"Nom", "Type", "Prix", "Poids", "Stock", " ", "-"}
+					"Nom de l'article", "Type", "Prix", "Poids", "Stock", " ", "-"}
 		) {
 			private static final long serialVersionUID = 6230086957304435761L;
 			boolean[] columnEditables = new boolean[] {
