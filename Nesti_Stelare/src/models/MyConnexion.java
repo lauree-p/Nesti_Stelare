@@ -28,7 +28,7 @@ public class MyConnexion {
 		String utilisateur = "root";
 		String motDePasse = "";
 		try {
-			// on ajoute nos paramètres
+			// on ajoute nos paramï¿½tres
 			accessDataBase = DriverManager.getConnection(url, utilisateur, motDePasse);
 		} catch (SQLException ex) {
 			Logger.getLogger(MyConnexion.class.getName()).log(Level.SEVERE, null, ex);
