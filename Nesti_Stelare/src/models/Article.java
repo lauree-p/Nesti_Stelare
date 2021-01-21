@@ -10,13 +10,6 @@ public class Article {
 	private static ResultSet resultat = null;
 	private static Double buy_price_article = 0.0;
 
-
-
-	public static void main(String[] args) {
-		calculNbItem(8);
-
-	}
-
 	public static ArrayList<String> readAll() {
 		ArrayList<String> articles = new ArrayList<String>();
 		try {
@@ -38,7 +31,7 @@ public class Article {
 		} catch (Exception e) {
 			System.err.println("erreur lors de la recuperation");
 		}
-
+		
 		return articles;
 	}
 
