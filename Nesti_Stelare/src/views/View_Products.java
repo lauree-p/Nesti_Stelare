@@ -16,8 +16,13 @@ import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
 
 import tools.MyRendererAndEditor;
+import javax.swing.border.LineBorder;
+import javax.swing.JTextField;
+import javax.swing.JRadioButton;
 
 public class View_Products {
+	private JTextField textField_name_product;
+	private JTextField textField_day_peremption;
 
 	public View_Products() {
 		initialize();
@@ -128,10 +133,67 @@ public class View_Products {
 
 		// Create panel_create_product
 		JPanel panel_create_product = new JPanel();
-		panel_create_product.setBounds(898, 11, 328, 273);
-		panel_create_product.setBackground(Color.RED);
+		panel_create_product.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel_create_product.setBounds(899, 11, 328, 240);
+		panel_create_product.setBackground(Color.WHITE);
 		panel_products.add(panel_create_product);
-		panel_create_product.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 5));
+		panel_create_product.setLayout(null);
+		
+		JLabel lbl_product = new JLabel("Ajouter un produit");
+		lbl_product.setBounds(105, 6, 117, 15);
+		lbl_product.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_product.setFont(new Font("Tahoma", Font.BOLD, 12));
+		panel_create_product.add(lbl_product);
+		
+		JLabel lbl_name_product = new JLabel("Nom du produit : ");
+		lbl_name_product.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_name_product.setBounds(0, 32, 128, 14);
+		panel_create_product.add(lbl_name_product);
+		
+		textField_name_product = new JTextField();
+		textField_name_product.setBounds(20, 57, 287, 20);
+		panel_create_product.add(textField_name_product);
+		textField_name_product.setColumns(10);
+		
+		JLabel lbl_type_product = new JLabel("Type du produit : ");
+		lbl_type_product.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_type_product.setBounds(0, 88, 128, 14);
+		panel_create_product.add(lbl_type_product);
+		
+		JLabel lbl_ingredient = new JLabel("Ingr\u00E9dient :");
+		lbl_ingredient.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_ingredient.setBounds(55, 113, 82, 14);
+		panel_create_product.add(lbl_ingredient);
+		
+		JLabel lbl_utensil = new JLabel("Ustensile : ");
+		lbl_utensil.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_utensil.setBounds(179, 113, 62, 14);
+		panel_create_product.add(lbl_utensil);
+		
+		JRadioButton rdbtnNewRadioButton_ingredient = new JRadioButton("");
+		rdbtnNewRadioButton_ingredient.setHorizontalAlignment(SwingConstants.CENTER);
+		rdbtnNewRadioButton_ingredient.setBounds(131, 109, 22, 23);
+		panel_create_product.add(rdbtnNewRadioButton_ingredient);
+		
+		JRadioButton rdbtnNewRadioButton_utensil = new JRadioButton("");
+		rdbtnNewRadioButton_utensil.setHorizontalAlignment(SwingConstants.CENTER);
+		rdbtnNewRadioButton_utensil.setBounds(240, 109, 22, 23);
+		panel_create_product.add(rdbtnNewRadioButton_utensil);
+		
+		JLabel lbl_day_peremption = new JLabel("Jour avant p\u00E9remption :");
+		lbl_day_peremption.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_day_peremption.setBounds(0, 138, 153, 14);
+		panel_create_product.add(lbl_day_peremption);
+		
+		textField_day_peremption = new JTextField();
+		textField_day_peremption.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_day_peremption.setBounds(20, 163, 56, 20);
+		panel_create_product.add(textField_day_peremption);
+		textField_day_peremption.setColumns(10);
+		
+		JButton btn_add_product = new JButton("Ajouter le produit");
+		btn_add_product.setBounds(105, 204, 131, 23);
+		panel_create_product.add(btn_add_product);
 
 	}
 }
