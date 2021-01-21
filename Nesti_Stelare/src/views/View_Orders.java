@@ -249,14 +249,14 @@ public class View_Orders {
 
 		// Create scrollPane_list__orders
 		JScrollPane scrollPane_list_orders = new JScrollPane();
-		scrollPane_list_orders.setBounds(0, 34, 328, 40);
+		scrollPane_list_orders.setBounds(0, 34, 272, 40);
 		panel_list_articles_orders.add(scrollPane_list_orders);
 
 		// Create table_article_orders
 		JTable table_article_orders = new JTable();
 		table_article_orders.setModel(new DefaultTableModel(new Object[][] { { "Boite d'oeuf", 6, 6 } },
 
-				new String[] { "Nom de l'article", "Quantitï¿½", "Prix (ï¿½ l'unitï¿½)" }) {
+				new String[] { "Nom de l'article", "Quantité", "Prix (à l'unité)" }) {
 
 			private static final long serialVersionUID = 4046897769807276788L;
 			boolean[] columnEditables = new boolean[] { false, false };
@@ -269,13 +269,18 @@ public class View_Orders {
 		scrollPane_list_orders.setColumnHeaderView(table_article_orders);
 		scrollPane_list_orders.setViewportView(table_article_orders);
 
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.setBounds(69, 183, 89, 23);
-		panel_list_articles_orders.add(btnNewButton);
+		JButton btn_delete_orders = new JButton("Annuler la commande");
+		btn_delete_orders.setBounds(0, 183, 161, 37);
+		panel_list_articles_orders.add(btn_delete_orders);
 
-		JButton btnNewButton_1 = new JButton("New button");
-		btnNewButton_1.setBounds(181, 183, 89, 23);
-		panel_list_articles_orders.add(btnNewButton_1);
+		JButton btn_add_orders = new JButton("Ajouter la commande");
+		btn_add_orders.setBounds(171, 183, 157, 37);
+		panel_list_articles_orders.add(btn_add_orders);
+		
+		JLabel lbl_total = new JLabel("Total : ");
+		lbl_total.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_total.setBounds(145, 158, 46, 14);
+		panel_list_articles_orders.add(lbl_total);
 
 	}
 }
