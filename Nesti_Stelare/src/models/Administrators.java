@@ -6,10 +6,6 @@ import java.util.Arrays;
 
 public class Administrators {
 
-	public static void main(String[] args) {
-		readAll();
-	}
-
 	public static ArrayList<String[]> readAll() {
 
 		ArrayList<String> row = new ArrayList<String>();
