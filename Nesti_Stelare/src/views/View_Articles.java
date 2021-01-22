@@ -13,7 +13,10 @@ import java.awt.Font;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
-import tools.MyRendererAndEditor;
+import models.Article;
+import tools.MyRendererAndEditor; 
+
+
 
 
 public class View_Articles {
@@ -50,11 +53,7 @@ public class View_Articles {
 		// Create table_article
 		JTable table_article = new JTable();
 		table_article.setModel(new DefaultTableModel(
-			new Object[][] {
-				{"Boite de 6 oeufs", "Ingr\u00E9dient", 2.52+"€", "800g", "actif", "2", " ","-"},
-				{"Paquet de farine", "Ingr\u00E9dient", 1.45+"€", "430g", "en attente", "4", " ","-"},
-				{"Lot de 2 fourchette", "Ustensile", 4.24+"€", "100g", "bloqu\u00E9", "1", " ","-"},
-			},
+			Article.readAll(),
 			new String[] {
 				"Nom", "Type", "Prix", "Poids", "Etat", "Stock", " ", "-"}
 		) {
@@ -170,11 +169,11 @@ public class View_Articles {
 		JTable table_article_suppliers = new JTable();
 		table_article_suppliers.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"Labo&Gato", 2.85+"€"},
-		        {"Kitchenware", 2.82+"€"},
-		        {"Sugarcraft", 2.54+"€"},
-		        {"Wenny's Store", 2.45+"€"},
-		        {"Hypmark Kitchen", 2.95+"€"}
+				{"Labo&Gato", 2.85+"ï¿½"},
+		        {"Kitchenware", 2.82+"ï¿½"},
+		        {"Sugarcraft", 2.54+"ï¿½"},
+		        {"Wenny's Store", 2.45+"ï¿½"},
+		        {"Hypmark Kitchen", 2.95+"ï¿½"}
 			},
 			new String[] {"Fournisseur","Prix"}
 		) {

@@ -1,21 +1,20 @@
 package views;
 
 import java.awt.Color;
-import java.awt.FlowLayout;
+import java.awt.Font;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
 import models.Administrators;
 import tools.MyRendererAndEditor;
-import javax.swing.JLabel;
-import javax.swing.border.LineBorder;
-import javax.swing.SwingConstants;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.Font;
 
 public class View_Administrators {
 	
@@ -120,7 +119,7 @@ public class View_Administrators {
         panel_create_admin.add(textField_PassWord);
         textField_PassWord.setColumns(10);
         
-        JButton btn_Create_Administrator = new JButton("Crée un administrateur");
+        JButton btn_Create_Administrator = new JButton("Crï¿½e un administrateur");
         btn_Create_Administrator.setBounds(70, 163, 198, 23);
         panel_create_admin.add(btn_Create_Administrator);
         
