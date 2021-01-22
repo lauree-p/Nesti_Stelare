@@ -8,6 +8,11 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
+
+import models.Administrators;
+import models.SuperAdmin;
+import views.View_Administrators;
+
 import javax.swing.event.CellEditorListener;
 import java.awt.event.*;
 import java.util.EventObject;
@@ -22,8 +27,22 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 		btn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				DefaultTableModel model = (DefaultTableModel) table.getModel();
-				model.removeRow(row);
+				if (nomBtn == "Supprimer") {
+					System.out.println("Click Supprimer");
+					View_Administrators.panel_admin_delete.setVisible(true);
+					if (View_Administrators.confirmDelete) {
+						DefaultTableModel model = (DefaultTableModel) table.getModel();
+						model.removeRow(row);
+						int idAdmin = Integer.parseInt(Administrators.arrayRow.get(row)[0]);
+						SuperAdmin.deleteAdmin(idAdmin);
+					}
+					View_Administrators.confirmDelete = false;
+				} 
+				else if (nomBtn == "Modifier") {
+					View_Administrators.panel_admin_update.setVisible(true);
+					
+				}
+				
 			}
 		});
 	}
