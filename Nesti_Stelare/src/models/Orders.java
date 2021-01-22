@@ -1,13 +1,14 @@
 package models;
 
 import java.sql.ResultSet;
+
 import java.util.ArrayList;
 
 public class Orders {
 	private static ResultSet resultat = null;
 
 	public static void main(String[] args) {
-		readArticleByOrders(1);
+
 
 	}
 
@@ -55,13 +56,11 @@ public class Orders {
 
 		return articles;
 	}
-	public static void createOrders(String articleName, Double articleWeight, int idProduct,
-			int idAdministrators, int idUnity) {
+	public static void createOrders(String dateOrder, String dateReception, String state,int id_suppliers,int id_adminstrators) {
 		try {
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
-			String query = "INSERT INTO `articles` (`id_articles`,`name`,`weight`,`state`,`id_administrators`,`id_products`,`id_unity`) VALUES (NULL, '"
-					+ articleName + "', '" + articleWeight + "', 'a', '" + idAdministrators + "', '"+idProduct+"', '"+idUnity+"' )";
+			String query = "INSERT INTO `orders` (`id_orders`, `reception_date`, `state`, `date_order`, `id_administrators`, `id_suppliers`) VALUES (NULL, '"+dateOrder+"', '"+state+"', '"+dateReception+"', '"+id_suppliers+"', '"+id_adminstrators+"');";
 			declaration.executeUpdate(query);
 
 		} catch (Exception e) {
