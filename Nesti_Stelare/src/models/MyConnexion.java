@@ -23,10 +23,10 @@ public class MyConnexion {
 	public static void openConnection() {
 		/* Parametres de connexion */
 
-		String url = "jdbc:mysql://localhost/nestistelare?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
+		String url = Config.URLBSD;
 		// nesti = nom de ma bdd
-		String utilisateur = "root";
-		String motDePasse = "";
+		String utilisateur = Config.USERNAME;
+		String motDePasse = Config.PASSWORD;
 		try {
 			// on ajoute nos param�tres
 			accessDataBase = DriverManager.getConnection(url, utilisateur, motDePasse);

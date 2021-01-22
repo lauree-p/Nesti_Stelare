@@ -9,6 +9,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import models.Administrators;
+import models.SuperAdmin;
 import tools.MyRendererAndEditor;
 import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
@@ -16,6 +17,8 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class View_Administrators {
 	
@@ -65,11 +68,10 @@ public class View_Administrators {
 			}
 		});
 		// Columns Properties
-		table_admin.getColumnModel().getColumn(0).setResizable(false);
-		table_admin.getColumnModel().getColumn(1).setResizable(false);
-		table_admin.getColumnModel().getColumn(2).setResizable(false);
-		table_admin.getColumnModel().getColumn(3).setResizable(false);
-		table_admin.getColumnModel().getColumn(4).setResizable(false);
+		int columnCount = table_admin.getColumnModel().getColumnCount();
+		for (int i = 0; i < columnCount; i++ ) {
+			table_admin.getColumnModel().getColumn(i).setResizable(false);
+		}
 	    // Add btn upload
 		table_admin.getColumn(" ").setCellRenderer(new MyRendererAndEditor(table_admin, "Modifier"));
 		table_admin.getColumn(" ").setCellEditor(new MyRendererAndEditor(table_admin, "Modifier"));
@@ -92,38 +94,71 @@ public class View_Administrators {
         panel_administrators.add(panel_create_admin);
         panel_create_admin.setLayout(null);
         
-        JLabel lbl_User_Name = new JLabel("Nom d'utilisateur");
-        lbl_User_Name.setHorizontalAlignment(SwingConstants.CENTER);
-        lbl_User_Name.setBounds(20, 43, 102, 14);
-        panel_create_admin.add(lbl_User_Name);
+        JLabel lbl_user_name = new JLabel("Nom d'utilisateur");
+        lbl_user_name.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_user_name.setBounds(20, 43, 102, 14);
+        panel_create_admin.add(lbl_user_name);
         
-        JLabel lbl_Administratori = new JLabel("Ajouter un administrateur");
-        lbl_Administratori.setFont(new Font("Tahoma", Font.BOLD, 12));
-        lbl_Administratori.setHorizontalAlignment(SwingConstants.CENTER);
-        lbl_Administratori.setBounds(70, 11, 198, 14);
-        panel_create_admin.add(lbl_Administratori);
+        JLabel lbl_administratori = new JLabel("Ajouter un administrateur");
+        lbl_administratori.setFont(new Font("Tahoma", Font.BOLD, 12));
+        lbl_administratori.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_administratori.setBounds(70, 11, 198, 14);
+        panel_create_admin.add(lbl_administratori);
         
-        JTextField textField_User_Name = new JTextField();
-        textField_User_Name.setHorizontalAlignment(SwingConstants.CENTER);
-        textField_User_Name.setBounds(20, 68, 287, 20);
-        panel_create_admin.add(textField_User_Name);
-        textField_User_Name.setColumns(10);
+        JTextField textField_user_name = new JTextField();
+        textField_user_name.setHorizontalAlignment(SwingConstants.CENTER);
+        textField_user_name.setBounds(20, 68, 287, 20);
+        panel_create_admin.add(textField_user_name);
+        textField_user_name.setColumns(10);
         
-        JLabel lbl_PassWord = new JLabel("Mot de passe");
-        lbl_PassWord.setHorizontalAlignment(SwingConstants.CENTER);
-        lbl_PassWord.setBounds(10, 99, 102, 14);
-        panel_create_admin.add(lbl_PassWord);
+        JLabel lbl_passWord = new JLabel("Mot de passe");
+        lbl_passWord.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_passWord.setBounds(10, 99, 102, 14);
+        panel_create_admin.add(lbl_passWord);
         
-        JTextField textField_PassWord = new JTextField();
-        textField_PassWord.setHorizontalAlignment(SwingConstants.CENTER);
-        textField_PassWord.setBounds(20, 124, 287, 20);
-        panel_create_admin.add(textField_PassWord);
-        textField_PassWord.setColumns(10);
+        JTextField textField_passWord = new JTextField();
+        textField_passWord.setHorizontalAlignment(SwingConstants.CENTER);
+        textField_passWord.setBounds(20, 124, 287, 20);
+        panel_create_admin.add(textField_passWord);
+        textField_passWord.setColumns(10);
         
-        JButton btn_Create_Administrator = new JButton("Crée un administrateur");
-        btn_Create_Administrator.setBounds(70, 163, 198, 23);
-        panel_create_admin.add(btn_Create_Administrator);
+        JButton btn_create_administrator = new JButton("Crée un administrateur");
+        btn_create_administrator.setBounds(70, 163, 198, 23);
+        panel_create_admin.add(btn_create_administrator);
+        btn_create_administrator.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SuperAdmin.addAdmin(textField_user_name.getText(),textField_passWord.getText());
+                uploadTable(table_admin);
+            }
+            
+        });
         
 
+	}
+	
+	public void uploadTable(JTable oldTable) {
+		
+		oldTable.setModel(new DefaultTableModel(
+				Administrators.readAll(),
+				new String[] {
+					"Pseudo","IsSuperAdmin","Mot de passe"," ", "-"}
+			) {
+				private static final long serialVersionUID = 546831570763595984L;
+				boolean[] columnEditables = new boolean[] {
+					false, false, false, false, false
+				};
+				public boolean isCellEditable(int row, int column) {
+					return columnEditables[column];
+				}
+			});
+	    // Add btn upload
+		oldTable.getColumn(" ").setCellRenderer(new MyRendererAndEditor(oldTable, "Modifier"));
+		oldTable.getColumn(" ").setCellEditor(new MyRendererAndEditor(oldTable, "Modifier"));
+	    // Add btn delete
+		oldTable.getColumn("-").setCellRenderer(new MyRendererAndEditor(oldTable, "Supprimer"));
+		oldTable.getColumn("-").setCellEditor(new MyRendererAndEditor(oldTable, "Supprimer"));
+		
 	}
 }
