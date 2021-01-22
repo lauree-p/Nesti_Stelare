@@ -9,7 +9,6 @@ public class Orders {
 
 	public static void main(String[] args) {
 
-
 	}
 
 	public static ArrayList<String> readAll() {
@@ -47,7 +46,9 @@ public class Orders {
 			ResultSet resultat = declaration.executeQuery(query);
 			/* Récupération des données */
 			while (resultat.next()) {
-				articles.add(resultat.getString("a.name") + " " + resultat.getString("p.type")+ " " + resultat.getInt("co.buy_price")+ " " + resultat.getInt("a.weight")+ " " + resultat.getString("u.NAME")+ " " + resultat.getInt("co.quantity"));
+				articles.add(resultat.getString("a.name") + " " + resultat.getString("p.type") + " "
+						+ resultat.getInt("co.buy_price") + " " + resultat.getInt("a.weight") + " "
+						+ resultat.getString("u.NAME") + " " + resultat.getInt("co.quantity"));
 			}
 
 		} catch (Exception e) {
@@ -56,17 +57,35 @@ public class Orders {
 
 		return articles;
 	}
-	public static void createOrders(String dateOrder, String dateReception, String state,int id_suppliers,int id_adminstrators) {
+
+	public static void createOrders(String dateOrder, String dateReception, String state, int id_suppliers,
+			int id_adminstrators) {
 		try {
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
-			String query = "INSERT INTO `orders` (`id_orders`, `reception_date`, `state`, `date_order`, `id_administrators`, `id_suppliers`) VALUES (NULL, '"+dateOrder+"', '"+state+"', '"+dateReception+"', '"+id_suppliers+"', '"+id_adminstrators+"');";
+			String query = "INSERT INTO `orders` (`id_orders`, `reception_date`, `state`, `date_order`, `id_administrators`, `id_suppliers`) VALUES (NULL, '"
+					+ dateOrder + "', '" + state + "', '" + dateReception + "', '" + id_suppliers + "', '"
+					+ id_adminstrators + "');";
 			declaration.executeUpdate(query);
 
 		} catch (Exception e) {
 			System.err.println("erreur lors de la creation");
 		}
 	}
+	
+public static void recoverIdOfLastOrder() {
+	
+}
+	public static void insertIntoIsContained() {
+		try {
+			MyConnexion.openConnection();
+			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
+			//String query = "INSERT INTO is_contained ()" VALUES ;
+			//declaration.executeUpdate(query);
 
+		} catch (Exception e) {
+			System.err.println("erreur lors de la creation");
+		}
+	}
 
 }
