@@ -8,7 +8,7 @@ public class Orders {
 	private static ResultSet resultat = null;
 
 	public static void main(String[] args) {
-
+		recoverIdOfLastOrder();
 	}
 
 	public static ArrayList<String> readAll() {
@@ -72,20 +72,40 @@ public class Orders {
 			System.err.println("erreur lors de la creation");
 		}
 	}
-	
-public static void recoverIdOfLastOrder() {
-	
-}
-	public static void insertIntoIsContained() {
+
+	public static int recoverIdOfLastOrder() {
+		int Id_order = 0;
 		try {
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
-			//String query = "INSERT INTO is_contained ()" VALUES ;
-			//declaration.executeUpdate(query);
+			String query = "SELECT MAX(Id_orders) FROM orders";
+			ResultSet resultat = declaration.executeQuery(query);
 
+			while (resultat.next()) {
+				Id_order = resultat.getInt("MAX(Id_orders)");
+			}
 		} catch (Exception e) {
+
 			System.err.println("erreur lors de la creation");
 		}
+
+		return Id_order;
 	}
 
+	public static void insertIntoIsContained(String[][]tab) {
+		for (int i = 0; i < tab.length - 1; i++) {
+
+			try {
+				MyConnexion.openConnection();
+				java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
+				String query = "INSERT INTO is_contained (Id_articles, Id_orders, quantity, buy_price) VALUES ('"
+						+ tab[i][0] + "','" + recoverIdOfLastOrder() + "','" + tab[i][1] + "','" + tab[i][2] + "')";
+				declaration.executeQuery(query);
+
+			} catch (Exception e) {
+
+				System.err.println("erreur lors de la creation");
+			}
+		}
+	}
 }
