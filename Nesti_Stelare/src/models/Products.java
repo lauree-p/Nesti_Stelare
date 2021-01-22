@@ -158,7 +158,7 @@ public class Products {
 			}
 
 		} catch (Exception e) {
-			System.err.println("erreur lors de la récupération");
+			System.err.println("erreur lors de la rï¿½cupï¿½ration");
 		}
 		return stock;
 	}
