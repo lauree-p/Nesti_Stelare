@@ -75,13 +75,6 @@ public class Products {
 		}
 
 		if (type == "ing") {
-<<<<<<< HEAD
-			// faire fonction qui rentre dans la table ustensile
-			//createIngredients(name, expiration_time_limit);
-			
-			
-=======
-
 			createIngredients(name, expiration_time_limit);
 
 		} else if (type == "ute") {
@@ -100,7 +93,6 @@ public class Products {
 
 		} catch (Exception e) {
 			System.err.println("erreur lors de la creation");
->>>>>>> Stephane
 		}
 
 	}

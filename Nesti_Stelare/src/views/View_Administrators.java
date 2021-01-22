@@ -18,8 +18,6 @@ import javax.swing.JButton;
 import java.awt.Font;
 
 public class View_Administrators {
-	private JTextField textField_User_Name;
-	private JTextField textField_PassWord;
 	
 	public View_Administrators() {
 		initialize();
@@ -54,11 +52,7 @@ public class View_Administrators {
 		JTable table_admin = new JTable();
 		
 		table_admin.setModel(new DefaultTableModel(
-			new Object[][] {
-				{Administrators.readData(0,2),Administrators.readData(0,1),Administrators.readData(0,3)},
-				{"Stephane-cad55","false","cadeck2021"},
-				{"Dubanremi","false","duban2021"}
-		    },   
+			Administrators.readAll(),
 			new String[] {
 				"Pseudo","IsSuperAdmin","Mot de passe"," ", "-"}
 		) {
@@ -109,7 +103,7 @@ public class View_Administrators {
         lbl_Administratori.setBounds(70, 11, 198, 14);
         panel_create_admin.add(lbl_Administratori);
         
-        textField_User_Name = new JTextField();
+        JTextField textField_User_Name = new JTextField();
         textField_User_Name.setHorizontalAlignment(SwingConstants.CENTER);
         textField_User_Name.setBounds(20, 68, 287, 20);
         panel_create_admin.add(textField_User_Name);
@@ -120,13 +114,13 @@ public class View_Administrators {
         lbl_PassWord.setBounds(10, 99, 102, 14);
         panel_create_admin.add(lbl_PassWord);
         
-        textField_PassWord = new JTextField();
+        JTextField textField_PassWord = new JTextField();
         textField_PassWord.setHorizontalAlignment(SwingConstants.CENTER);
         textField_PassWord.setBounds(20, 124, 287, 20);
         panel_create_admin.add(textField_PassWord);
         textField_PassWord.setColumns(10);
         
-        JButton btn_Create_Administrator = new JButton("Cr\u00E9er l'administrateur");
+        JButton btn_Create_Administrator = new JButton("Crée un administrateur");
         btn_Create_Administrator.setBounds(70, 163, 198, 23);
         panel_create_admin.add(btn_Create_Administrator);
         
