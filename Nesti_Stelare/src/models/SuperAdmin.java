@@ -18,6 +18,7 @@ public class SuperAdmin extends Administrators {
 			System.err.println("erreur lors de la creation");
 		}
 	}
+	
 	public static void updateAdmin(int id_admin, String nickName, String passWord, String state) {
 		
 		
@@ -35,7 +36,6 @@ public class SuperAdmin extends Administrators {
 	
 	public static void deleteAdmin(int id_admin) {
 		
-		
 		try {
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
@@ -50,7 +50,6 @@ public class SuperAdmin extends Administrators {
 			} catch (SQLException f) {
 				System.err.println("erreur update impossible");
 			}
-			System.err.println("erreur pas d'amin correspondant");
 		}
 		
 	}
