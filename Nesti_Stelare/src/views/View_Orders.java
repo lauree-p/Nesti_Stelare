@@ -10,6 +10,7 @@ import javax.swing.JTable;
 
 import javax.swing.table.DefaultTableModel;
 
+import models.Orders;
 import tools.MyRendererAndEditor;
 import javax.swing.border.LineBorder;
 import javax.swing.JLabel;
@@ -55,13 +56,8 @@ public class View_Orders {
 		// Create table_orders
 		JTable table_orders = new JTable();
 		table_orders.setModel(new DefaultTableModel(
-				new Object[][] {
-						{ "18/02/21", "22/02/21", 50 + "�", "En attente", "Sugarcraft", "Stephane-cad55", " ", "-" },
-						{ "18/02/21", "22/02/21", 50 + "�", "En attente", "Sugarcraft", "Stephane-cad55", " ", "-" },
-						{ "18/02/21", "22/02/21", 50 + "�", "En attente", "Sugarcraft", "Stephane-cad55", " ", "-" },
-						{ "18/02/21", "22/02/21", 50 + "�", "En attente", "Sugarcraft", "Stephane-cad55", " ", "-" },
-						{ "18/02/21", "22/02/21", 50 + "�", "En attente", "Sugarcraft", "Stephane-cad55", " ", "-" } },
-				new String[] { "Date de la commande", "Date de r�ception", "Prix Total", "Etat", "Fournisseur",
+				Orders.readAll(),
+				new String[] { "Date de la commande", "Date de réception", "Prix Total", "Etat", "Fournisseur",
 						"Administrateur", " ", "-" }) {
 			private static final long serialVersionUID = -779283527594587689L;
 			boolean[] columnEditables = new boolean[] { false, false, false, false, false, false, false, false, false };
