@@ -4,10 +4,13 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class Administrators {
+	
+	public static ArrayList<String[]> arrayRow;
 
 	public static void main(String[] args) {
 		readAll();
 		//readDataTableModel();
+		
 	}
 
 	/**
@@ -17,7 +20,7 @@ public class Administrators {
 	public static String[][] readAll() {
 		
 		ArrayList<String> row = new ArrayList<String>();
-		ArrayList<String[]> arrayRow = new ArrayList<String[]>();
+		arrayRow = new ArrayList<String[]>();
 		
 		try {
 			MyConnexion.openConnection();
@@ -68,7 +71,6 @@ public class Administrators {
 		} catch (Exception e) {
 			System.err.println("Erreur lors de la recuperation");
 		}
-		System.out.println(row);
 		return row;
 	}
 

@@ -96,7 +96,7 @@ public class View_Articles {
 		panel_create_article.setLayout(null);
 		
 		// Labels
-		JLabel lbl_article_title = new JLabel("Cr\u00E9er un nouvel article");
+		JLabel lbl_article_title = new JLabel("Créer un nouvel article");
 		lbl_article_title.setForeground(Color.BLACK);
 		lbl_article_title.setBackground(Color.LIGHT_GRAY);
 		lbl_article_title.setHorizontalAlignment(SwingConstants.CENTER);
@@ -112,7 +112,7 @@ public class View_Articles {
 		lbl_article_poids.setBounds(23, 140, 46, 14);
 		panel_create_article.add(lbl_article_poids);
 		
-		JLabel lbl_article_select_product = new JLabel("S\u00E9lection du produit :");
+		JLabel lbl_article_select_product = new JLabel("Sélection du produit :");
 		lbl_article_select_product.setBounds(23, 90, 277, 20);
 		panel_create_article.add(lbl_article_select_product);
 		
@@ -137,7 +137,7 @@ public class View_Articles {
 		panel_create_article.add(comboBox_article_poids);
 
 		// Btn create article
-		JButton btn_article_create = new JButton("Cr\u00E9er l'article");
+		JButton btn_article_create = new JButton("Créer l'article");
 		btn_article_create.setBounds(101, 198, 136, 23);
 		panel_create_article.add(btn_article_create);
 
@@ -154,7 +154,7 @@ public class View_Articles {
 		panel_list_suppliers.setLayout(null);
 		
 		// Label Title table 
-		JLabel lbl_title_list_suppliers = new JLabel("Liste des fournisseurs de l'article s\u00E9lectionn\u00E9");
+		JLabel lbl_title_list_suppliers = new JLabel("Liste des fournisseurs de l'article sélectionné");
 		lbl_title_list_suppliers.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lbl_title_list_suppliers.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_title_list_suppliers.setBounds(0, 0, 328, 34);
@@ -169,11 +169,11 @@ public class View_Articles {
 		JTable table_article_suppliers = new JTable();
 		table_article_suppliers.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"Labo&Gato", 2.85+"�"},
-		        {"Kitchenware", 2.82+"�"},
-		        {"Sugarcraft", 2.54+"�"},
-		        {"Wenny's Store", 2.45+"�"},
-		        {"Hypmark Kitchen", 2.95+"�"}
+				{"Labo&Gato", 2.85+"€"},
+		        {"Kitchenware", 2.82+"€"},
+		        {"Sugarcraft", 2.54+"€"},
+		        {"Wenny's Store", 2.45+"€"},
+		        {"Hypmark Kitchen", 2.95+"€"}
 			},
 			new String[] {"Fournisseur","Prix"}
 		) {
