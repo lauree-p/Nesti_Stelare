@@ -48,6 +48,7 @@ public class View_Login {
 	 */
 	public View_Login() {
 		initialize();
+		frame.setVisible(true);
 	}
 
 	/**
@@ -117,8 +118,7 @@ public class View_Login {
 
 				String user = name.getText();
 				String userPassword = passWord.getText();
-				
-				
+
 				if (MyConnexion.checkUser(user) == true) {
 					if (MyConnexion.checkId(user, userPassword) == true) {
 
@@ -126,19 +126,16 @@ public class View_Login {
 
 					} else {
 
-						
 						lbl_Msg_PassWord_Error.setVisible(true);
 
 					}
-					
 
 				} else {
 
-					
 					lbl_Msg_Name_Error.setVisible(true);
 
 				}
-				
+
 			}
 
 		});

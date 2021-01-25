@@ -1,5 +1,6 @@
 import java.awt.EventQueue;
 import views.View_App;
+import views.View_Login;
 
 public class Main {
 
@@ -10,7 +11,7 @@ public class Main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					View_App view_app = new View_App();
+					View_Login view_app = new View_Login();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
