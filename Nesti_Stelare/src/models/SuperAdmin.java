@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class SuperAdmin extends Administrators {
 	public static void main(String[] args) {
-		addAdmin("stephane","torototo");
+		
 	}
 
 	public static void addAdmin(String nickName, String passWord) {
