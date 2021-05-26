@@ -8,7 +8,7 @@ import javax.swing.table.DefaultTableModel;
 
 import tools.MyRendererAndEditor;
 
-public class View_Suppliers {
+public class View_Suppliers extends BaseView{
 	
 	public View_Suppliers() {
 		initialize();
@@ -43,11 +43,11 @@ public class View_Suppliers {
 		JTable table_suppliers = new JTable();
 	    table_suppliers.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"Labo&Gato","Avenue de la république", "Montpellier", "34000", "Jean", "Dubois", "0654234526"," ", "-"},
-				{"Kitchenware", "Avenue de la république","St Jean de Védas", "34000", "Jean", "Dubois", "0654234526"," ", "-"},
-				{"Sugarcraft", "Avenue de la république", "Montpellier", "34000", "Jean", "Dubois", "0654234526"," ", "-"},
-				{"Wenny's Store", "Avenue de la république", "Montpellier", "34000", "Jean", "Dubois", "0654234526"," ", "-"},
-				{"Hypmark Kitchen", "Avenue de la république", "Montpellier", "34000", "Jean", "Dubois", "0654234526"," ", "-"}
+				{"Labo&Gato","Avenue de la rï¿½publique", "Montpellier", "34000", "Jean", "Dubois", "0654234526"," ", "-"},
+				{"Kitchenware", "Avenue de la rï¿½publique","St Jean de Vï¿½das", "34000", "Jean", "Dubois", "0654234526"," ", "-"},
+				{"Sugarcraft", "Avenue de la rï¿½publique", "Montpellier", "34000", "Jean", "Dubois", "0654234526"," ", "-"},
+				{"Wenny's Store", "Avenue de la rï¿½publique", "Montpellier", "34000", "Jean", "Dubois", "0654234526"," ", "-"},
+				{"Hypmark Kitchen", "Avenue de la rï¿½publique", "Montpellier", "34000", "Jean", "Dubois", "0654234526"," ", "-"}
 			},
 			new String[] {
 				"Entreprise", "Adresse", "Ville", "CP", "Nom contact", "Prenom contact", "Tel"," ", "-"}
@@ -70,11 +70,11 @@ public class View_Suppliers {
 		table_suppliers.getColumnModel().getColumn(6).setResizable(false);
 		table_suppliers.getColumnModel().getColumn(7).setResizable(false);
 		// Add btn upload
-		table_suppliers.getColumn(" ").setCellRenderer(new MyRendererAndEditor(table_suppliers, "Modifier"));
-		table_suppliers.getColumn(" ").setCellEditor(new MyRendererAndEditor(table_suppliers, "Modifier"));
+		table_suppliers.getColumn(" ").setCellRenderer(new MyRendererAndEditor(table_suppliers, "Modifier", this));
+		table_suppliers.getColumn(" ").setCellEditor(new MyRendererAndEditor(table_suppliers, "Modifier", this));
 		// Add btn delete
-		table_suppliers.getColumn("-").setCellRenderer(new MyRendererAndEditor(table_suppliers, "Supprimer"));
-		table_suppliers.getColumn("-").setCellEditor(new MyRendererAndEditor(table_suppliers, "Supprimer"));
+		table_suppliers.getColumn("-").setCellRenderer(new MyRendererAndEditor(table_suppliers, "Supprimer", this));
+		table_suppliers.getColumn("-").setCellEditor(new MyRendererAndEditor(table_suppliers, "Supprimer", this));
 		// Get table_suppliers visible in scrollPane_suppliers
 		scrollPane_suppliers.setViewportView(table_suppliers);
 		scrollPane_suppliers.setColumnHeaderView(table_suppliers.getTableHeader());
@@ -92,9 +92,9 @@ public class View_Suppliers {
 		JTable table_suppliers_articles = new JTable();
 	    table_suppliers_articles.setModel(new DefaultTableModel(
 	    		new Object[][] {
-					{"Boite de 6 oeufs", "Ingr\u00E9dient", 2.52+"€", "800g", "En stock", " ", "-"},
-					{"Paquet de farine", "Ingr\u00E9dient", 1.45+"€", "430g", "En stock", " ", "-"},
-					{"Lot de 2 fourchette", "Ustensile", 4.24+"€", "100g", "En stock", " ", "-"},
+					{"Boite de 6 oeufs", "Ingr\u00E9dient", 2.52+"ï¿½", "800g", "En stock", " ", "-"},
+					{"Paquet de farine", "Ingr\u00E9dient", 1.45+"ï¿½", "430g", "En stock", " ", "-"},
+					{"Lot de 2 fourchette", "Ustensile", 4.24+"ï¿½", "100g", "En stock", " ", "-"},
 				},
 				new String[] {
 					"Nom de l'article", "Type", "Prix", "Poids", "Stock", " ", "-"}
@@ -116,11 +116,11 @@ public class View_Suppliers {
 		table_suppliers_articles.getColumnModel().getColumn(5).setResizable(false);
 		table_suppliers_articles.getColumnModel().getColumn(6).setResizable(false);
 		// Add btn upload
-		table_suppliers_articles.getColumn(" ").setCellRenderer(new MyRendererAndEditor(table_suppliers_articles, "Modifier"));
-		table_suppliers_articles.getColumn(" ").setCellEditor(new MyRendererAndEditor(table_suppliers_articles, "Modifier"));
+		table_suppliers_articles.getColumn(" ").setCellRenderer(new MyRendererAndEditor(table_suppliers_articles, "Modifier", this));
+		table_suppliers_articles.getColumn(" ").setCellEditor(new MyRendererAndEditor(table_suppliers_articles, "Modifier", this));
 		// Add btn delete
-		table_suppliers_articles.getColumn("-").setCellRenderer(new MyRendererAndEditor(table_suppliers_articles, "Supprimer"));
-		table_suppliers_articles.getColumn("-").setCellEditor(new MyRendererAndEditor(table_suppliers_articles, "Supprimer"));
+		table_suppliers_articles.getColumn("-").setCellRenderer(new MyRendererAndEditor(table_suppliers_articles, "Supprimer", this));
+		table_suppliers_articles.getColumn("-").setCellEditor(new MyRendererAndEditor(table_suppliers_articles, "Supprimer", this));
 		// Get table_suppliers_articles visible in scrollPane_suppliers_articles
 		scrollPane_suppliers_articles.setViewportView(table_suppliers_articles);
 		scrollPane_suppliers_articles.setColumnHeaderView(table_suppliers_articles.getTableHeader());
@@ -144,6 +144,12 @@ public class View_Suppliers {
         panel_add_article.setBounds(898, 295, 328, 279);
         panel_suppliers.add(panel_add_article);
         panel_add_article.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 5));
+	}
+
+	@Override
+	public void loadDataInPanelUpdate(JTable table, int row) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
