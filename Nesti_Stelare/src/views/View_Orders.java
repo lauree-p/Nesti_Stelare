@@ -19,7 +19,7 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-public class View_Orders {
+public class View_Orders extends BaseView {
 	private JTextField textField;
 	private JTextField textField_Price;
 
@@ -76,11 +76,11 @@ public class View_Orders {
 		table_orders.getColumnModel().getColumn(6).setResizable(false);
 		table_orders.getColumnModel().getColumn(7).setResizable(false);
 		// Add btn upload
-		table_orders.getColumn(" ").setCellRenderer(new MyRendererAndEditor(table_orders, "Modifier"));
-		table_orders.getColumn(" ").setCellEditor(new MyRendererAndEditor(table_orders, "Modifier"));
+		table_orders.getColumn(" ").setCellRenderer(new MyRendererAndEditor(table_orders, "Modifier", this));
+		table_orders.getColumn(" ").setCellEditor(new MyRendererAndEditor(table_orders, "Modifier", this));
 		// Add btn delete
-		table_orders.getColumn("-").setCellRenderer(new MyRendererAndEditor(table_orders, "Supprimer"));
-		table_orders.getColumn("-").setCellEditor(new MyRendererAndEditor(table_orders, "Supprimer"));
+		table_orders.getColumn("-").setCellRenderer(new MyRendererAndEditor(table_orders, "Supprimer", this));
+		table_orders.getColumn("-").setCellEditor(new MyRendererAndEditor(table_orders, "Supprimer", this));
 		// Get table_orders visible in the scrollPane_orders
 		scrollPane_orders.setViewportView(table_orders);
 		scrollPane_orders.setColumnHeaderView(table_orders.getTableHeader());
@@ -122,11 +122,11 @@ public class View_Orders {
 		table_orders_articles.getColumnModel().getColumn(7).setResizable(false);
 		table_orders_articles.getColumnModel().getColumn(8).setResizable(false);
 		// Add btn upload
-		table_orders_articles.getColumn(" ").setCellRenderer(new MyRendererAndEditor(table_orders, "Modifier"));
-		table_orders_articles.getColumn(" ").setCellEditor(new MyRendererAndEditor(table_orders, "Modifier"));
+		table_orders_articles.getColumn(" ").setCellRenderer(new MyRendererAndEditor(table_orders, "Modifier", this));
+		table_orders_articles.getColumn(" ").setCellEditor(new MyRendererAndEditor(table_orders, "Modifier", this));
 		// Add btn delete
-		table_orders_articles.getColumn("-").setCellRenderer(new MyRendererAndEditor(table_orders, "Supprimer"));
-		table_orders_articles.getColumn("-").setCellEditor(new MyRendererAndEditor(table_orders, "Supprimer"));
+		table_orders_articles.getColumn("-").setCellRenderer(new MyRendererAndEditor(table_orders, "Supprimer", this));
+		table_orders_articles.getColumn("-").setCellEditor(new MyRendererAndEditor(table_orders, "Supprimer", this));
 		// Get table_orders_articles visible in the scrollPane_orders_articles
 		scrollPane_orders_articles.setViewportView(table_orders_articles);
 		scrollPane_orders_articles.setColumnHeaderView(table_orders_articles.getTableHeader());
@@ -284,5 +284,11 @@ public class View_Orders {
 		lblNewLabel_1.setBounds(50, 174, 65, 14);
 		panel_list_articles_orders.add(lblNewLabel_1);
 
+	}
+
+	@Override
+	public void loadDataInPanelUpdate(JTable table, int row) {
+		// TODO Auto-generated method stub
+		
 	}
 }

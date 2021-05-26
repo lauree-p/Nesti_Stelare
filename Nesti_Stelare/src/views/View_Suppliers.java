@@ -10,8 +10,8 @@ import javax.swing.table.DefaultTableModel;
 import models.Suppliers;
 import tools.MyRendererAndEditor;
 
-public class View_Suppliers {
-
+public class View_Suppliers extends BaseView{
+	
 	public View_Suppliers() {
 		initialize();
 	}
@@ -64,11 +64,11 @@ public class View_Suppliers {
 		table_suppliers.getColumnModel().getColumn(6).setResizable(false);
 		table_suppliers.getColumnModel().getColumn(7).setResizable(false);
 		// Add btn upload
-		table_suppliers.getColumn(" ").setCellRenderer(new MyRendererAndEditor(table_suppliers, "Modifier"));
-		table_suppliers.getColumn(" ").setCellEditor(new MyRendererAndEditor(table_suppliers, "Modifier"));
+		table_suppliers.getColumn(" ").setCellRenderer(new MyRendererAndEditor(table_suppliers, "Modifier", this));
+		table_suppliers.getColumn(" ").setCellEditor(new MyRendererAndEditor(table_suppliers, "Modifier", this));
 		// Add btn delete
-		table_suppliers.getColumn("-").setCellRenderer(new MyRendererAndEditor(table_suppliers, "Supprimer"));
-		table_suppliers.getColumn("-").setCellEditor(new MyRendererAndEditor(table_suppliers, "Supprimer"));
+		table_suppliers.getColumn("-").setCellRenderer(new MyRendererAndEditor(table_suppliers, "Supprimer", this));
+		table_suppliers.getColumn("-").setCellEditor(new MyRendererAndEditor(table_suppliers, "Supprimer", this));
 		// Get table_suppliers visible in scrollPane_suppliers
 		scrollPane_suppliers.setViewportView(table_suppliers);
 		scrollPane_suppliers.setColumnHeaderView(table_suppliers.getTableHeader());
@@ -105,15 +105,11 @@ public class View_Suppliers {
 		table_suppliers_articles.getColumnModel().getColumn(5).setResizable(false);
 		table_suppliers_articles.getColumnModel().getColumn(6).setResizable(false);
 		// Add btn upload
-		table_suppliers_articles.getColumn(" ")
-				.setCellRenderer(new MyRendererAndEditor(table_suppliers_articles, "Modifier"));
-		table_suppliers_articles.getColumn(" ")
-				.setCellEditor(new MyRendererAndEditor(table_suppliers_articles, "Modifier"));
+		table_suppliers_articles.getColumn(" ").setCellRenderer(new MyRendererAndEditor(table_suppliers_articles, "Modifier", this));
+		table_suppliers_articles.getColumn(" ").setCellEditor(new MyRendererAndEditor(table_suppliers_articles, "Modifier", this));
 		// Add btn delete
-		table_suppliers_articles.getColumn("-")
-				.setCellRenderer(new MyRendererAndEditor(table_suppliers_articles, "Supprimer"));
-		table_suppliers_articles.getColumn("-")
-				.setCellEditor(new MyRendererAndEditor(table_suppliers_articles, "Supprimer"));
+		table_suppliers_articles.getColumn("-").setCellRenderer(new MyRendererAndEditor(table_suppliers_articles, "Supprimer", this));
+		table_suppliers_articles.getColumn("-").setCellEditor(new MyRendererAndEditor(table_suppliers_articles, "Supprimer", this));
 		// Get table_suppliers_articles visible in scrollPane_suppliers_articles
 		scrollPane_suppliers_articles.setViewportView(table_suppliers_articles);
 		scrollPane_suppliers_articles.setColumnHeaderView(table_suppliers_articles.getTableHeader());
@@ -137,6 +133,12 @@ public class View_Suppliers {
 		panel_add_article.setBounds(898, 295, 328, 279);
 		panel_suppliers.add(panel_add_article);
 		panel_add_article.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 5));
+	}
+
+	@Override
+	public void loadDataInPanelUpdate(JTable table, int row) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

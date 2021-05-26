@@ -72,14 +72,14 @@ public class View_Products {
 		table_products_ingredients.getColumnModel().getColumn(3).setResizable(false);
 		// Add btn upload
 		table_products_ingredients.getColumn(" ")
-				.setCellRenderer(new MyRendererAndEditor(table_products_ingredients, "Modifier"));
+				.setCellRenderer(new MyRendererAndEditor(table_products_ingredients, "Modifier", null));
 		table_products_ingredients.getColumn(" ")
-				.setCellEditor(new MyRendererAndEditor(table_products_ingredients, "Modifier"));
+				.setCellEditor(new MyRendererAndEditor(table_products_ingredients, "Modifier", null));
 		// Add btn delete
 		table_products_ingredients.getColumn("-")
-				.setCellRenderer(new MyRendererAndEditor(table_products_ingredients, "Supprimer"));
+				.setCellRenderer(new MyRendererAndEditor(table_products_ingredients, "Supprimer", null));
 		table_products_ingredients.getColumn("-")
-				.setCellEditor(new MyRendererAndEditor(table_products_ingredients, "Supprimer"));
+				.setCellEditor(new MyRendererAndEditor(table_products_ingredients, "Supprimer", null));
 		// Get table_article visible in the scrollPane_articles
 		scrollPane_products_ingredients.setViewportView(table_products_ingredients);
 		scrollPane_products_ingredients.setColumnHeaderView(table_products_ingredients.getTableHeader());
@@ -111,14 +111,14 @@ public class View_Products {
 		table_products_utensils.getColumnModel().getColumn(3).setResizable(false);
 		// Add btn upload
 		table_products_utensils.getColumn(" ")
-				.setCellRenderer(new MyRendererAndEditor(table_products_utensils, "Modifier"));
+				.setCellRenderer(new MyRendererAndEditor(table_products_utensils, "Modifier", null));
 		table_products_utensils.getColumn(" ")
-				.setCellEditor(new MyRendererAndEditor(table_products_utensils, "Modifier"));
+				.setCellEditor(new MyRendererAndEditor(table_products_utensils, "Modifier", null));
 		// Add btn delete
 		table_products_utensils.getColumn("-")
-				.setCellRenderer(new MyRendererAndEditor(table_products_utensils, "Supprimer"));
+				.setCellRenderer(new MyRendererAndEditor(table_products_utensils, "Supprimer", null));
 		table_products_utensils.getColumn("-")
-				.setCellEditor(new MyRendererAndEditor(table_products_utensils, "Supprimer"));
+				.setCellEditor(new MyRendererAndEditor(table_products_utensils, "Supprimer", null));
 		// Get table_products_utensils visible in the scrollPane_products_utensils
 		scrollPane_products_utensils.setViewportView(table_products_utensils);
 		scrollPane_products_utensils.setColumnHeaderView(table_products_utensils.getTableHeader());

@@ -19,7 +19,7 @@ import tools.MyRendererAndEditor;
 
 
 
-public class View_Articles {
+public class View_Articles extends BaseView {
 
 	public View_Articles() {
 		initialize();
@@ -74,11 +74,11 @@ public class View_Articles {
 		table_article.getColumnModel().getColumn(5).setResizable(false);
 		table_article.getColumnModel().getColumn(6).setResizable(false);
 	    // Add btn upload
-		table_article.getColumn(" ").setCellRenderer(new MyRendererAndEditor(table_article, "Modifier"));
-		table_article.getColumn(" ").setCellEditor(new MyRendererAndEditor(table_article, "Modifier"));
+		table_article.getColumn(" ").setCellRenderer(new MyRendererAndEditor(table_article, "Modifier", this));
+		table_article.getColumn(" ").setCellEditor(new MyRendererAndEditor(table_article, "Modifier", this));
 	    // Add btn delete
-		table_article.getColumn("-").setCellRenderer(new MyRendererAndEditor(table_article, "Supprimer"));
-		table_article.getColumn("-").setCellEditor(new MyRendererAndEditor(table_article, "Supprimer"));
+		table_article.getColumn("-").setCellRenderer(new MyRendererAndEditor(table_article, "Supprimer", this));
+		table_article.getColumn("-").setCellEditor(new MyRendererAndEditor(table_article, "Supprimer", this));
 		// Get table_article visible in the scrollPane_articles
 		scrollPane_articles.setViewportView(table_article);
 		scrollPane_articles.setColumnHeaderView(table_article.getTableHeader());
@@ -189,5 +189,11 @@ public class View_Articles {
 		scrollPane_list_suppliers.setColumnHeaderView(table_article_suppliers);
 		scrollPane_list_suppliers.setViewportView(table_article_suppliers);
 
+	}
+
+	@Override
+	public void loadDataInPanelUpdate(JTable table, int row) {
+		// TODO Auto-generated method stub
+		
 	}
 }
