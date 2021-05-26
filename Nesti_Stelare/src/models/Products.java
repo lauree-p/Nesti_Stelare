@@ -13,19 +13,22 @@ public class Products {
 	}
 
 	// read ingredients.
-	public static ArrayList<String> readIngredients() {
+	public static String[][] readIngredients() {
+
 		ArrayList<String> products = new ArrayList<String>();
+		ArrayList<String[]> arrayRow = new ArrayList<String[]>();
+
 		try {
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
-			String query = "SELECT name, type, expiration_time_limit FROM products p INNER JOIN ingredients i ON p.id_products = i.id_ingredients";
+			String query = "SELECT name, expiration_time_limit, p.Id_products FROM products p INNER JOIN ingredients i ON p.id_products = i.id_ingredients";
 
 			resultat = declaration.executeQuery(query);
 
 			while (resultat.next()) {
 
-				products.add(resultat.getString("name") + " " + resultat.getString("type") + " "
-						+ resultat.getInt("expiration_time_limit"));
+				products.add(resultat.getString("name") + " " + resultat.getInt("expiration_time_limit") + " "
+						+ resultat.getString("Id_products"));
 			}
 
 			;
@@ -33,23 +36,38 @@ public class Products {
 		} catch (Exception e) {
 			System.err.println("erreur lors de la recuperation");
 		}
-		System.out.println(products);
-		return products;
+
+		for (int i = 0; i < products.size(); i++) {
+			arrayRow.add(products.get(i).split(" ", 3));
+		}
+
+		String[][] data = new String[arrayRow.size()][3];
+		for (int i = 0; i < arrayRow.size(); i++) {
+			data[i][0] = arrayRow.get(i)[0];
+			data[i][1] = arrayRow.get(i)[1];
+			data[i][2] = calculQuantity(arrayRow.get(i)[2]);
+
+		}
+
+		return data;
 	}
 
 	// read kitchen utensils.
-	public static ArrayList<String> readKitchenUtensils() {
+	public static String[][] readKitchenUtensils() {
+
 		ArrayList<String> products = new ArrayList<String>();
+		ArrayList<String[]> arrayRow = new ArrayList<String[]>();
+
 		try {
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
-			String query = "SELECT name, type FROM products p INNER JOIN kitchen_utensils k ON p.id_products = k.Id_products";
+			String query = "SELECT p.name, p.Id_products FROM products p INNER JOIN kitchen_utensils k ON p.id_products = k.Id_products";
 
 			resultat = declaration.executeQuery(query);
 
 			while (resultat.next()) {
 
-				products.add(resultat.getString("name") + " " + resultat.getString("type"));
+				products.add(resultat.getString("name") + " " + resultat.getString("Id_products"));
 			}
 
 			;
@@ -57,8 +75,19 @@ public class Products {
 		} catch (Exception e) {
 			System.err.println("erreur lors de la recuperation");
 		}
-		System.out.println(products);
-		return products;
+
+		for (int i = 0; i < products.size(); i++) {
+			arrayRow.add(products.get(i).split(" ", 2));
+		}
+
+		String[][] data = new String[arrayRow.size()][2];
+		for (int i = 0; i < arrayRow.size(); i++) {
+			data[i][0] = arrayRow.get(i)[0];
+			data[i][1] = calculQuantity(arrayRow.get(i)[1]);
+
+		}
+
+		return data;
 	}
 
 	// create products.
@@ -146,15 +175,15 @@ public class Products {
 	}
 
 	// count quantity.
-	public static int calculQuantity(int id_products) {
-		int stock = 0;
+	public static String calculQuantity(String id_products) {
+		String stock = "";
 		try {
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
 			String query = "SELECT COUNT(*) FROM articles WHERE id_products =" + id_products;
 			ResultSet resultat = declaration.executeQuery(query);
 			while (resultat.next()) {
-				stock = resultat.getInt("COUNT(*)");
+				stock = resultat.getString("COUNT(*)");
 			}
 
 		} catch (Exception e) {
