@@ -9,6 +9,8 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
+import entity.AdminEntity;
+import entity.BaseEntity;
 import models.Administrators;
 import models.SuperAdmin;
 import tools.MyRendererAndEditor;
@@ -23,12 +25,13 @@ import java.awt.event.ActionListener;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
 
-public class View_Administrators {
+public class View_Administrators extends BaseView {
 	
-	public static JPanel panel_admin_update = new JPanel();
-	public static JPanel panel_admin_delete = new JPanel();
-	public static JButton btn_delete_confirm = new JButton("Confirmer");
-	public static boolean confirmDelete = false;
+	//public static JPanel panel_admin_update = new JPanel();
+	//public static JPanel panel_admin_delete = new JPanel();
+	//public static JButton btn_delete_confirm = new JButton("Confirmer");
+	private JTextField textField_update_username = new JTextField();
+	private JTextField textField_update_password = new JTextField();
 	
 	public View_Administrators() {
 		initialize();
@@ -48,7 +51,7 @@ public class View_Administrators {
 		JPanel panel_administrators = new JPanel();
 		panel_administrators.setBackground(Color.WHITE);
 		View_App.tabbedPane.addTab("Administrateurs", null, panel_administrators, null);
-		panel_admin_update.setVisible(false);
+		panel_update.setVisible(false);
 		panel_administrators.setLayout(null);
 
 		/**
@@ -58,99 +61,98 @@ public class View_Administrators {
 		/**
 		 *  Panel update
 		 */		
-		panel_admin_delete.setVisible(false);
+		panel_delete.setVisible(false);
 		
-		panel_admin_delete.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
-		panel_admin_delete.setBackground(Color.LIGHT_GRAY);
-		panel_admin_delete.setBounds(320, 200, 400, 159);
-		panel_admin_delete.setLayout(null);
-		panel_administrators.add(panel_admin_delete);
+		panel_delete.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		panel_delete.setBackground(Color.LIGHT_GRAY);
+		panel_delete.setBounds(320, 200, 400, 159);
+		panel_delete.setLayout(null);
+		panel_administrators.add(panel_delete);
 		
 		JLabel lbl_title_delete_admin = new JLabel("Supprimer un administrateur");
 		lbl_title_delete_admin.setBounds(115, 23, 182, 15);
 		lbl_title_delete_admin.setFont(new Font("Tahoma", Font.BOLD, 12));
-		panel_admin_delete.add(lbl_title_delete_admin);
+		panel_delete.add(lbl_title_delete_admin);
 		
 		JButton btn_delete_cancel = new JButton("Annuler");
 		btn_delete_cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panel_admin_delete.setVisible(false);
+				panel_delete.setVisible(false);
 			}
 		});
 		btn_delete_cancel.setBounds(100, 125, 89, 23);
-		panel_admin_delete.add(btn_delete_cancel);
+		panel_delete.add(btn_delete_cancel);
 		
 		JButton btn_delete_confirm = new JButton("Confirmer");
 		btn_delete_confirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				confirmDelete = true;
-				panel_admin_delete.setVisible(false);
+				panel_delete.setVisible(false);
 			}
 		});
 		btn_delete_confirm.setBounds(221, 125, 110, 23);
-		panel_admin_delete.add(btn_delete_confirm);
+		panel_delete.add(btn_delete_confirm);
 		
 		JLabel lblNewLabel = new JLabel("Souhaitez vous vraiment supprimer l'administrateur :");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(0, 61, 400, 14);
-		panel_admin_delete.add(lblNewLabel);
+		panel_delete.add(lblNewLabel);
 		
 		JLabel lblToto = new JLabel("Toto ?");
 		lblToto.setHorizontalAlignment(SwingConstants.CENTER);
 		lblToto.setBounds(0, 86, 400, 14);
-		panel_admin_delete.add(lblToto);
+		panel_delete.add(lblToto);
 		
-		panel_admin_update.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
-		panel_admin_update.setBackground(Color.LIGHT_GRAY);
-		panel_admin_update.setBounds(362, 200, 313, 212);
-		panel_admin_update.setLayout(null);
-		panel_administrators.add(panel_admin_update);
+		panel_update.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		panel_update.setBackground(Color.LIGHT_GRAY);
+		panel_update.setBounds(362, 200, 313, 212);
+		panel_update.setLayout(null);
+		panel_administrators.add(panel_update);
 		
 		JLabel lbl_title_update_admin = new JLabel("Modifier un administrateur");
 		lbl_title_update_admin.setBounds(68, 22, 182, 15);
 		lbl_title_update_admin.setFont(new Font("Tahoma", Font.BOLD, 12));
-		panel_admin_update.add(lbl_title_update_admin);
+		panel_update.add(lbl_title_update_admin);
 		
-		JTextField textField_update_username = new JTextField();
 		textField_update_username.setBounds(56, 73, 194, 20);
-		panel_admin_update.add(textField_update_username);
+		panel_update.add(textField_update_username);
 		textField_update_username.setColumns(10);
 		
-		JTextField textField_update_password = new JTextField();
+		
 		textField_update_password.setColumns(10);
 		textField_update_password.setBounds(56, 125, 194, 20);
-		panel_admin_update.add(textField_update_password);
+		panel_update.add(textField_update_password);
 		
 		JLabel lbl_update_username = new JLabel("Nom d'utilisateur :");
 		lbl_update_username.setBounds(56, 48, 114, 14);
-		panel_admin_update.add(lbl_update_username);
+		panel_update.add(lbl_update_username);
 		
 		JLabel lbl_update_password = new JLabel("Mot de passe :");
 		lbl_update_password.setBounds(56, 104, 86, 14);
-		panel_admin_update.add(lbl_update_password);
+		panel_update.add(lbl_update_password);
 		
 		JButton btn_update_cancel = new JButton("Annuler");
 		btn_update_cancel.setBounds(51, 170, 89, 23);
-		panel_admin_update.add(btn_update_cancel);
+		panel_update.add(btn_update_cancel);
 		
 		btn_update_cancel.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-            	panel_admin_update.setVisible(false);
+            	panel_update.setVisible(false);
             }
             
         });
 		
 		JButton btn_update_update = new JButton("Modifier");
 		btn_update_update.setBounds(171, 170, 89, 23);
-		panel_admin_update.add(btn_update_update);
+		panel_update.add(btn_update_update);
 		
 		btn_update_update.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-            	panel_admin_update.setVisible(false);
+            	panel_update.setVisible(false);
             }
             
         });
@@ -178,11 +180,11 @@ public class View_Administrators {
 			table_admin.getColumnModel().getColumn(i).setResizable(false);
 		}
 	    // Add btn upload
-		table_admin.getColumn(" ").setCellRenderer(new MyRendererAndEditor(table_admin, "Modifier"));
-		table_admin.getColumn(" ").setCellEditor(new MyRendererAndEditor(table_admin, "Modifier"));
+		table_admin.getColumn(" ").setCellRenderer(new MyRendererAndEditor(table_admin, "Modifier", this));
+		table_admin.getColumn(" ").setCellEditor(new MyRendererAndEditor(table_admin, "Modifier", this));
 	    // Add btn delete
-		table_admin.getColumn("-").setCellRenderer(new MyRendererAndEditor(table_admin, "Supprimer"));
-		table_admin.getColumn("-").setCellEditor(new MyRendererAndEditor(table_admin, "Supprimer"));
+		table_admin.getColumn("-").setCellRenderer(new MyRendererAndEditor(table_admin, "Supprimer", this));
+		table_admin.getColumn("-").setCellEditor(new MyRendererAndEditor(table_admin, "Supprimer", this));
 		// Get table_admin visible in the scrollPane
 		scrollPane_administrators.setViewportView(table_admin);
         scrollPane_administrators.setColumnHeaderView(table_admin.getTableHeader());
@@ -252,11 +254,34 @@ public class View_Administrators {
 					return columnEditables[column];
 				}
 		});
+		
+		for (int i = 0  ; i < oldTable.getRowCount() ; i++ ) {
+			AdminEntity admin = new AdminEntity();
+			admin.setPseudo(oldTable.getModel().getValueAt(i, 0).toString());
+			admin.setSuperAdmin(oldTable.getModel().getValueAt(i, 1).equals("1"));
+			admin.setPassword(oldTable.getModel().getValueAt(i, 2).toString());
+			//oldTable.getColumn("").getCellEditor().s
+		}
+		
+		MyRendererAndEditor btn_update = new MyRendererAndEditor(oldTable, "Modifier", this);
+		
+		MyRendererAndEditor btn_delete = new MyRendererAndEditor(oldTable, "Supprimer", this);
 	    // Add btn upload
-		oldTable.getColumn(" ").setCellRenderer(new MyRendererAndEditor(oldTable, "Modifier"));
-		oldTable.getColumn(" ").setCellEditor(new MyRendererAndEditor(oldTable, "Modifier"));
+		oldTable.getColumn(" ").setCellRenderer(btn_update);
+		oldTable.getColumn(" ").setCellEditor(btn_update);
 	    // Add btn delete
-		oldTable.getColumn("-").setCellRenderer(new MyRendererAndEditor(oldTable, "Supprimer"));
-		oldTable.getColumn("-").setCellEditor(new MyRendererAndEditor(oldTable, "Supprimer"));
+		oldTable.getColumn("-").setCellRenderer(btn_delete);
+		oldTable.getColumn("-").setCellEditor(btn_delete);
+	}
+
+	@Override
+	public void loadDataInPanelUpdate(JTable table, int row) {
+		AdminEntity admin = new AdminEntity();
+		admin.setPseudo(table.getModel().getValueAt(row, 0).toString());
+		admin.setSuperAdmin(table.getModel().getValueAt(row, 1).equals("1"));
+		admin.setPassword(table.getModel().getValueAt(row, 2).toString());
+		this.textField_update_username.setText(admin.getPseudo());
+		this.textField_update_password.setText(admin.getPassword());
+		
 	}
 }

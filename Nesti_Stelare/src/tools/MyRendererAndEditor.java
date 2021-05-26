@@ -9,8 +9,11 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 
+import entity.AdminEntity;
+import entity.BaseEntity;
 import models.Administrators;
 import models.SuperAdmin;
+import views.BaseView;
 import views.View_Administrators;
 
 import javax.swing.event.CellEditorListener;
@@ -22,25 +25,26 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 	private JButton btn;
 	private int row;
 
-	public MyRendererAndEditor(JTable table, String nomBtn) {
+	public MyRendererAndEditor(JTable table, String nomBtn, BaseView baseview) {
 		btn = new JButton(nomBtn);
 		btn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (nomBtn == "Supprimer") {
+				System.out.println(row);
+				if (nomBtn.equals("Supprimer")) {
 					System.out.println("Click Supprimer");
-					View_Administrators.panel_admin_delete.setVisible(true);
-					if (View_Administrators.confirmDelete) {
+					baseview.panel_delete.setVisible(true);
+					if (baseview.confirmDelete) {
 						DefaultTableModel model = (DefaultTableModel) table.getModel();
 						model.removeRow(row);
 						int idAdmin = Integer.parseInt(Administrators.arrayRow.get(row)[0]);
 						SuperAdmin.deleteAdmin(idAdmin);
 					}
-					View_Administrators.confirmDelete = false;
+					baseview.confirmDelete = false;
 				} 
-				else if (nomBtn == "Modifier") {
-					View_Administrators.panel_admin_update.setVisible(true);
-					
+				else if (nomBtn.equals("Modifier")) {
+					baseview.loadDataInPanelUpdate(table, row);
+					baseview.panel_update.setVisible(true);
 				}
 				
 			}
