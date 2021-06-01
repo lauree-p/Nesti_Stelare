@@ -83,15 +83,15 @@ public class View_Administrators extends BaseView {
 		btn_delete_cancel.setBounds(100, 125, 89, 23);
 		panel_delete.add(btn_delete_cancel);
 		
-		JButton btn_delete_confirm = new JButton("Confirmer");
-		btn_delete_confirm.addActionListener(new ActionListener() {
+		
+		
+		btn_confirm_delete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				confirmDelete = true;
 				panel_delete.setVisible(false);
 			}
 		});
-		btn_delete_confirm.setBounds(221, 125, 110, 23);
-		panel_delete.add(btn_delete_confirm);
+		btn_confirm_delete.setBounds(221, 125, 110, 23);
+		panel_delete.add(btn_confirm_delete);
 		
 		JLabel lblNewLabel = new JLabel("Souhaitez vous vraiment supprimer l'administrateur :");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);

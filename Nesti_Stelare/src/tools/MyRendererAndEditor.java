@@ -4,7 +4,10 @@ import java.awt.Component;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
@@ -12,6 +15,7 @@ import javax.swing.table.TableCellRenderer;
 import entity.AdminEntity;
 import entity.BaseEntity;
 import models.Administrators;
+import models.Article;
 import models.SuperAdmin;
 import views.BaseView;
 import views.View_Administrators;
@@ -21,7 +25,7 @@ import java.awt.event.*;
 import java.util.EventObject;
 
 public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
-	
+
 	private JButton btn;
 	private int row;
 
@@ -30,25 +34,60 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 		btn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println(row);
+				DefaultTableModel model = (DefaultTableModel) table.getModel();
 				if (nomBtn.equals("Supprimer")) {
+
 					System.out.println("Click Supprimer");
-					baseview.panel_delete.setVisible(true);
-					if (baseview.confirmDelete) {
-						DefaultTableModel model = (DefaultTableModel) table.getModel();
-						model.removeRow(row);
-						int idAdmin = Integer.parseInt(Administrators.arrayRow.get(row)[0]);
-						SuperAdmin.deleteAdmin(idAdmin);
+					String elementAsupprimer = table.getModel().getValueAt(row, 0).toString();
+					int confirmationValue = JOptionPane.showConfirmDialog(null,
+							"voulez vous vraiment supprimer" + elementAsupprimer, "suppression",
+							JOptionPane.WARNING_MESSAGE);
+
+					if (confirmationValue == 0) {
+
+						if (baseview.getClass().getName() == "views.View_Administrators") {
+							int idAdmin = Integer.parseInt(Administrators.arrayRow.get(row)[0]);
+							if (SuperAdmin.deleteAdmin(idAdmin)) {
+								model.removeRow(row);
+							}
+						}
+//						if (baseview.toString() == "View_Administrators") {
+//							int idArticle = Integer.parseInt(Article.arrayRow.get(row)[0]);
+//							if (SuperAdmin.deleteAdmin(idAdmin)) {
+//								model.removeRow(row);
+//							}
+						// }
+
 					}
-					baseview.confirmDelete = false;
-				} 
-				else if (nomBtn.equals("Modifier")) {
-					baseview.loadDataInPanelUpdate(table, row);
-					baseview.panel_update.setVisible(true);
+					// baseview.confirmDelete = false;
+				} else if (nomBtn.equals("Modifier")) {
+					if (baseview.getClass().getName() == "views.View_Administrators") {
+						int idAdmin = Integer.parseInt(Administrators.arrayRow.get(row)[0]);
+						AdminEntity admin = new AdminEntity();
+						admin.setPseudo(table.getModel().getValueAt(row, 0).toString());
+						admin.setSuperAdmin(table.getModel().getValueAt(row, 1).equals("1"));
+						admin.setPassword(table.getModel().getValueAt(row, 2).toString());
+						JTextField textField1 = new JTextField();
+						textField1.setText(admin.getPseudo());
+						JTextField textField2 = new JTextField();
+						textField2.setText(admin.getPassword());
+						Object[] inputFields = { "Nom d'utilisateur", textField1,
+
+								"Mot de passe ", textField2 };
+						 int test = JOptionPane.showConfirmDialog(null, inputFields, "Modifier un administrateur",
+								JOptionPane.WARNING_MESSAGE);
+						if (test == 0) {
+							SuperAdmin.updateAdmin(idAdmin, textField1.getText(), textField2.getText());
+							model.setValueAt(textField1.getText(),row, 0);
+							model.setValueAt(textField2.getText(),row, 2);
+						}}
+
+					
 				}
-				
+
 			}
 		});
+
 	}
 
 	@Override
