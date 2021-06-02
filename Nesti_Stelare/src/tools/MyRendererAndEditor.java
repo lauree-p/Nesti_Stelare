@@ -62,7 +62,7 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 					}
 					// baseview.confirmDelete = false;
 				} else if (nomBtn.equals("Modifier")) {
-					if (baseview.getClass().getName() == "views.View_Administrators") {
+					if (baseview.getClass().getName().equals("views.View_Administrators")) {
 						int idAdmin = Integer.parseInt(Administrators.arrayRow.get(row)[0]);
 						AdminEntity admin = new AdminEntity();
 						admin.setPseudo(table.getModel().getValueAt(row, 0).toString());
@@ -82,6 +82,8 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 							model.setValueAt(textField1.getText(), row, 0);
 							model.setValueAt(textField2.getText(), row, 2);
 						}
+					}else if(baseview.getClass().getName().equals("views.View_Products")){
+						System.out.println("toto");
 					}
 
 				}
