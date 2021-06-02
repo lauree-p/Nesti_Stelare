@@ -279,9 +279,9 @@ public class View_Administrators extends BaseView {
 		AdminEntity admin = new AdminEntity();
 		admin.setPseudo(table.getModel().getValueAt(row, 0).toString());
 		admin.setSuperAdmin(table.getModel().getValueAt(row, 1).equals("1"));
-		admin.setPassword(table.getModel().getValueAt(row, 2).toString());
+//		admin.setPassword(table.getModel().getValueAt(row, 2).toString());
 		this.textField_update_username.setText(admin.getPseudo());
-		this.textField_update_password.setText(admin.getPassword());
+//		this.textField_update_password.setText(admin.getPassword());
 		
 	}
 }

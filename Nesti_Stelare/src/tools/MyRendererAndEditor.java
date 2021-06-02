@@ -67,7 +67,7 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 						AdminEntity admin = new AdminEntity();
 						admin.setPseudo(table.getModel().getValueAt(row, 0).toString());
 						admin.setSuperAdmin(table.getModel().getValueAt(row, 1).equals("1"));
-						admin.setPassword(table.getModel().getValueAt(row, 2).toString());
+//						admin.setPassword(table.getModel().getValueAt(row, 2).toString());
 						JTextField textField1 = new JTextField();
 						textField1.setText(admin.getPseudo());
 						JTextField textField2 = new JTextField();
@@ -80,8 +80,10 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 						if (test == 0) {
 							SuperAdmin.updateAdmin(idAdmin, textField1.getText(), textField2.getText());
 							model.setValueAt(textField1.getText(), row, 0);
-							model.setValueAt(textField2.getText(), row, 2);
+//							model.setValueAt(textField2.getText(), row, 2);
 						}
+					}else if(baseview.getClass().getName() == "views.View_Products"){
+						
 					}
 
 				}

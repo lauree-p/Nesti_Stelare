@@ -26,10 +26,16 @@ public class SuperAdmin extends Administrators {
 	public static void updateAdmin(int id_admin, String nickName, String passWord) {
 
 		try {
-			passWord = MD5.main(passWord);
+			String query;
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
-			String query = "UPDATE administrators SET nickName='" + nickName + "', passWord='" + passWord + "' WHERE Id_administrators=" + id_admin + ";";
+			if(!passWord.equals("")) {
+				passWord = MD5.main(passWord);
+				 query = "UPDATE administrators SET nickName='" + nickName + "', passWord='" + passWord + "' WHERE Id_administrators=" + id_admin + ";";
+			}else {
+				 query = "UPDATE administrators SET nickName='" + nickName + "' WHERE Id_administrators=" + id_admin + ";";
+			}
+			
 			declaration.executeUpdate(query);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
