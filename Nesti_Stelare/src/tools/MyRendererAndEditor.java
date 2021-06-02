@@ -33,12 +33,18 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 				System.out.println(row);
 				if (nomBtn.equals("Supprimer")) {
 					System.out.println("Click Supprimer");
+					baseview.loadDataInPanelDelete(table, row);
 					baseview.panel_delete.setVisible(true);
 					if (baseview.confirmDelete) {
 						DefaultTableModel model = (DefaultTableModel) table.getModel();
 						model.removeRow(row);
-						int idAdmin = Integer.parseInt(Administrators.arrayRow.get(row)[0]);
-						SuperAdmin.deleteAdmin(idAdmin);
+						if(baseview.toString() == "View_Administrators") {
+							//int idAdmin = Integer.parseInt(Administrators.arrayRow.get(row)[0]);
+							AdminEntity admin = new AdminEntity();
+							admin.setPseudo(table.getModel().getValueAt(row, 0).toString());
+							//SuperAdmin.deleteAdmin(idAdmin);
+							System.out.println("Confirm ok");
+						}
 					}
 					baseview.confirmDelete = false;
 				} 

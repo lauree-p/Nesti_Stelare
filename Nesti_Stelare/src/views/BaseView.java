@@ -12,7 +12,6 @@ public abstract class  BaseView {
 	public JPanel panel_confirm_delete;
 	public boolean confirmDelete = false;
 	
-	
 	/**
 	 * 
 	 */
@@ -63,7 +62,8 @@ public abstract class  BaseView {
 		this.panel_confirm_delete = panel_confirm_delete;
 	}
 	
-	public abstract void  loadDataInPanelUpdate(JTable table, int row);
-
+	public abstract void loadDataInPanelUpdate(JTable table, int row);
+	
+	public abstract void loadDataInPanelDelete(JTable table, int row);
 
 }

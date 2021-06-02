@@ -27,11 +27,10 @@ import javax.swing.border.MatteBorder;
 
 public class View_Administrators extends BaseView {
 	
-	//public static JPanel panel_admin_update = new JPanel();
-	//public static JPanel panel_admin_delete = new JPanel();
-	//public static JButton btn_delete_confirm = new JButton("Confirmer");
+	JPanel panel_administrators = new JPanel();
 	private JTextField textField_update_username = new JTextField();
 	private JTextField textField_update_password = new JTextField();
+	private JLabel lbl_name_delete = new JLabel();
 	
 	public View_Administrators() {
 		initialize();
@@ -43,65 +42,15 @@ public class View_Administrators extends BaseView {
 	@SuppressWarnings("serial")
 	private void initialize() {
 		
-		/**
-		 * Panels_administrators
-		 */
-		
-		// Create panel_administrators (TabbedPane)
-		JPanel panel_administrators = new JPanel();
 		panel_administrators.setBackground(Color.WHITE);
 		View_App.tabbedPane.addTab("Administrateurs", null, panel_administrators, null);
-		panel_update.setVisible(false);
 		panel_administrators.setLayout(null);
-
-		/**
-		 *  Table admin
-		 */
-		
-		/**
-		 *  Panel update
-		 */		
+		panel_update.setVisible(false);
 		panel_delete.setVisible(false);
 		
-		panel_delete.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
-		panel_delete.setBackground(Color.LIGHT_GRAY);
-		panel_delete.setBounds(320, 200, 400, 159);
-		panel_delete.setLayout(null);
-		panel_administrators.add(panel_delete);
-		
-		JLabel lbl_title_delete_admin = new JLabel("Supprimer un administrateur");
-		lbl_title_delete_admin.setBounds(115, 23, 182, 15);
-		lbl_title_delete_admin.setFont(new Font("Tahoma", Font.BOLD, 12));
-		panel_delete.add(lbl_title_delete_admin);
-		
-		JButton btn_delete_cancel = new JButton("Annuler");
-		btn_delete_cancel.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				panel_delete.setVisible(false);
-			}
-		});
-		btn_delete_cancel.setBounds(100, 125, 89, 23);
-		panel_delete.add(btn_delete_cancel);
-		
-		JButton btn_delete_confirm = new JButton("Confirmer");
-		btn_delete_confirm.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				confirmDelete = true;
-				panel_delete.setVisible(false);
-			}
-		});
-		btn_delete_confirm.setBounds(221, 125, 110, 23);
-		panel_delete.add(btn_delete_confirm);
-		
-		JLabel lblNewLabel = new JLabel("Souhaitez vous vraiment supprimer l'administrateur :");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(0, 61, 400, 14);
-		panel_delete.add(lblNewLabel);
-		
-		JLabel lblToto = new JLabel("Toto ?");
-		lblToto.setHorizontalAlignment(SwingConstants.CENTER);
-		lblToto.setBounds(0, 86, 400, 14);
-		panel_delete.add(lblToto);
+		/**
+		 * Panel_update
+		 */
 		
 		panel_update.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		panel_update.setBackground(Color.LIGHT_GRAY);
@@ -157,13 +106,62 @@ public class View_Administrators extends BaseView {
             
         });
 		
-		// Create scrollPane_administrators
+		/**
+		 * Panel_delete
+		 */
+		panel_delete.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		panel_delete.setBackground(Color.LIGHT_GRAY);
+		panel_delete.setBounds(320, 200, 400, 159);
+		panel_delete.setLayout(null);
+		panel_administrators.add(panel_delete);
+		
+		JLabel lbl_delete_admin = new JLabel("Supprimer un administrateur");
+		lbl_delete_admin.setBounds(115, 23, 182, 15);
+		lbl_delete_admin.setFont(new Font("Tahoma", Font.BOLD, 12));
+		panel_delete.add(lbl_delete_admin);
+		
+		JButton btn_delete_cancel = new JButton("Annuler");
+		btn_delete_cancel.setBounds(100, 125, 89, 23);
+		panel_delete.add(btn_delete_cancel);
+		
+		btn_delete_cancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panel_delete.setVisible(false);
+			}
+		});
+		
+		JLabel lbl_confirm_delete = new JLabel("Souhaitez vous vraiment supprimer l'administrateur :");
+		lbl_confirm_delete.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_confirm_delete.setBounds(0, 61, 400, 14);
+		panel_delete.add(lbl_confirm_delete);
+		
+		lbl_name_delete.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_name_delete.setBounds(0, 86, 400, 14);
+		panel_delete.add(lbl_name_delete);
+		
+		JButton btn_delete_confirm = new JButton("Confirmer");
+		btn_delete_confirm.setBounds(221, 125, 110, 23);
+		panel_delete.add(btn_delete_confirm);
+		btn_delete_confirm.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				confirmDelete = true;
+				panel_delete.setVisible(false);
+			}
+		});
+		
+		/**
+		 * Create scrollPane_administrators
+		 */
+
 		JScrollPane scrollPane_administrators = new JScrollPane();
 		scrollPane_administrators.setBounds(0, 0, 888, 585);
 		// Add scrollPane_administrators to panel_administrators
 		panel_administrators.add(scrollPane_administrators);
 		
-		// Create table_admin
+		/**
+		 * Create table_admin
+		 */
+		
 		JTable table_admin = new JTable();
 		String[] nameColumn =  {"Pseudo","IsSuperAdmin","Mot de passe"," ", "-"};
 		table_admin.setModel(new DefaultTableModel(Administrators.readAll(),nameColumn) {
@@ -192,8 +190,7 @@ public class View_Administrators extends BaseView {
         /**
          *  Panel create admin
          */
-        
-        // Create panel_create_admin
+     
         JPanel panel_create_admin = new JPanel();
         panel_create_admin.setBorder(new LineBorder(new Color(0, 0, 0)));
         panel_create_admin.setBounds(898, 11, 328, 204);
@@ -206,11 +203,11 @@ public class View_Administrators extends BaseView {
         lbl_user_name.setBounds(20, 43, 102, 14);
         panel_create_admin.add(lbl_user_name);
         
-        JLabel lbl_administratori = new JLabel("Ajouter un administrateur");
-        lbl_administratori.setFont(new Font("Tahoma", Font.BOLD, 12));
-        lbl_administratori.setHorizontalAlignment(SwingConstants.CENTER);
-        lbl_administratori.setBounds(70, 11, 198, 14);
-        panel_create_admin.add(lbl_administratori);
+        JLabel lbl_add_administrator = new JLabel("Ajouter un administrateur");
+        lbl_add_administrator.setFont(new Font("Tahoma", Font.BOLD, 12));
+        lbl_add_administrator.setHorizontalAlignment(SwingConstants.CENTER);
+        lbl_add_administrator.setBounds(70, 11, 198, 14);
+        panel_create_admin.add(lbl_add_administrator);
         
         JTextField textField_user_name = new JTextField();
         textField_user_name.setHorizontalAlignment(SwingConstants.CENTER);
@@ -229,20 +226,24 @@ public class View_Administrators extends BaseView {
         panel_create_admin.add(textField_passWord);
         textField_passWord.setColumns(10);
         
-        JButton btn_create_administrator = new JButton("CrÃ©er un administrateur");
+        JButton btn_create_administrator = new JButton("Créer un administrateur");
         btn_create_administrator.setBounds(70, 163, 198, 23);
         panel_create_admin.add(btn_create_administrator);
+        
         btn_create_administrator.addActionListener(new ActionListener() {
-
             @Override
             public void actionPerformed(ActionEvent e) {
                 SuperAdmin.addAdmin(textField_user_name.getText(),textField_passWord.getText());
                 uploadTable(table_admin);
-            }
-            
+            }  
         });
+        
 	}
 	
+	/**
+	 * Upload Table after changement
+	 * @param oldTable
+	 */
 	@SuppressWarnings("serial")
 	public void uploadTable(JTable oldTable) {
 		String[] nameColumn =  {"Pseudo","IsSuperAdmin","Mot de passe"," ", "-"};
@@ -260,11 +261,9 @@ public class View_Administrators extends BaseView {
 			admin.setPseudo(oldTable.getModel().getValueAt(i, 0).toString());
 			admin.setSuperAdmin(oldTable.getModel().getValueAt(i, 1).equals("1"));
 			admin.setPassword(oldTable.getModel().getValueAt(i, 2).toString());
-			//oldTable.getColumn("").getCellEditor().s
 		}
 		
 		MyRendererAndEditor btn_update = new MyRendererAndEditor(oldTable, "Modifier", this);
-		
 		MyRendererAndEditor btn_delete = new MyRendererAndEditor(oldTable, "Supprimer", this);
 	    // Add btn upload
 		oldTable.getColumn(" ").setCellRenderer(btn_update);
@@ -274,6 +273,9 @@ public class View_Administrators extends BaseView {
 		oldTable.getColumn("-").setCellEditor(btn_delete);
 	}
 
+	/**
+	 * Load data in panel update
+	 */
 	@Override
 	public void loadDataInPanelUpdate(JTable table, int row) {
 		AdminEntity admin = new AdminEntity();
@@ -282,6 +284,15 @@ public class View_Administrators extends BaseView {
 		admin.setPassword(table.getModel().getValueAt(row, 2).toString());
 		this.textField_update_username.setText(admin.getPseudo());
 		this.textField_update_password.setText(admin.getPassword());
-		
+	}
+	
+	/**
+	 * Load data in panel delete
+	 */
+	@Override
+	public void loadDataInPanelDelete(JTable table, int row) {
+		AdminEntity admin = new AdminEntity();
+		admin.setPseudo(table.getModel().getValueAt(row, 0).toString());
+		this.lbl_name_delete.setText(admin.getPseudo());
 	}
 }
