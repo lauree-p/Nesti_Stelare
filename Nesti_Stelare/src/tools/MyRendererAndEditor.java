@@ -36,8 +36,6 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 			public void actionPerformed(ActionEvent e) {
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
 				if (nomBtn.equals("Supprimer")) {
-
-					System.out.println("Click Supprimer");
 					String elementAsupprimer = table.getModel().getValueAt(row, 0).toString();
 					int confirmationValue = JOptionPane.showConfirmDialog(null,
 							"voulez vous vraiment supprimer" + elementAsupprimer, "suppression",
@@ -49,6 +47,9 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 							int idAdmin = Integer.parseInt(Administrators.arrayRow.get(row)[0]);
 							if (SuperAdmin.deleteAdmin(idAdmin)) {
 								model.removeRow(row);
+							} else {
+								JOptionPane.showMessageDialog(null,
+										"Suppression impossible, l'administrateur est lié à un autre élément");
 							}
 						}
 //						if (baseview.toString() == "View_Administrators") {
@@ -74,15 +75,15 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 						Object[] inputFields = { "Nom d'utilisateur", textField1,
 
 								"Mot de passe ", textField2 };
-						 int test = JOptionPane.showConfirmDialog(null, inputFields, "Modifier un administrateur",
+						int test = JOptionPane.showConfirmDialog(null, inputFields, "Modifier un administrateur",
 								JOptionPane.WARNING_MESSAGE);
 						if (test == 0) {
 							SuperAdmin.updateAdmin(idAdmin, textField1.getText(), textField2.getText());
-							model.setValueAt(textField1.getText(),row, 0);
-							model.setValueAt(textField2.getText(),row, 2);
-						}}
+							model.setValueAt(textField1.getText(), row, 0);
+							model.setValueAt(textField2.getText(), row, 2);
+						}
+					}
 
-					
 				}
 
 			}

@@ -2,6 +2,8 @@ package models;
 
 import java.sql.SQLException;
 
+import tools.MD5;
+
 public class SuperAdmin extends Administrators {
 	public static void main(String[] args) {
 
@@ -9,6 +11,7 @@ public class SuperAdmin extends Administrators {
 
 	public static void addAdmin(String nickName, String passWord) {
 		try {
+			passWord = MD5.main(passWord);
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
 			String query = "INSERT INTO `administrators` (`Id_administrators`, `is_super_admin`, `nickName`, `passWord`) VALUES (NULL, '0',  '"
@@ -23,6 +26,7 @@ public class SuperAdmin extends Administrators {
 	public static void updateAdmin(int id_admin, String nickName, String passWord) {
 
 		try {
+			passWord = MD5.main(passWord);
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
 			String query = "UPDATE administrators SET nickName='" + nickName + "', passWord='" + passWord + "' WHERE Id_administrators=" + id_admin + ";";
