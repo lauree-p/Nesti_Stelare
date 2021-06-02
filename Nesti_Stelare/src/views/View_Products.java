@@ -10,16 +10,21 @@ import javax.swing.JTable;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 
 import javax.swing.table.DefaultTableModel;
 
 import models.Products;
+import models.SuperAdmin;
 import tools.MyRendererAndEditor;
 import javax.swing.border.LineBorder;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
+import javax.swing.JCheckBox;
 
 public class View_Products extends BaseView {
 	private JTextField textField_name_product;
@@ -157,26 +162,6 @@ public class View_Products extends BaseView {
 		lbl_type_product.setBounds(0, 88, 128, 14);
 		panel_create_product.add(lbl_type_product);
 
-		JLabel lbl_ingredient = new JLabel("Ingr\u00E9dient :");
-		lbl_ingredient.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_ingredient.setBounds(55, 113, 82, 14);
-		panel_create_product.add(lbl_ingredient);
-
-		JLabel lbl_utensil = new JLabel("Ustensile : ");
-		lbl_utensil.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_utensil.setBounds(179, 113, 62, 14);
-		panel_create_product.add(lbl_utensil);
-
-		JRadioButton rdbtnNewRadioButton_ingredient = new JRadioButton("");
-		rdbtnNewRadioButton_ingredient.setHorizontalAlignment(SwingConstants.CENTER);
-		rdbtnNewRadioButton_ingredient.setBounds(131, 109, 22, 23);
-		panel_create_product.add(rdbtnNewRadioButton_ingredient);
-
-		JRadioButton rdbtnNewRadioButton_utensil = new JRadioButton("");
-		rdbtnNewRadioButton_utensil.setHorizontalAlignment(SwingConstants.CENTER);
-		rdbtnNewRadioButton_utensil.setBounds(240, 109, 22, 23);
-		panel_create_product.add(rdbtnNewRadioButton_utensil);
-
 		JLabel lbl_day_peremption = new JLabel("Jour avant p\u00E9remption :");
 		lbl_day_peremption.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_day_peremption.setBounds(0, 138, 153, 14);
@@ -191,6 +176,38 @@ public class View_Products extends BaseView {
 		JButton btn_add_product = new JButton("Ajouter le produit");
 		btn_add_product.setBounds(105, 204, 131, 23);
 		panel_create_product.add(btn_add_product);
+
+		String[] comboBoxItem = { "ingrédient", "ustensile" };
+		JComboBox comboBox = new JComboBox(comboBoxItem);
+
+		comboBox.setBounds(123, 84, 99, 22);
+		panel_create_product.add(comboBox);
+		btn_add_product.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				int day_peremption = 0;
+				String typeProduct = null;
+
+				if (!textField_day_peremption.getText().equals("")) {
+					day_peremption = Integer.parseInt(textField_day_peremption.getText());
+				}
+				if (comboBox.getSelectedItem() == "ingrédient") {
+					typeProduct = "ing";
+				} else if (comboBox.getSelectedItem() == "ustensile") {
+					typeProduct = "ute";
+				}
+				Products.createProducts(textField_name_product.getText(), typeProduct, day_peremption, 6);
+
+			}
+
+			private void uploadTable(JTable table_products_ingredients) {
+				// TODO Auto-generated method stub
+
+			}
+
+		});
 
 	}
 

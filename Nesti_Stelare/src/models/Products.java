@@ -116,8 +116,7 @@ public class Products {
 		try {
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
-			String query = "INSERT INTO `kitchen_utensils` (`Id_products`) VALUES (SELECT id_products FROM products WHERE name = '"
-					+ name + "'));";
+			String query = "INSERT INTO `kitchen_utensils` (`Id_products`) SELECT id_products FROM products WHERE name = '" + name + "';";
 			declaration.executeUpdate(query);
 
 		} catch (Exception e) {

@@ -120,7 +120,6 @@ public class View_Login {
 
 				String user = name.getText();
 				String userPassword = MD5.main(new String(passWord.getPassword()));
-				System.out.println(userPassword);
 				
 				if (MyConnexion.checkUser(user) == true) {
 					

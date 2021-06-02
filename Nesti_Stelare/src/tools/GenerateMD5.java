@@ -5,7 +5,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class GenerateMD5 {
 
-	public static void main(String[] args) {
+	public static String main(String[] args) {
 		// TODO Auto-generated method stub
 		String generatedPassword = null;
 		try {
@@ -26,6 +26,6 @@ public class GenerateMD5 {
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
-		System.out.println(generatedPassword);
+		return generatedPassword;
 	}
 }
