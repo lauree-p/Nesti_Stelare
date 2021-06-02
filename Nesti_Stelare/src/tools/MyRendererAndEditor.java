@@ -14,8 +14,10 @@ import javax.swing.table.TableCellRenderer;
 
 import entity.AdminEntity;
 import entity.BaseEntity;
+import entity.ProductsEntity;
 import models.Administrators;
 import models.Article;
+import models.Products;
 import models.SuperAdmin;
 import views.BaseView;
 import views.View_Administrators;
@@ -80,17 +82,38 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 						if (test == 0) {
 							SuperAdmin.updateAdmin(idAdmin, textField1.getText(), textField2.getText());
 							model.setValueAt(textField1.getText(), row, 0);
-//							model.setValueAt(textField2.getText(), row, 2);
 						}
-					}else if(baseview.getClass().getName().equals("views.View_Products")){
-						System.out.println("toto");
+					} else if (baseview.getClass().getName().equals("views.View_Products")) {
+						int idProducts = Integer.parseInt(Products.arrayRow.get(row)[1]);
+						ProductsEntity product = new ProductsEntity();
+						product.setName(table.getModel().getValueAt(row, 0).toString());
+						JTextField textField1 = new JTextField();
+						textField1.setText(product.getName());
+						if (table.getColumnCount() == 5) {
+							JTextField textField2 = new JTextField();
+							textField2.setText(table.getModel().getValueAt(row, 1).toString());
+							Object[] inputFields = { "Nom du produit", textField1, "Jour avant péremption",
+									textField2 };
+							int test = JOptionPane.showConfirmDialog(null, inputFields, "Modifier un ingrédient",
+									JOptionPane.WARNING_MESSAGE);
+							if (test == 0) {
+								Products.updateProducts(textField1.getText(), "ing",
+										Integer.parseInt(textField2.getText()), idProducts);
+								model.setValueAt(textField1.getText(), row, 0);
+								model.setValueAt(textField2.getText(), row, 1);
+							}
+						} else {
+							int test2 = JOptionPane.showConfirmDialog(null, textField1, "Modifier un ustensile",
+									JOptionPane.WARNING_MESSAGE);
+							if (test2 == 0) {
+								Products.updateProducts(textField1.getText(), "ute", 0, idProducts);
+								model.setValueAt(textField1.getText(), row, 0);
+							}
+						}
 					}
-
 				}
-
 			}
 		});
-
 	}
 
 	@Override

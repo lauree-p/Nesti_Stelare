@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 public class Products {
 
+	public static ArrayList<String[]> arrayRow;
+
 	private static ResultSet resultat = null;
 
 	public static void main(String[] args) {
@@ -16,19 +18,19 @@ public class Products {
 	public static String[][] readIngredients() {
 
 		ArrayList<String> products = new ArrayList<String>();
-		ArrayList<String[]> arrayRow = new ArrayList<String[]>();
+		arrayRow = new ArrayList<String[]>();
 
 		try {
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
-			String query = "SELECT name, expiration_time_limit, p.Id_products FROM products p INNER JOIN ingredients i ON p.id_products = i.id_ingredients";
+			String query = "SELECT name, p.Id_products, expiration_time_limit FROM products p INNER JOIN ingredients i ON p.id_products = i.id_ingredients";
 
 			resultat = declaration.executeQuery(query);
 
 			while (resultat.next()) {
 
-				products.add(resultat.getString("name") + " " + resultat.getInt("expiration_time_limit") + " "
-						+ resultat.getString("Id_products"));
+				products.add(resultat.getString("name") + " " + resultat.getString("Id_products") + " "
+						+ resultat.getInt("expiration_time_limit"));
 			}
 
 			;
@@ -44,8 +46,8 @@ public class Products {
 		String[][] data = new String[arrayRow.size()][3];
 		for (int i = 0; i < arrayRow.size(); i++) {
 			data[i][0] = arrayRow.get(i)[0];
-			data[i][1] = arrayRow.get(i)[1];
-			data[i][2] = calculQuantity(arrayRow.get(i)[2]);
+			data[i][1] = arrayRow.get(i)[2];
+			data[i][2] = calculQuantity(arrayRow.get(i)[1]);
 
 		}
 
@@ -56,7 +58,7 @@ public class Products {
 	public static String[][] readKitchenUtensils() {
 
 		ArrayList<String> products = new ArrayList<String>();
-		ArrayList<String[]> arrayRow = new ArrayList<String[]>();
+		arrayRow = new ArrayList<String[]>();
 
 		try {
 			MyConnexion.openConnection();
@@ -116,7 +118,8 @@ public class Products {
 		try {
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
-			String query = "INSERT INTO `kitchen_utensils` (`Id_products`) SELECT id_products FROM products WHERE name = '" + name + "';";
+			String query = "INSERT INTO `kitchen_utensils` (`Id_products`) SELECT id_products FROM products WHERE name = '"
+					+ name + "';";
 			declaration.executeUpdate(query);
 
 		} catch (Exception e) {
