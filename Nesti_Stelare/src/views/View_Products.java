@@ -10,18 +10,23 @@ import javax.swing.JTable;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 
 import javax.swing.table.DefaultTableModel;
 
 import models.Products;
+import models.SuperAdmin;
 import tools.MyRendererAndEditor;
 import javax.swing.border.LineBorder;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
+import javax.swing.JCheckBox;
 
-public class View_Products {
+public class View_Products extends BaseView {
 	private JTextField textField_name_product;
 	private JTextField textField_day_peremption;
 
@@ -58,7 +63,7 @@ public class View_Products {
 		table_products_ingredients.setModel(new DefaultTableModel(Products.readIngredients(), new String[] {
 				"Nom ingredient", "Jour avant péremption", "Nombre d'articles correspondant", " ", "-" }) {
 			private static final long serialVersionUID = 6100160127192405992L;
-			boolean[] columnEditables = new boolean[] { false, false, false, false };
+			boolean[] columnEditables = new boolean[] { false, false, false, true, true };
 
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
@@ -66,20 +71,21 @@ public class View_Products {
 		});
 
 		// Columns Properties
-		table_products_ingredients.getColumnModel().getColumn(0).setResizable(false);
-		table_products_ingredients.getColumnModel().getColumn(1).setResizable(false);
-		table_products_ingredients.getColumnModel().getColumn(2).setResizable(false);
-		table_products_ingredients.getColumnModel().getColumn(3).setResizable(false);
+		int columnCount = table_products_ingredients.getColumnModel().getColumnCount();
+        for (int i = 0; i < columnCount; i++ ) {
+            table_products_ingredients.getColumnModel().getColumn(i).setResizable(false);
+        }
+
 		// Add btn upload
 		table_products_ingredients.getColumn(" ")
-				.setCellRenderer(new MyRendererAndEditor(table_products_ingredients, "Modifier", null));
+				.setCellRenderer(new MyRendererAndEditor(table_products_ingredients, "Modifier", this));
 		table_products_ingredients.getColumn(" ")
-				.setCellEditor(new MyRendererAndEditor(table_products_ingredients, "Modifier", null));
+				.setCellEditor(new MyRendererAndEditor(table_products_ingredients, "Modifier", this));
 		// Add btn delete
 		table_products_ingredients.getColumn("-")
-				.setCellRenderer(new MyRendererAndEditor(table_products_ingredients, "Supprimer", null));
+				.setCellRenderer(new MyRendererAndEditor(table_products_ingredients, "Supprimer", this));
 		table_products_ingredients.getColumn("-")
-				.setCellEditor(new MyRendererAndEditor(table_products_ingredients, "Supprimer", null));
+				.setCellEditor(new MyRendererAndEditor(table_products_ingredients, "Supprimer", this));
 		// Get table_article visible in the scrollPane_articles
 		scrollPane_products_ingredients.setViewportView(table_products_ingredients);
 		scrollPane_products_ingredients.setColumnHeaderView(table_products_ingredients.getTableHeader());
@@ -98,27 +104,28 @@ public class View_Products {
 		table_products_utensils.setModel(new DefaultTableModel(Products.readKitchenUtensils(),
 				new String[] { "Nom ustensile", "Nombre d'articles correspondant", " ", "-" }) {
 			private static final long serialVersionUID = -1698236882141505675L;
-			boolean[] columnEditables = new boolean[] { false, false, false, false };
+			boolean[] columnEditables = new boolean[] { false, false, true, true };
 
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
 		});
+		
 		// Columns Properties
-		table_products_utensils.getColumnModel().getColumn(0).setResizable(false);
-		table_products_utensils.getColumnModel().getColumn(1).setResizable(false);
-		table_products_utensils.getColumnModel().getColumn(2).setResizable(false);
-		table_products_utensils.getColumnModel().getColumn(3).setResizable(false);
+				int columnCount2 = table_products_utensils.getColumnModel().getColumnCount();
+		        for (int i = 0; i < columnCount2; i++ ) {
+		        	table_products_utensils.getColumnModel().getColumn(i).setResizable(false);
+		        }
 		// Add btn upload
 		table_products_utensils.getColumn(" ")
-				.setCellRenderer(new MyRendererAndEditor(table_products_utensils, "Modifier", null));
+				.setCellRenderer(new MyRendererAndEditor(table_products_utensils, "Modifier", this));
 		table_products_utensils.getColumn(" ")
-				.setCellEditor(new MyRendererAndEditor(table_products_utensils, "Modifier", null));
+				.setCellEditor(new MyRendererAndEditor(table_products_utensils, "Modifier", this));
 		// Add btn delete
 		table_products_utensils.getColumn("-")
-				.setCellRenderer(new MyRendererAndEditor(table_products_utensils, "Supprimer", null));
+				.setCellRenderer(new MyRendererAndEditor(table_products_utensils, "Supprimer", this));
 		table_products_utensils.getColumn("-")
-				.setCellEditor(new MyRendererAndEditor(table_products_utensils, "Supprimer", null));
+				.setCellEditor(new MyRendererAndEditor(table_products_utensils, "Supprimer", this));
 		// Get table_products_utensils visible in the scrollPane_products_utensils
 		scrollPane_products_utensils.setViewportView(table_products_utensils);
 		scrollPane_products_utensils.setColumnHeaderView(table_products_utensils.getTableHeader());
@@ -156,26 +163,6 @@ public class View_Products {
 		lbl_type_product.setBounds(0, 88, 128, 14);
 		panel_create_product.add(lbl_type_product);
 
-		JLabel lbl_ingredient = new JLabel("Ingr\u00E9dient :");
-		lbl_ingredient.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_ingredient.setBounds(55, 113, 82, 14);
-		panel_create_product.add(lbl_ingredient);
-
-		JLabel lbl_utensil = new JLabel("Ustensile : ");
-		lbl_utensil.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_utensil.setBounds(179, 113, 62, 14);
-		panel_create_product.add(lbl_utensil);
-
-		JRadioButton rdbtnNewRadioButton_ingredient = new JRadioButton("");
-		rdbtnNewRadioButton_ingredient.setHorizontalAlignment(SwingConstants.CENTER);
-		rdbtnNewRadioButton_ingredient.setBounds(131, 109, 22, 23);
-		panel_create_product.add(rdbtnNewRadioButton_ingredient);
-
-		JRadioButton rdbtnNewRadioButton_utensil = new JRadioButton("");
-		rdbtnNewRadioButton_utensil.setHorizontalAlignment(SwingConstants.CENTER);
-		rdbtnNewRadioButton_utensil.setBounds(240, 109, 22, 23);
-		panel_create_product.add(rdbtnNewRadioButton_utensil);
-
 		JLabel lbl_day_peremption = new JLabel("Jour avant p\u00E9remption :");
 		lbl_day_peremption.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_day_peremption.setBounds(0, 138, 153, 14);
@@ -191,5 +178,43 @@ public class View_Products {
 		btn_add_product.setBounds(105, 204, 131, 23);
 		panel_create_product.add(btn_add_product);
 
+		String[] comboBoxItem = { "ingrédient", "ustensile" };
+		JComboBox comboBox = new JComboBox(comboBoxItem);
+
+		comboBox.setBounds(123, 84, 99, 22);
+		panel_create_product.add(comboBox);
+		btn_add_product.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				int day_peremption = 0;
+				String typeProduct = null;
+
+				if (!textField_day_peremption.getText().equals("")) {
+					day_peremption = Integer.parseInt(textField_day_peremption.getText());
+				}
+				if (comboBox.getSelectedItem() == "ingrédient") {
+					typeProduct = "ing";
+				} else if (comboBox.getSelectedItem() == "ustensile") {
+					typeProduct = "ute";
+				}
+				Products.createProducts(textField_name_product.getText(), typeProduct, day_peremption, 6);
+
+			}
+
+			private void uploadTable(JTable table_products_ingredients) {
+				// TODO Auto-generated method stub
+
+			}
+
+		});
+
+	}
+
+	@Override
+	public void loadDataInPanelUpdate(JTable table, int row) {
+		// TODO Auto-generated method stub
+		
 	}
 }

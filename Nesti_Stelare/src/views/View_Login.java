@@ -7,11 +7,13 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 
 import java.awt.BorderLayout;
 import javax.swing.SwingConstants;
 
 import models.MyConnexion;
+import tools.MD5;
 
 import java.awt.Font;
 import javax.swing.JTextField;
@@ -25,7 +27,7 @@ public class View_Login {
 	private static final String CENTER = null;
 	private JFrame frame;
 	private JTextField name;
-	private JTextField passWord;
+	private JPasswordField passWord;
 
 	/**
 	 * Launch the application.
@@ -48,6 +50,7 @@ public class View_Login {
 	 */
 	public View_Login() {
 		initialize();
+		frame.setVisible(true);
 	}
 
 	/**
@@ -86,7 +89,7 @@ public class View_Login {
 		frame.getContentPane().add(name);
 		name.setColumns(10);
 
-		passWord = new JTextField();
+		passWord = new JPasswordField();
 		passWord.setBounds(124, 241, 346, 33);
 		frame.getContentPane().add(passWord);
 		passWord.setColumns(10);
@@ -116,29 +119,23 @@ public class View_Login {
 			public void actionPerformed(ActionEvent e) {
 
 				String user = name.getText();
-				String userPassword = passWord.getText();
-				
+				String userPassword = MD5.main(new String(passWord.getPassword()));
 				
 				if (MyConnexion.checkUser(user) == true) {
+					
 					if (MyConnexion.checkId(user, userPassword) == true) {
-
+						
 						new View_App();
 
 					} else {
-
 						
 						lbl_Msg_PassWord_Error.setVisible(true);
-
 					}
-					
 
 				} else {
-
 					
 					lbl_Msg_Name_Error.setVisible(true);
-
 				}
-				
 			}
 
 		});

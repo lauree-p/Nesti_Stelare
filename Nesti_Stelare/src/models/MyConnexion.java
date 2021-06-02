@@ -98,7 +98,7 @@ public class MyConnexion {
 		if (accessDataBase != null) {
 			try {
 				accessDataBase.close();
-				System.out.println("Close connection");
+				
 			} catch (SQLException e) {
 				System.err.println("Erreur fermreture: " + e.getMessage());
 			}

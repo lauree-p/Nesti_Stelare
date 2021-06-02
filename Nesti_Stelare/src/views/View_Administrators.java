@@ -52,6 +52,51 @@ public class View_Administrators extends BaseView {
 		 * Panel_update
 		 */
 		
+		/**
+		 *  Panel update
+		 */		
+		panel_delete.setVisible(false);
+		
+		panel_delete.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		panel_delete.setBackground(Color.LIGHT_GRAY);
+		panel_delete.setBounds(320, 200, 400, 159);
+		panel_delete.setLayout(null);
+		panel_administrators.add(panel_delete);
+		
+		JLabel lbl_title_delete_admin = new JLabel("Supprimer un administrateur");
+		lbl_title_delete_admin.setBounds(115, 23, 182, 15);
+		lbl_title_delete_admin.setFont(new Font("Tahoma", Font.BOLD, 12));
+		panel_delete.add(lbl_title_delete_admin);
+		
+		JButton btn_delete_cancel = new JButton("Annuler");
+		btn_delete_cancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panel_delete.setVisible(false);
+			}
+		});
+		btn_delete_cancel.setBounds(100, 125, 89, 23);
+		panel_delete.add(btn_delete_cancel);
+		
+		
+		
+		btn_confirm_delete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panel_delete.setVisible(false);
+			}
+		});
+		btn_confirm_delete.setBounds(221, 125, 110, 23);
+		panel_delete.add(btn_confirm_delete);
+		
+		JLabel lblNewLabel = new JLabel("Souhaitez vous vraiment supprimer l'administrateur  :");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(0, 61, 400, 14);
+		panel_delete.add(lblNewLabel);
+		
+		JLabel lblToto = new JLabel("Toto ?");
+		lblToto.setHorizontalAlignment(SwingConstants.CENTER);
+		lblToto.setBounds(0, 86, 400, 14);
+		panel_delete.add(lblToto);
+		
 		panel_update.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		panel_update.setBackground(Color.LIGHT_GRAY);
 		panel_update.setBounds(362, 200, 313, 212);
@@ -226,7 +271,7 @@ public class View_Administrators extends BaseView {
         panel_create_admin.add(textField_passWord);
         textField_passWord.setColumns(10);
         
-        JButton btn_create_administrator = new JButton("Créer un administrateur");
+        JButton btn_create_administrator = new JButton("Crï¿½er un administrateur");
         btn_create_administrator.setBounds(70, 163, 198, 23);
         panel_create_admin.add(btn_create_administrator);
         
@@ -281,9 +326,10 @@ public class View_Administrators extends BaseView {
 		AdminEntity admin = new AdminEntity();
 		admin.setPseudo(table.getModel().getValueAt(row, 0).toString());
 		admin.setSuperAdmin(table.getModel().getValueAt(row, 1).equals("1"));
-		admin.setPassword(table.getModel().getValueAt(row, 2).toString());
+//		admin.setPassword(table.getModel().getValueAt(row, 2).toString());
 		this.textField_update_username.setText(admin.getPseudo());
-		this.textField_update_password.setText(admin.getPassword());
+//		this.textField_update_password.setText(admin.getPassword());
+		
 	}
 	
 	/**

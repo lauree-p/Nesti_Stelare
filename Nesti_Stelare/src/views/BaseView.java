@@ -1,5 +1,6 @@
 package views;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
@@ -10,8 +11,17 @@ public abstract class  BaseView {
 	public JPanel panel_update;
 	public JPanel panel_delete;
 	public JPanel panel_confirm_delete;
-	public boolean confirmDelete = false;
+	public JButton btn_confirm_delete;
+
+
+
+	public boolean confirmDelete;
 	
+	/**
+	 * @return the confirmDelete
+	 */
+	
+
 	/**
 	 * 
 	 */
@@ -20,6 +30,9 @@ public abstract class  BaseView {
 		this.panel_update = new JPanel();
 		this.panel_delete = new JPanel();
 		this.panel_confirm_delete = new JPanel();
+		this.btn_confirm_delete = new JButton("confirmer");
+		this.confirmDelete = false;
+		
 	}
 	
 	/**
@@ -62,8 +75,32 @@ public abstract class  BaseView {
 		this.panel_confirm_delete = panel_confirm_delete;
 	}
 	
-	public abstract void loadDataInPanelUpdate(JTable table, int row);
+	/**
+	 * @return the btn_confirm_delete
+	 */
 	
-	public abstract void loadDataInPanelDelete(JTable table, int row);
+	public JButton getBtn_confirm_delete() {
+		return btn_confirm_delete;
+	}
+	public boolean isConfirmDelete() {
+		return confirmDelete;
+	}
+
+	/**
+	 * @param confirmDelete the confirmDelete to set
+	 */
+	public void setConfirmDelete(boolean confirmDelete) {
+		this.confirmDelete = confirmDelete;
+	}
+
+	/**
+	 * @param btn_confirm_delete the btn_confirm_delete to set
+	 */
+	public void setBtn_confirm_delete(JButton btn_confirm_delete) {
+		this.btn_confirm_delete = btn_confirm_delete;
+	}
+
+	
+	public abstract void  loadDataInPanelUpdate(JTable table, int row);
 
 }
