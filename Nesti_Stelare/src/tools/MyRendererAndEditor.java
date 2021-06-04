@@ -20,6 +20,7 @@ import models.Administrators;
 import models.Article;
 import models.Products;
 import models.SuperAdmin;
+import models.Suppliers;
 import views.BaseView;
 import views.View_Administrators;
 
@@ -55,7 +56,7 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 								JOptionPane.showMessageDialog(null,
 										"Suppression impossible, l'administrateur est lié à un autre élément");
 							}
-						}else if (baseview.getClass().getName() == "views.View_Products") {
+						} else if (baseview.getClass().getName() == "views.View_Products") {
 							int idProducts = Integer.parseInt(Products.arrayRow.get(row)[1]);
 							if (Products.deleteProducts(idProducts)) {
 								model.removeRow(row);
@@ -63,17 +64,25 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 								JOptionPane.showMessageDialog(null,
 										"Suppression impossible, le produit est lié à un autre élément");
 							}
-						}else if(baseview.getClass().getName() == "views.View_Articles") {
+						} else if (baseview.getClass().getName() == "views.View_Articles") {
 							int idArticles = Integer.parseInt(Article.arrayRow.get(row)[5]);
-							if (SuperAdmin.deleteAdmin(idArticles)) {
+							if (Article.deleteArticle(idArticles)) {
 								model.removeRow(row);
 							} else {
 								JOptionPane.showMessageDialog(null,
 										"Suppression impossible, l'administrateur est lié à un autre élément");
 							}
-							
-						}
 
+						} else if (baseview.getClass().getName() == "views.View_Suppliers") {
+							int idSuppliers = Integer.parseInt(Suppliers.arrayRow.get(row)[0]);
+
+							if (Suppliers.deleteSuppliers(idSuppliers)) {
+								model.removeRow(row);
+							} else {
+								JOptionPane.showMessageDialog(null,
+										"Suppression impossible, l'administrateur est lié à un autre élément");
+							}
+						}
 
 					}
 
@@ -127,25 +136,48 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 					} else if (baseview.getClass().getName().equals("views.View_Articles")) {
 
 						int idArticles = Integer.parseInt(Article.arrayRow.get(row)[5]);
-						
+
 						ArticleEntity article = new ArticleEntity();
 						article.setName(table.getModel().getValueAt(row, 0).toString());
-						
+
 						article.setWeight(Double.parseDouble(Article.arrayRow.get(row)[1]));
-						
+
 						JTextField textField1 = new JTextField();
 						textField1.setText(article.getName());
 						JTextField textField2 = new JTextField();
 						textField2.setText(String.valueOf(article.getWeight()));
-						Object[] inputFields = { "Nom", textField1,"Poids", textField2 };
+						Object[] inputFields = { "Nom", textField1, "Poids", textField2 };
 
-								
-						int test = JOptionPane.showConfirmDialog(null, inputFields, "Modifier un article",JOptionPane.WARNING_MESSAGE);
-							
+						int test = JOptionPane.showConfirmDialog(null, inputFields, "Modifier un article",
+								JOptionPane.WARNING_MESSAGE);
+
 						if (test == 0) {
-							Article.update(textField1.getText(),Double.parseDouble(textField2.getText()) ,idArticles);
+							Article.update(textField1.getText(), Double.parseDouble(textField2.getText()), idArticles);
 							model.setValueAt(textField1.getText(), row, 0);
-							model.setValueAt(textField2.getText()+Article.arrayRow.get(row)[2],row,3);
+							model.setValueAt(textField2.getText() + Article.arrayRow.get(row)[2], row, 3);
+						}
+
+					} else if (baseview.getClass().getName().equals("views.View_Suppliers")) {
+						int idSuppliers = Integer.parseInt(Article.arrayRow.get(row)[0]);
+
+						SuppliersEntity suppliers = new SuppliersEntity();
+						article.setName(table.getModel().getValueAt(row, 0).toString());
+
+						article.setWeight(Double.parseDouble(Article.arrayRow.get(row)[1]));
+
+						JTextField textField1 = new JTextField();
+						textField1.setText(article.getName());
+						JTextField textField2 = new JTextField();
+						textField2.setText(String.valueOf(article.getWeight()));
+						Object[] inputFields = { "Nom", textField1, "Poids", textField2 };
+
+						int test = JOptionPane.showConfirmDialog(null, inputFields, "Modifier un article",
+								JOptionPane.WARNING_MESSAGE);
+
+						if (test == 0) {
+							Article.update(textField1.getText(), Double.parseDouble(textField2.getText()), idArticles);
+							model.setValueAt(textField1.getText(), row, 0);
+							model.setValueAt(textField2.getText() + Article.arrayRow.get(row)[2], row, 3);
 						}
 
 					}
