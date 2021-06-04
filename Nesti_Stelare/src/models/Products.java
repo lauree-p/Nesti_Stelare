@@ -210,4 +210,45 @@ public class Products {
 		return stock;
 	}
 
+	public static ArrayList<String> readNamesProducts() {
+		ArrayList<String> names = new ArrayList<String>();
+		try {
+			MyConnexion.openConnection();
+			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
+			String query = "SELECT name FROM products";
+
+			resultat = declaration.executeQuery(query);
+
+			while (resultat.next()) {
+
+				names.add(resultat.getString("name"));
+
+			}
+
+		} catch (Exception e) {
+			System.err.println("erreur lors de la recuperation");
+		}
+		return names;
+	}
+	
+	public static ArrayList<String> readNamesUnity() {
+		ArrayList<String> namesUnity = new ArrayList<String>();
+		try {
+			MyConnexion.openConnection();
+			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
+			String query = "SELECT NAME FROM unity";
+
+			resultat = declaration.executeQuery(query);
+
+			while (resultat.next()) {
+
+				namesUnity.add(resultat.getString("NAME"));
+			}
+
+		} catch (Exception e) {
+			System.err.println("erreur lors de la recuperation");
+		}
+		return namesUnity;
+	}
+
 }

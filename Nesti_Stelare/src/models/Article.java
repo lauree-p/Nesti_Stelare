@@ -12,8 +12,7 @@ public class Article {
 	public static ArrayList<String[]> arrayRow;
 
 	public static void main(String[] args) {
-	
-		
+
 	}
 
 	public static String[][] readAll() {
@@ -31,7 +30,7 @@ public class Article {
 
 				articles.add(resultat.getString("a.name") + "/" + resultat.getString("a.weight") + "/"
 						+ resultat.getString("u.NAME") + "/" + resultat.getString("a.state") + "/"
-						+ resultat.getString("p.type") +"/"+resultat.getInt("a.Id_articles"));
+						+ resultat.getString("p.type") + "/" + resultat.getInt("a.Id_articles"));
 
 			}
 
@@ -108,7 +107,7 @@ public class Article {
 			String query = "SELECT MAX(buy_price) FROM `is_contained` s  WHERE Id_articles = (SELECT Id_articles FROM articles WHERE name = '"
 					+ nameArticle + "');";
 			ResultSet resultat = declaration.executeQuery(query);
-		
+
 			while (resultat.next()) {
 				buy_price_article = resultat.getDouble("MAX(buy_price)");
 			}
@@ -117,19 +116,20 @@ public class Article {
 			buy_price_article = (double) 0;
 		}
 		Double price_calculated = buy_price_article * 1.20;
-		String test = String.valueOf( price_calculated);
-	
+		String test = String.valueOf(price_calculated);
+
 		return test;
 	}
 
-	public static void createArticle(String articleName, Double articleWeight, int idProduct, int idAdministrators,
-			int idUnity) {
+	public static void createArticle(String articleName, Double articleWeight, String nameProduct, int idAdministrators,
+			String nameUnity) {
 		try {
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
 			String query = "INSERT INTO `articles` (`id_articles`,`name`,`weight`,`state`,`id_administrators`,`id_products`,`id_unity`) VALUES (NULL, '"
-					+ articleName + "', '" + articleWeight + "', 'a', '" + idAdministrators + "', '" + idProduct
-					+ "', '" + idUnity + "' )";
+					+ articleName + "', '" + articleWeight + "', 'a', '" + idAdministrators
+					+ "', (SELECT Id_products FROM products WHERE name = '" + nameProduct + "' )"
+					+ ", (SELECT Id_unity FROM unity WHERE NAME = '" + nameUnity + "'))";
 			declaration.executeUpdate(query);
 
 		} catch (Exception e) {
@@ -152,7 +152,7 @@ public class Article {
 		}
 
 	}
-	
+
 	public static boolean deleteArticle(int idArticle) {
 
 		try {
@@ -173,14 +173,15 @@ public class Article {
 		try {
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
-			String query = "SELECT SUM(quantity) FROM is_contained WHERE Id_articles = (SELECT id_articles FROM articles WHERE name = '"+ nameArticle +"');";
+			String query = "SELECT SUM(quantity) FROM is_contained WHERE Id_articles = (SELECT id_articles FROM articles WHERE name = '"
+					+ nameArticle + "');";
 			ResultSet resultat = declaration.executeQuery(query);
 			while (resultat.next()) {
 				stock = resultat.getInt("SUM(quantity)");
 			}
 
 		} catch (Exception e) {
-		stock = 0;
+			stock = 0;
 		}
 		return String.valueOf(stock);
 	}
