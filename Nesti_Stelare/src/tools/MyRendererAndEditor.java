@@ -13,6 +13,7 @@ import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 
 import entity.AdminEntity;
+import entity.ArticleEntity;
 import entity.BaseEntity;
 import entity.ProductsEntity;
 import models.Administrators;
@@ -62,16 +63,20 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 								JOptionPane.showMessageDialog(null,
 										"Suppression impossible, le produit est lié à un autre élément");
 							}
+						}else if(baseview.getClass().getName() == "views.View_Articles") {
+							int idArticles = Integer.parseInt(Article.arrayRow.get(row)[5]);
+							if (SuperAdmin.deleteAdmin(idArticles)) {
+								model.removeRow(row);
+							} else {
+								JOptionPane.showMessageDialog(null,
+										"Suppression impossible, l'administrateur est lié à un autre élément");
+							}
+							
 						}
-//						if (baseview.toString() == "View_Administrators") {
-//							int idArticle = Integer.parseInt(Article.arrayRow.get(row)[0]);
-//							if (SuperAdmin.deleteAdmin(idAdmin)) {
-//								model.removeRow(row);
-//							}
-						// }
+
 
 					}
-					// baseview.confirmDelete = false;
+
 				} else if (nomBtn.equals("Modifier")) {
 					if (baseview.getClass().getName().equals("views.View_Administrators")) {
 						int idAdmin = Integer.parseInt(Administrators.arrayRow.get(row)[0]);
@@ -122,24 +127,26 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 					} else if (baseview.getClass().getName().equals("views.View_Articles")) {
 
 						int idArticles = Integer.parseInt(Article.arrayRow.get(row)[5]);
-						System.out.println(idArticles);
-						//AdminEntity admin = new AdminEntity();
-						//admin.setPseudo(table.getModel().getValueAt(row, 0).toString());
-						//admin.setSuperAdmin(table.getModel().getValueAt(row, 1).equals("1"));
-					//admin.setPassword(table.getModel().getValueAt(row, 2).toString());
-						//JTextField textField1 = new JTextField();
-						//textField1.setText(admin.getPseudo());
-						//JTextField textField2 = new JTextField();
-						//textField2.setText(admin.getPassword());
-						//Object[] inputFields = { "Nom d'utilisateur", textField1,"Mot de passe ", textField2 };
+						
+						ArticleEntity article = new ArticleEntity();
+						article.setName(table.getModel().getValueAt(row, 0).toString());
+						
+						article.setWeight(Double.parseDouble(Article.arrayRow.get(row)[1]));
+						
+						JTextField textField1 = new JTextField();
+						textField1.setText(article.getName());
+						JTextField textField2 = new JTextField();
+						textField2.setText(String.valueOf(article.getWeight()));
+						Object[] inputFields = { "Nom", textField1,"Poids", textField2 };
 
 								
-						//int test = JOptionPane.showConfirmDialog(null, inputFields, "Modifier un administrateur",JOptionPane.WARNING_MESSAGE);
-								
-						//if (test == 0) {
-							//SuperAdmin.updateAdmin(idArticles, textField1.getText(), textField2.getText());
-							//model.setValueAt(textField1.getText(), row, 0);
-						//}
+						int test = JOptionPane.showConfirmDialog(null, inputFields, "Modifier un article",JOptionPane.WARNING_MESSAGE);
+							
+						if (test == 0) {
+							Article.update(textField1.getText(),Double.parseDouble(textField2.getText()) ,idArticles);
+							model.setValueAt(textField1.getText(), row, 0);
+							model.setValueAt(textField2.getText()+Article.arrayRow.get(row)[2],row,3);
+						}
 
 					}
 
