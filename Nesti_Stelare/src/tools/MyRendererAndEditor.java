@@ -40,7 +40,7 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 				if (nomBtn.equals("Supprimer")) {
 					String elementAsupprimer = table.getModel().getValueAt(row, 0).toString();
 					int confirmationValue = JOptionPane.showConfirmDialog(null,
-							"voulez vous vraiment supprimer" + elementAsupprimer, "suppression",
+							"Voulez vous vraiment supprimer " + elementAsupprimer, "suppression",
 							JOptionPane.WARNING_MESSAGE);
 
 					if (confirmationValue == 0) {
@@ -52,6 +52,14 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 							} else {
 								JOptionPane.showMessageDialog(null,
 										"Suppression impossible, l'administrateur est lié à un autre élément");
+							}
+						}else if (baseview.getClass().getName() == "views.View_Products") {
+							int idProducts = Integer.parseInt(Products.arrayRow.get(row)[1]);
+							if (Products.deleteProducts(idProducts)) {
+								model.removeRow(row);
+							} else {
+								JOptionPane.showMessageDialog(null,
+										"Suppression impossible, le produit est lié à un autre élément");
 							}
 						}
 //						if (baseview.toString() == "View_Administrators") {

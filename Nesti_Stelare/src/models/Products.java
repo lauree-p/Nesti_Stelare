@@ -160,6 +160,22 @@ public class Products {
 		}
 	}
 
+	// delete products.
+	public static boolean deleteProducts(int idProducts) {
+		try {
+			MyConnexion.openConnection();
+			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
+			String query = "DELETE FROM `products` WHERE `products`.`Id_products` = " + idProducts + ";";
+
+			declaration.executeUpdate(query);
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.err.println("erreur lors de la mise a jour");
+			return false;
+		}
+	}
+
 	// update ingredients.
 	public static void updateIngredients(int expiration_time_limit, int id_products) {
 		try {
