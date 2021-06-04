@@ -130,11 +130,10 @@ public class View_Login {
 					
 					if (MyConnexion.checkId(user, userPassword) == true) {
 						
-						new View_App();
-						
 						userConnected = Administrators.readOne(user);
 						
-						System.out.println(userConnected.toString());
+						new View_App();
+				
 
 					} else {
 						

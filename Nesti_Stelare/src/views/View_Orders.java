@@ -292,9 +292,4 @@ public class View_Orders extends BaseView {
 		
 	}
 
-	@Override
-	public void loadDataInPanelDelete(JTable table, int row) {
-		// TODO Auto-generated method stub
-		
-	}
 }

@@ -137,10 +137,4 @@ public class View_Suppliers extends BaseView{
 		
 	}
 
-	@Override
-	public void loadDataInPanelDelete(JTable table, int row) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

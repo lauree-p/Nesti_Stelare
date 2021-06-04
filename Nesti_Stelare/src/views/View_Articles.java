@@ -240,10 +240,4 @@ public class View_Articles extends BaseView {
 
 	}
 	
-	@Override
-	public void loadDataInPanelDelete(JTable table, int row) {
-		AdminEntity admin = new AdminEntity();
-		admin.setPseudo(table.getModel().getValueAt(row, 0).toString());
-		this.lbl_name_delete.setText(admin.getPseudo());
-	}
 }

@@ -165,10 +165,6 @@ public class View_Administrators extends BaseView {
 		lbl_delete_admin.setFont(new Font("Tahoma", Font.BOLD, 12));
 		panel_delete.add(lbl_delete_admin);
 		
-		JButton btn_delete_cancel = new JButton("Annuler");
-		btn_delete_cancel.setBounds(100, 125, 89, 23);
-		panel_delete.add(btn_delete_cancel);
-		
 		btn_delete_cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_delete.setVisible(false);
@@ -332,13 +328,4 @@ public class View_Administrators extends BaseView {
 		
 	}
 	
-	/**
-	 * Load data in panel delete
-	 */
-	@Override
-	public void loadDataInPanelDelete(JTable table, int row) {
-		AdminEntity admin = new AdminEntity();
-		admin.setPseudo(table.getModel().getValueAt(row, 0).toString());
-		this.lbl_name_delete.setText(admin.getPseudo());
-	}
 }
