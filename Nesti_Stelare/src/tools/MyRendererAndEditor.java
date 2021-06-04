@@ -160,25 +160,25 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 					} else if (baseview.getClass().getName().equals("views.View_Suppliers")) {
 						int idSuppliers = Integer.parseInt(Article.arrayRow.get(row)[0]);
 
-						SuppliersEntity suppliers = new SuppliersEntity();
-						article.setName(table.getModel().getValueAt(row, 0).toString());
-
-						article.setWeight(Double.parseDouble(Article.arrayRow.get(row)[1]));
-
-						JTextField textField1 = new JTextField();
-						textField1.setText(article.getName());
-						JTextField textField2 = new JTextField();
-						textField2.setText(String.valueOf(article.getWeight()));
-						Object[] inputFields = { "Nom", textField1, "Poids", textField2 };
-
-						int test = JOptionPane.showConfirmDialog(null, inputFields, "Modifier un article",
-								JOptionPane.WARNING_MESSAGE);
-
-						if (test == 0) {
-							Article.update(textField1.getText(), Double.parseDouble(textField2.getText()), idArticles);
-							model.setValueAt(textField1.getText(), row, 0);
-							model.setValueAt(textField2.getText() + Article.arrayRow.get(row)[2], row, 3);
-						}
+//						SuppliersEntity suppliers = new SuppliersEntity();
+//						article.setName(table.getModel().getValueAt(row, 0).toString());
+//
+//						article.setWeight(Double.parseDouble(Article.arrayRow.get(row)[1]));
+//
+//						JTextField textField1 = new JTextField();
+//						textField1.setText(article.getName());
+//						JTextField textField2 = new JTextField();
+//						textField2.setText(String.valueOf(article.getWeight()));
+//						Object[] inputFields = { "Nom", textField1, "Poids", textField2 };
+//
+//						int test = JOptionPane.showConfirmDialog(null, inputFields, "Modifier un article",
+//								JOptionPane.WARNING_MESSAGE);
+//
+//						if (test == 0) {
+//							Article.update(textField1.getText(), Double.parseDouble(textField2.getText()), idArticles);
+//							model.setValueAt(textField1.getText(), row, 0);
+//							model.setValueAt(textField2.getText() + Article.arrayRow.get(row)[2], row, 3);
+//						}
 
 					}
 
