@@ -60,11 +60,5 @@ public class AdminEntity extends BaseEntity {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	@Override
-	public String toString() {
-		
-		return "AdminEntity : id=>"+this.id+" pseudo=>"+this.pseudo+" password=>"+this.password;
-	}
 
 }

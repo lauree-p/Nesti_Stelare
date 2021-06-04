@@ -42,7 +42,8 @@ public class View_App {
 		btn_disconnect.setBounds(1124, 14, 124, 23);
 		
 		// Label nickname
-		JLabel lbl_nickname = new JLabel("SuperAdministrateur01");
+		JLabel lbl_nickname = new JLabel();
+		lbl_nickname.setText(View_Login.userConnected.getPseudo());
 		lbl_nickname.setBounds(910, 11, 204, 29);
 		lbl_nickname.setHorizontalAlignment(SwingConstants.RIGHT);
 		lbl_nickname.setForeground(Color.BLACK);

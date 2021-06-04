@@ -17,7 +17,6 @@ public abstract class  BaseView {
 
 	public boolean confirmDelete;
 	
-	
 	/**
 	 * @return the confirmDelete
 	 */
@@ -103,6 +102,5 @@ public abstract class  BaseView {
 
 	
 	public abstract void  loadDataInPanelUpdate(JTable table, int row);
-
 
 }
