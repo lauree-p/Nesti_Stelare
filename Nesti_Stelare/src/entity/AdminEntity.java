@@ -2,9 +2,28 @@ package entity;
 
 public class AdminEntity extends BaseEntity {
 	
+	private int id;
 	private String pseudo;
 	private boolean isSuperAdmin;
 	private String password;
+	
+	public AdminEntity() {
+		
+	}
+	
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	/**
 	 * @return the name
 	 */
@@ -40,6 +59,12 @@ public class AdminEntity extends BaseEntity {
 	 */
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	@Override
+	public String toString() {
+		
+		return "AdminEntity : id=>"+this.id+" pseudo=>"+this.pseudo+" password=>"+this.password;
 	}
 
 }
