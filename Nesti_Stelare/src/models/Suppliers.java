@@ -7,14 +7,13 @@ import java.util.Arrays;
 
 //rajouter le type , le poids et le en stock dans readarticlebysuppliers
 public class Suppliers {
-	public static void main(String[] args) {
-		
-	}
+	public static ArrayList<String[]> arrayRow;
+
 
 	public static String[][] readAll() {
 
 		ArrayList<String> suppliers = new ArrayList<String>();
-		ArrayList<String[]> arrayRow = new ArrayList<String[]>();
+		arrayRow = new ArrayList<String[]>();
 
 		try {
 			MyConnexion.openConnection();
@@ -115,7 +114,7 @@ public class Suppliers {
 	}
 
 	public static void update(String company_name, String company_street, String company_city, int company_cp,
-			String contact_name, String contact_firstName, String tel_number, String state, int id_suppliers) {
+			String contact_name, String contact_firstName, String tel_number, int id_suppliers) {
 
 		try {
 			MyConnexion.openConnection();
@@ -123,13 +122,27 @@ public class Suppliers {
 			String query = "UPDATE suppliers SET company_name='" + company_name + "', company_street='" + company_street
 					+ "', company_city='" + company_city + "', company_cp='" + company_cp + "', contact_name='"
 					+ contact_name + "', contact_firstName='" + contact_firstName + "', tel_number='" + tel_number
-					+ "', state='" + state + "' WHERE id_suppliers=" + id_suppliers + ";";
+					+ "' WHERE id_suppliers=" + id_suppliers + ";";
 			declaration.executeUpdate(query);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			System.err.println("erreur lors de la mise a jour");
 		}
 
+	}
+	public static boolean deleteSuppliers(int idSupplier) {
+
+		try {
+			MyConnexion.openConnection();
+			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
+			String query = "DELETE FROM `suppliers` WHERE `suppliers`.`id_suppliers` = " + idSupplier + ";";
+			declaration.executeUpdate(query);
+			return true;
+		} catch (SQLException e) {
+
+			System.err.println("erreur update impossible");
+			return false;
+		}
 	}
 
 }

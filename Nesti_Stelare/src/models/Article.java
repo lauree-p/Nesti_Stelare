@@ -9,28 +9,28 @@ import java.util.ArrayList;
 public class Article {
 	private static ResultSet resultat = null;
 	private static Double buy_price_article = 0.0;
+	public static ArrayList<String[]> arrayRow;
 
 	public static void main(String[] args) {
-	
-		
+
 	}
 
 	public static String[][] readAll() {
 
 		ArrayList<String> articles = new ArrayList<String>();
-		ArrayList<String[]> arrayRow = new ArrayList<String[]>();
+		arrayRow = new ArrayList<String[]>();
 
 		try {
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
-			String query = "SELECT a.name,a.weight,a.state,p.type,u.NAME FROM articles a INNER JOIN products p ON a.id_products=p.Id_products INNER JOIN unity u ON a.id_unity=u.Id_unity;";
+			String query = "SELECT a.name,a.weight,a.state,p.type,u.NAME, a.Id_articles FROM articles a INNER JOIN products p ON a.id_products=p.Id_products INNER JOIN unity u ON a.id_unity=u.Id_unity;";
 			resultat = declaration.executeQuery(query);
 
 			while (resultat.next()) {
 
 				articles.add(resultat.getString("a.name") + "/" + resultat.getString("a.weight") + "/"
 						+ resultat.getString("u.NAME") + "/" + resultat.getString("a.state") + "/"
-						+ resultat.getString("p.type"));
+						+ resultat.getString("p.type") + "/" + resultat.getInt("a.Id_articles"));
 
 			}
 
@@ -41,7 +41,7 @@ public class Article {
 		}
 
 		for (int i = 0; i < articles.size(); i++) {
-			arrayRow.add(articles.get(i).split("/", 5));
+			arrayRow.add(articles.get(i).split("/", 6));
 		}
 
 		String[][] data = new String[arrayRow.size()][6];
@@ -62,7 +62,7 @@ public class Article {
 		try {
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
-			String query = "SELECT a.name,a.weight,a.state,p.type,u.NAME FROM articles a INNER JOIN products p ON a.id_products=p.Id_products INNER JOIN unity u ON a.id_unity=u.Id_unity WHERE id_articles ="
+			String query = "SELECT a.name,a.weight,a.state,p.type,u.NAME,a.Id_articles FROM articles a INNER JOIN products p ON a.id_products=p.Id_products INNER JOIN unity u ON a.id_unity=u.Id_unity WHERE id_articles ="
 					+ id + ";";
 			resultat = declaration.executeQuery(query);
 			/* R�cup�ration des donn�es */
@@ -107,6 +107,7 @@ public class Article {
 			String query = "SELECT MAX(buy_price) FROM `is_contained` s  WHERE Id_articles = (SELECT Id_articles FROM articles WHERE name = '"
 					+ nameArticle + "');";
 			ResultSet resultat = declaration.executeQuery(query);
+
 			while (resultat.next()) {
 				buy_price_article = resultat.getDouble("MAX(buy_price)");
 			}
@@ -115,18 +116,20 @@ public class Article {
 			buy_price_article = (double) 0;
 		}
 		Double price_calculated = buy_price_article * 1.20;
-		String test = String.valueOf( price_calculated);
+		String test = String.valueOf(price_calculated);
+
 		return test;
 	}
 
-	public static void createArticle(String articleName, Double articleWeight, int idProduct, int idAdministrators,
-			int idUnity) {
+	public static void createArticle(String articleName, Double articleWeight, String nameProduct, int idAdministrators,
+			String nameUnity) {
 		try {
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
 			String query = "INSERT INTO `articles` (`id_articles`,`name`,`weight`,`state`,`id_administrators`,`id_products`,`id_unity`) VALUES (NULL, '"
-					+ articleName + "', '" + articleWeight + "', 'a', '" + idAdministrators + "', '" + idProduct
-					+ "', '" + idUnity + "' )";
+					+ articleName + "', '" + articleWeight + "', 'a', '" + idAdministrators
+					+ "', (SELECT Id_products FROM products WHERE name = '" + nameProduct + "' )"
+					+ ", (SELECT Id_unity FROM unity WHERE NAME = '" + nameUnity + "'))";
 			declaration.executeUpdate(query);
 
 		} catch (Exception e) {
@@ -134,13 +137,12 @@ public class Article {
 		}
 	}
 
-	public static void update(String name, Double weight, String state, int idProduct, int idUnity, int id_article) {
+	public static void update(String name, Double weight, int id_article) {
 
 		try {
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
-			String query = "UPDATE articles SET name='" + name + "', weight='" + weight + "', state='" + state
-					+ "', id_products='" + idProduct + "', id_Unity='" + idUnity + "' WHERE id_articles=" + id_article
+			String query = "UPDATE articles SET name='" + name + "', weight='" + weight + "' WHERE id_articles=" + id_article
 					+ ";";
 			declaration.executeUpdate(query);
 		} catch (SQLException e) {
@@ -149,7 +151,7 @@ public class Article {
 		}
 
 	}
-	
+
 	public static boolean deleteArticle(int idArticle) {
 
 		try {
@@ -170,14 +172,15 @@ public class Article {
 		try {
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
-			String query = "SELECT SUM(quantity) FROM is_contained WHERE Id_articles = (SELECT id_articles FROM articles WHERE name = '"+ nameArticle +"');";
+			String query = "SELECT SUM(quantity) FROM is_contained WHERE Id_articles = (SELECT id_articles FROM articles WHERE name = '"
+					+ nameArticle + "');";
 			ResultSet resultat = declaration.executeQuery(query);
 			while (resultat.next()) {
 				stock = resultat.getInt("SUM(quantity)");
 			}
 
 		} catch (Exception e) {
-		stock = 0;
+			stock = 0;
 		}
 		return String.valueOf(stock);
 	}
