@@ -18,6 +18,7 @@ import javax.swing.border.MatteBorder;
 import javax.swing.table.DefaultTableModel;
 
 import entity.AdminEntity;
+import entity.ArticleEntity;
 import models.Administrators;
 import models.Article;
 import models.Products;
@@ -132,15 +133,15 @@ public class View_Articles extends BaseView {
 
 		// ComboBox
 		String[] nameProducts = new String[Products.readNamesProducts().size()];
-		for (int i = 0; i < nameProducts.length; i++){
+		for (int i = 0; i < nameProducts.length; i++) {
 			nameProducts[i] = Products.readNamesProducts().get(i);
 		}
 		JComboBox comboBox_article_product = new JComboBox(nameProducts);
 		comboBox_article_product.setBounds(23, 109, 277, 20);
 		panel_create_article.add(comboBox_article_product);
-		
+
 		String[] nameUnity = new String[Products.readNamesUnity().size()];
-		for (int i = 0; i < nameUnity.length; i++){
+		for (int i = 0; i < nameUnity.length; i++) {
 			nameUnity[i] = Products.readNamesUnity().get(i);
 		}
 		JComboBox comboBox_article_poids = new JComboBox(nameUnity);
@@ -155,11 +156,14 @@ public class View_Articles extends BaseView {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Article.createArticle(textField_article_name.getText(), Double.parseDouble(textField_article_poids.getText()),
-						comboBox_article_product.getSelectedItem().toString(), 6, comboBox_article_poids.getSelectedItem().toString());
+				Article.createArticle(textField_article_name.getText(),
+						Double.parseDouble(textField_article_poids.getText()),
+						comboBox_article_product.getSelectedItem().toString(), 6,
+						comboBox_article_poids.getSelectedItem().toString());
+						uploadTable(table_article);
 			}
 		});
-		
+
 		/**
 		 * Panel table suppliers by article
 		 */
@@ -201,38 +205,35 @@ public class View_Articles extends BaseView {
 		scrollPane_list_suppliers.setViewportView(table_article_suppliers);
 
 	}
-	
+
 	@SuppressWarnings("serial")
 	public void uploadTable(JTable oldTable) {
-		String[] nameColumn =  {"Nom", "Type", "Prix", "Poids", "Etat", "Stock", " ", "-" };
-		oldTable.setModel(new DefaultTableModel(Article.readAll(),nameColumn) {
-				boolean[] columnEditables = new boolean[] {
-						false, false, false, false, false, false, true, true,
-				};
-				public boolean isCellEditable(int row, int column) {
-					return columnEditables[column];
-				}
+		String[] nameColumn = { "Nom", "Type", "Prix", "Poids", "Etat", "Stock", " ", "-" };
+		oldTable.setModel(new DefaultTableModel(Article.readAll(), nameColumn) {
+			boolean[] columnEditables = new boolean[] { false, false, false, false, false, false, true, true, };
+
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
+			}
 		});
-		
-		for (int i = 0  ; i < oldTable.getRowCount() ; i++ ) {
-			AdminEntity admin = new AdminEntity();
-			admin.setPseudo(oldTable.getModel().getValueAt(i, 0).toString());
-			admin.setSuperAdmin(oldTable.getModel().getValueAt(i, 1).equals("1"));
-			admin.setPassword(oldTable.getModel().getValueAt(i, 2).toString());
-			//oldTable.getColumn("").getCellEditor().s
+
+		for (int i = 0; i < oldTable.getRowCount(); i++) {
+			ArticleEntity article = new ArticleEntity();
+			article.setName(oldTable.getModel().getValueAt(i, 0).toString());
+
+			// oldTable.getColumn("").getCellEditor().s
 		}
-		
+
 		MyRendererAndEditor btn_update = new MyRendererAndEditor(oldTable, "Modifier", this);
-		
+
 		MyRendererAndEditor btn_delete = new MyRendererAndEditor(oldTable, "Supprimer", this);
-	    // Add btn upload
+		// Add btn upload
 		oldTable.getColumn(" ").setCellRenderer(btn_update);
 		oldTable.getColumn(" ").setCellEditor(btn_update);
-	    // Add btn delete
+		// Add btn delete
 		oldTable.getColumn("-").setCellRenderer(btn_delete);
 		oldTable.getColumn("-").setCellEditor(btn_delete);
 	}
-
 
 	@Override
 	public void loadDataInPanelUpdate(JTable table, int row) {
