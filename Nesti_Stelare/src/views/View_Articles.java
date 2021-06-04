@@ -59,20 +59,17 @@ public class View_Articles extends BaseView {
 		) {
 			private static final long serialVersionUID = 546831570763595984L;
 			boolean[] columnEditables = new boolean[] {
-				false, false, false, false, false, false, false, false, false
+				false, false, false, false, false, false, true, true, 
 			};
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
 		});
 		// Columns Properties
-		table_article.getColumnModel().getColumn(0).setResizable(false);
-		table_article.getColumnModel().getColumn(1).setResizable(false);
-		table_article.getColumnModel().getColumn(2).setResizable(false);
-		table_article.getColumnModel().getColumn(3).setResizable(false);
-		table_article.getColumnModel().getColumn(4).setResizable(false);
-		table_article.getColumnModel().getColumn(5).setResizable(false);
-		table_article.getColumnModel().getColumn(6).setResizable(false);
+		int columnCount = table_article.getColumnModel().getColumnCount();
+		for (int i = 0; i < columnCount; i++ ) {
+			table_article.getColumnModel().getColumn(i).setResizable(false);
+		}
 	    // Add btn upload
 		table_article.getColumn(" ").setCellRenderer(new MyRendererAndEditor(table_article, "Modifier", this));
 		table_article.getColumn(" ").setCellEditor(new MyRendererAndEditor(table_article, "Modifier", this));

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class Article {
 	private static ResultSet resultat = null;
 	private static Double buy_price_article = 0.0;
+	public static ArrayList<String[]> arrayRow;
 
 	public static void main(String[] args) {
 	
@@ -18,19 +19,19 @@ public class Article {
 	public static String[][] readAll() {
 
 		ArrayList<String> articles = new ArrayList<String>();
-		ArrayList<String[]> arrayRow = new ArrayList<String[]>();
+		arrayRow = new ArrayList<String[]>();
 
 		try {
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
-			String query = "SELECT a.name,a.weight,a.state,p.type,u.NAME FROM articles a INNER JOIN products p ON a.id_products=p.Id_products INNER JOIN unity u ON a.id_unity=u.Id_unity;";
+			String query = "SELECT a.name,a.weight,a.state,p.type,u.NAME, a.Id_articles FROM articles a INNER JOIN products p ON a.id_products=p.Id_products INNER JOIN unity u ON a.id_unity=u.Id_unity;";
 			resultat = declaration.executeQuery(query);
 
 			while (resultat.next()) {
 
 				articles.add(resultat.getString("a.name") + "/" + resultat.getString("a.weight") + "/"
 						+ resultat.getString("u.NAME") + "/" + resultat.getString("a.state") + "/"
-						+ resultat.getString("p.type"));
+						+ resultat.getString("p.type") +"/"+resultat.getInt("a.Id_articles"));
 
 			}
 
@@ -41,7 +42,7 @@ public class Article {
 		}
 
 		for (int i = 0; i < articles.size(); i++) {
-			arrayRow.add(articles.get(i).split("/", 5));
+			arrayRow.add(articles.get(i).split("/", 6));
 		}
 
 		String[][] data = new String[arrayRow.size()][6];
@@ -62,7 +63,7 @@ public class Article {
 		try {
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
-			String query = "SELECT a.name,a.weight,a.state,p.type,u.NAME FROM articles a INNER JOIN products p ON a.id_products=p.Id_products INNER JOIN unity u ON a.id_unity=u.Id_unity WHERE id_articles ="
+			String query = "SELECT a.name,a.weight,a.state,p.type,u.NAME,a.Id_articles FROM articles a INNER JOIN products p ON a.id_products=p.Id_products INNER JOIN unity u ON a.id_unity=u.Id_unity WHERE id_articles ="
 					+ id + ";";
 			resultat = declaration.executeQuery(query);
 			/* R�cup�ration des donn�es */
@@ -107,6 +108,7 @@ public class Article {
 			String query = "SELECT MAX(buy_price) FROM `is_contained` s  WHERE Id_articles = (SELECT Id_articles FROM articles WHERE name = '"
 					+ nameArticle + "');";
 			ResultSet resultat = declaration.executeQuery(query);
+		
 			while (resultat.next()) {
 				buy_price_article = resultat.getDouble("MAX(buy_price)");
 			}
@@ -116,6 +118,7 @@ public class Article {
 		}
 		Double price_calculated = buy_price_article * 1.20;
 		String test = String.valueOf( price_calculated);
+	
 		return test;
 	}
 

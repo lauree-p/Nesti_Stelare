@@ -34,6 +34,7 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 	public MyRendererAndEditor(JTable table, String nomBtn, BaseView baseview) {
 		btn = new JButton(nomBtn);
 		btn.addActionListener(new ActionListener() {
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
@@ -110,7 +111,30 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 								model.setValueAt(textField1.getText(), row, 0);
 							}
 						}
+					} else if (baseview.getClass().getName().equals("views.View_Articles")) {
+
+						int idArticles = Integer.parseInt(Article.arrayRow.get(row)[5]);
+						System.out.println(idArticles);
+						//AdminEntity admin = new AdminEntity();
+						//admin.setPseudo(table.getModel().getValueAt(row, 0).toString());
+						//admin.setSuperAdmin(table.getModel().getValueAt(row, 1).equals("1"));
+					//admin.setPassword(table.getModel().getValueAt(row, 2).toString());
+						//JTextField textField1 = new JTextField();
+						//textField1.setText(admin.getPseudo());
+						//JTextField textField2 = new JTextField();
+						//textField2.setText(admin.getPassword());
+						//Object[] inputFields = { "Nom d'utilisateur", textField1,"Mot de passe ", textField2 };
+
+								
+						//int test = JOptionPane.showConfirmDialog(null, inputFields, "Modifier un administrateur",JOptionPane.WARNING_MESSAGE);
+								
+						//if (test == 0) {
+							//SuperAdmin.updateAdmin(idArticles, textField1.getText(), textField2.getText());
+							//model.setValueAt(textField1.getText(), row, 0);
+						//}
+
 					}
+
 				}
 			}
 		});
