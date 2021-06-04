@@ -160,6 +160,22 @@ public class Products {
 		}
 	}
 
+	// delete products.
+	public static boolean deleteProducts(int idProducts) {
+		try {
+			MyConnexion.openConnection();
+			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
+			String query = "DELETE FROM `products` WHERE `products`.`Id_products` = " + idProducts + ";";
+
+			declaration.executeUpdate(query);
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.err.println("erreur lors de la mise a jour");
+			return false;
+		}
+	}
+
 	// update ingredients.
 	public static void updateIngredients(int expiration_time_limit, int id_products) {
 		try {
@@ -192,6 +208,47 @@ public class Products {
 			System.err.println("erreur lors de la r�cup�ration");
 		}
 		return stock;
+	}
+
+	public static ArrayList<String> readNamesProducts() {
+		ArrayList<String> names = new ArrayList<String>();
+		try {
+			MyConnexion.openConnection();
+			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
+			String query = "SELECT name FROM products";
+
+			resultat = declaration.executeQuery(query);
+
+			while (resultat.next()) {
+
+				names.add(resultat.getString("name"));
+
+			}
+
+		} catch (Exception e) {
+			System.err.println("erreur lors de la recuperation");
+		}
+		return names;
+	}
+	
+	public static ArrayList<String> readNamesUnity() {
+		ArrayList<String> namesUnity = new ArrayList<String>();
+		try {
+			MyConnexion.openConnection();
+			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
+			String query = "SELECT NAME FROM unity";
+
+			resultat = declaration.executeQuery(query);
+
+			while (resultat.next()) {
+
+				namesUnity.add(resultat.getString("NAME"));
+			}
+
+		} catch (Exception e) {
+			System.err.println("erreur lors de la recuperation");
+		}
+		return namesUnity;
 	}
 
 }
