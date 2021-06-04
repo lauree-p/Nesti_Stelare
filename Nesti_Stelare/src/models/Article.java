@@ -149,6 +149,21 @@ public class Article {
 		}
 
 	}
+	
+	public static boolean deleteArticle(int idArticle) {
+
+		try {
+			MyConnexion.openConnection();
+			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
+			String query = "DELETE FROM `articles` WHERE `articles`.`id_articles` = " + idArticle + ";";
+			declaration.executeUpdate(query);
+			return true;
+		} catch (SQLException e) {
+
+			System.err.println("erreur update impossible");
+			return false;
+		}
+	}
 
 	public static String calculNbItem(String nameArticle) {
 		int stock = 0;
