@@ -12,6 +12,8 @@ import javax.swing.JPasswordField;
 import java.awt.BorderLayout;
 import javax.swing.SwingConstants;
 
+import entity.AdminEntity;
+import models.Administrators;
 import models.MyConnexion;
 import tools.MD5;
 
@@ -20,6 +22,8 @@ import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 
 public class View_Login {
@@ -28,6 +32,7 @@ public class View_Login {
 	private JFrame frame;
 	private JTextField name;
 	private JPasswordField passWord;
+	static AdminEntity userConnected;
 
 	/**
 	 * Launch the application.
@@ -125,7 +130,10 @@ public class View_Login {
 					
 					if (MyConnexion.checkId(user, userPassword) == true) {
 						
+						userConnected = Administrators.readOne(user);
+						
 						new View_App();
+				
 
 					} else {
 						

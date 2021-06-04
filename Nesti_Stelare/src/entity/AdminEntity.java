@@ -2,9 +2,28 @@ package entity;
 
 public class AdminEntity extends BaseEntity {
 	
+	private int id;
 	private String pseudo;
 	private boolean isSuperAdmin;
 	private String password;
+	
+	public AdminEntity() {
+		
+	}
+	
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	/**
 	 * @return the name
 	 */

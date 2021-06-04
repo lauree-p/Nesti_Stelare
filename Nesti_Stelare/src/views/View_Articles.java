@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.border.LineBorder;
+import javax.swing.border.MatteBorder;
 import javax.swing.table.DefaultTableModel;
 
 import entity.AdminEntity;
@@ -25,6 +26,10 @@ import models.SuperAdmin;
 import tools.MyRendererAndEditor;
 
 public class View_Articles extends BaseView {
+	
+	private JTextField textField_update_name = new JTextField();
+	private JTextField textField_update_password = new JTextField();
+	private JLabel lbl_name_delete = new JLabel();
 
 	public View_Articles() {
 		initialize();
@@ -43,6 +48,7 @@ public class View_Articles extends BaseView {
 		JPanel panel_articles = new JPanel();
 		panel_articles.setBackground(Color.WHITE);
 		View_App.tabbedPane.addTab("Articles", null, panel_articles, null);
+		panel_update.setVisible(false);
 		panel_articles.setLayout(null);
 
 		/**
@@ -77,7 +83,7 @@ public class View_Articles extends BaseView {
 		// Add btn delete
 		table_article.getColumn("-").setCellRenderer(new MyRendererAndEditor(table_article, "Supprimer", this));
 		table_article.getColumn("-").setCellEditor(new MyRendererAndEditor(table_article, "Supprimer", this));
-		// Get table_article visible in the scrollPane_articles
+		
 		scrollPane_articles.setViewportView(table_article);
 		scrollPane_articles.setColumnHeaderView(table_article.getTableHeader());
 
@@ -234,4 +240,5 @@ public class View_Articles extends BaseView {
 		// TODO Auto-generated method stub
 
 	}
+	
 }
