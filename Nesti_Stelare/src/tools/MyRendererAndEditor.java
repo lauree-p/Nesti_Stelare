@@ -230,4 +230,5 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 	@Override
 	public void removeCellEditorListener(CellEditorListener l) {
 	}
+	
 }

@@ -27,6 +27,5 @@ public class ArticleEntity extends BaseEntity {
 	public void setWeight(double d) {
 		this.weight = d;
 	}
-	
 
 }

@@ -184,4 +184,5 @@ public class Article {
 		}
 		return String.valueOf(stock);
 	}
+	
 }

@@ -153,4 +153,5 @@ public class View_Login {
 		frame.getContentPane().add(btn_connection);
 
 	}
+	
 }
