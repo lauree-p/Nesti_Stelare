@@ -1,7 +1,10 @@
 package models;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+
+import entity.AdminEntity;
 
 public class Administrators {
 	
@@ -73,5 +76,40 @@ public class Administrators {
 		}
 		return row;
 	}
+	
+	/**
+	 * Read one administrator by id
+	 * @param id
+	 * @return String row
+	 */
+	public static AdminEntity readOne(String pseudo) {
+		
+		AdminEntity user = new AdminEntity();
+		
+		try {
+			MyConnexion.openConnection();
+			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
+			String query = "SELECT * FROM administrators WHERE nickName ='"+pseudo+"';";
+			ResultSet rs = declaration.executeQuery(query);
+			if (rs.next()) {
+				
+				try {
+					user.setSuperAdmin(rs.getBoolean("is_super_admin"));
+					user.setId(rs.getInt("id_administrators"));
+					user.setPseudo(rs.getString("nickName"));
+					user.setPassword(rs.getString("password"));
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			
+		} catch (Exception e) {
+			System.err.println("Erreur lors de la recuperation");
+		}
+		
+		return user;
+	}
+
 
 }
