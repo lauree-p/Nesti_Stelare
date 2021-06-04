@@ -48,21 +48,17 @@ public class View_Suppliers extends BaseView{
 				new String[] { "Entreprise", "Adresse", "Ville", "CP", "Nom contact", "Prenom contact", "Tel", " ",
 						"-" }) {
 			private static final long serialVersionUID = -6423566302786445456L;
-			boolean[] columnEditables = new boolean[] { false, false, false, false, false, false, false, false, false };
+			boolean[] columnEditables = new boolean[] { false, false, false, false, false, false, false, true, true };
 
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
 		});
 		// Columns Properties
-		table_suppliers.getColumnModel().getColumn(0).setResizable(false);
-		table_suppliers.getColumnModel().getColumn(1).setResizable(false);
-		table_suppliers.getColumnModel().getColumn(2).setResizable(false);
-		table_suppliers.getColumnModel().getColumn(3).setResizable(false);
-		table_suppliers.getColumnModel().getColumn(4).setResizable(false);
-		table_suppliers.getColumnModel().getColumn(5).setResizable(false);
-		table_suppliers.getColumnModel().getColumn(6).setResizable(false);
-		table_suppliers.getColumnModel().getColumn(7).setResizable(false);
+		int columnCount = table_suppliers.getColumnModel().getColumnCount();
+		for (int i = 0; i < columnCount; i++ ) {
+			table_suppliers.getColumnModel().getColumn(i).setResizable(false);
+		}
 		// Add btn upload
 		table_suppliers.getColumn(" ").setCellRenderer(new MyRendererAndEditor(table_suppliers, "Modifier", this));
 		table_suppliers.getColumn(" ").setCellEditor(new MyRendererAndEditor(table_suppliers, "Modifier", this));
