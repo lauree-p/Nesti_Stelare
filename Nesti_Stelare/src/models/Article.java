@@ -137,13 +137,12 @@ public class Article {
 		}
 	}
 
-	public static void update(String name, Double weight, String state, int idProduct, int idUnity, int id_article) {
+	public static void update(String name, Double weight, int id_article) {
 
 		try {
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
-			String query = "UPDATE articles SET name='" + name + "', weight='" + weight + "', state='" + state
-					+ "', id_products='" + idProduct + "', id_Unity='" + idUnity + "' WHERE id_articles=" + id_article
+			String query = "UPDATE articles SET name='" + name + "', weight='" + weight + "' WHERE id_articles=" + id_article
 					+ ";";
 			declaration.executeUpdate(query);
 		} catch (SQLException e) {
