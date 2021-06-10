@@ -1,8 +1,6 @@
 package views;
 
 import java.awt.Color;
-import java.awt.FlowLayout;
-
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -19,12 +17,9 @@ import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
 
 import models.Products;
-import models.SuperAdmin;
 import tools.MyRendererAndEditor;
 import javax.swing.border.LineBorder;
 import javax.swing.JTextField;
-import javax.swing.JRadioButton;
-import javax.swing.JCheckBox;
 
 public class View_Products extends BaseView {
 	private JTextField textField_name_product;
@@ -65,6 +60,7 @@ public class View_Products extends BaseView {
 			private static final long serialVersionUID = 6100160127192405992L;
 			boolean[] columnEditables = new boolean[] { false, false, false, true, true };
 
+			@Override
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
@@ -106,6 +102,7 @@ public class View_Products extends BaseView {
 			private static final long serialVersionUID = -1698236882141505675L;
 			boolean[] columnEditables = new boolean[] { false, false, true, true };
 
+			@Override
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}

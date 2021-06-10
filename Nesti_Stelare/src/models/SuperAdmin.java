@@ -44,12 +44,12 @@ public class SuperAdmin extends Administrators {
 
 	}
 
-	public static boolean deleteAdmin(int idAdmin) {
+	public static boolean deleteAdmin(String nickName) {
 
 		try {
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
-			String query = "DELETE FROM `administrators` WHERE `administrators`.`Id_administrators` = " + idAdmin + ";";
+			String query = "DELETE FROM `administrators` WHERE `administrators`.`nickName` = '" + nickName + "';";
 			declaration.executeUpdate(query);
 			return true;
 		} catch (SQLException e) {

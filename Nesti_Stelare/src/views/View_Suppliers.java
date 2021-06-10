@@ -50,6 +50,7 @@ public class View_Suppliers extends BaseView{
 			private static final long serialVersionUID = -6423566302786445456L;
 			boolean[] columnEditables = new boolean[] { false, false, false, false, false, false, false, true, true };
 
+			@Override
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
@@ -88,6 +89,7 @@ public class View_Suppliers extends BaseView{
 			private static final long serialVersionUID = 6230086957304435761L;
 			boolean[] columnEditables = new boolean[] { false, false, false, false, false, false, false, false };
 
+			@Override
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}

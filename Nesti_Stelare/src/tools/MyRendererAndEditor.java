@@ -4,7 +4,6 @@ import java.awt.Component;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -14,7 +13,6 @@ import javax.swing.table.TableCellRenderer;
 
 import entity.AdminEntity;
 import entity.ArticleEntity;
-import entity.BaseEntity;
 import entity.ProductsEntity;
 import models.Administrators;
 import models.Article;
@@ -22,8 +20,6 @@ import models.Products;
 import models.SuperAdmin;
 import models.Suppliers;
 import views.BaseView;
-import views.View_Administrators;
-
 import javax.swing.event.CellEditorListener;
 import java.awt.event.*;
 import java.util.EventObject;
@@ -50,14 +46,14 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 
 						if (baseview.getClass().getName() == "views.View_Administrators") {
 							int idAdmin = Integer.parseInt(Administrators.arrayRow.get(row)[0]);
-							if (SuperAdmin.deleteAdmin(idAdmin)) {
+							if (SuperAdmin.deleteAdmin(elementAsupprimer)) {
 								model.removeRow(row);
 							} else {
 								JOptionPane.showMessageDialog(null,
 										"Suppression impossible, l'administrateur est lié à un autre élément");
 							}
 						} else if (baseview.getClass().getName() == "views.View_Products") {
-							int idProducts = Integer.parseInt(Products.arrayRow.get(row)[1]);
+							int idProducts = Integer.parseInt(Products.arrayIng.get(row)[2]);
 							if (Products.deleteProducts(idProducts)) {
 								model.removeRow(row);
 							} else {
@@ -70,7 +66,7 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 								model.removeRow(row);
 							} else {
 								JOptionPane.showMessageDialog(null,
-										"Suppression impossible, l'administrateur est lié à un autre élément");
+										"Suppression impossible, l'article est lié à un autre élément");
 							}
 
 						} else if (baseview.getClass().getName() == "views.View_Suppliers") {
@@ -80,7 +76,7 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 								model.removeRow(row);
 							} else {
 								JOptionPane.showMessageDialog(null,
-										"Suppression impossible, l'administrateur est lié à un autre élément");
+										"Suppression impossible, le fournisseur est lié à un autre élément");
 							}
 						}
 
@@ -107,7 +103,6 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 							model.setValueAt(textField1.getText(), row, 0);
 						}
 					} else if (baseview.getClass().getName().equals("views.View_Products")) {
-						int idProducts = Integer.parseInt(Products.arrayRow.get(row)[1]);
 						ProductsEntity product = new ProductsEntity();
 						product.setName(table.getModel().getValueAt(row, 0).toString());
 						JTextField textField1 = new JTextField();
@@ -120,6 +115,7 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 							int test = JOptionPane.showConfirmDialog(null, inputFields, "Modifier un ingrédient",
 									JOptionPane.WARNING_MESSAGE);
 							if (test == 0) {
+								int idProducts = Integer.parseInt(Products.arrayIng.get(row)[1]);
 								Products.updateProducts(textField1.getText(), "ing",
 										Integer.parseInt(textField2.getText()), idProducts);
 								model.setValueAt(textField1.getText(), row, 0);
@@ -129,6 +125,7 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 							int test2 = JOptionPane.showConfirmDialog(null, textField1, "Modifier un ustensile",
 									JOptionPane.WARNING_MESSAGE);
 							if (test2 == 0) {
+								int idProducts = Integer.parseInt(Products.arrayUte.get(row)[1]);
 								Products.updateProducts(textField1.getText(), "ute", 0, idProducts);
 								model.setValueAt(textField1.getText(), row, 0);
 							}
@@ -156,32 +153,7 @@ public class MyRendererAndEditor implements TableCellRenderer, TableCellEditor {
 							model.setValueAt(textField1.getText(), row, 0);
 							model.setValueAt(textField2.getText() + Article.arrayRow.get(row)[2], row, 3);
 						}
-
-					} else if (baseview.getClass().getName().equals("views.View_Suppliers")) {
-						int idSuppliers = Integer.parseInt(Article.arrayRow.get(row)[0]);
-
-//						SuppliersEntity suppliers = new SuppliersEntity();
-//						article.setName(table.getModel().getValueAt(row, 0).toString());
-//
-//						article.setWeight(Double.parseDouble(Article.arrayRow.get(row)[1]));
-//
-//						JTextField textField1 = new JTextField();
-//						textField1.setText(article.getName());
-//						JTextField textField2 = new JTextField();
-//						textField2.setText(String.valueOf(article.getWeight()));
-//						Object[] inputFields = { "Nom", textField1, "Poids", textField2 };
-//
-//						int test = JOptionPane.showConfirmDialog(null, inputFields, "Modifier un article",
-//								JOptionPane.WARNING_MESSAGE);
-//
-//						if (test == 0) {
-//							Article.update(textField1.getText(), Double.parseDouble(textField2.getText()), idArticles);
-//							model.setValueAt(textField1.getText(), row, 0);
-//							model.setValueAt(textField2.getText() + Article.arrayRow.get(row)[2], row, 3);
-//						}
-
 					}
-
 				}
 			}
 		});
