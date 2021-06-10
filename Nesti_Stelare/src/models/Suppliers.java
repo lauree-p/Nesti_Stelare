@@ -3,7 +3,6 @@ package models;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 //rajouter le type , le poids et le en stock dans readarticlebysuppliers
 public class Suppliers {

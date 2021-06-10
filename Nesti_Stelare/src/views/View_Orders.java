@@ -1,7 +1,6 @@
 package views;
 
 import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.Font;
 
 import javax.swing.JPanel;
@@ -62,6 +61,7 @@ public class View_Orders extends BaseView {
 			private static final long serialVersionUID = -779283527594587689L;
 			boolean[] columnEditables = new boolean[] { false, false, false, false, false, false, false, false, false };
 
+			@Override
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
@@ -107,6 +107,7 @@ public class View_Orders extends BaseView {
 			private static final long serialVersionUID = -8814775745908591959L;
 			boolean[] columnEditables = new boolean[] { false, false, false, false, false, false, false, false, false };
 
+			@Override
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
@@ -259,6 +260,7 @@ public class View_Orders extends BaseView {
 			private static final long serialVersionUID = 4046897769807276788L;
 			boolean[] columnEditables = new boolean[] { false, false };
 
+			@Override
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}

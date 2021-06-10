@@ -10,19 +10,14 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
 import entity.AdminEntity;
-import entity.BaseEntity;
 import models.Administrators;
 import models.SuperAdmin;
 import tools.MyRendererAndEditor;
 import javax.swing.JLabel;
-import javax.swing.border.LineBorder;
-import javax.swing.SwingConstants;
-import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
 
 public class View_Administrators extends BaseView {
@@ -57,7 +52,7 @@ public class View_Administrators extends BaseView {
 		 */		
 		panel_delete.setVisible(false);
 		
-		panel_delete.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		panel_delete.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
 		panel_delete.setBackground(Color.LIGHT_GRAY);
 		panel_delete.setBounds(320, 200, 400, 159);
 		panel_delete.setLayout(null);
@@ -70,6 +65,7 @@ public class View_Administrators extends BaseView {
 		
 		JButton btn_delete_cancel = new JButton("Annuler");
 		btn_delete_cancel.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				panel_delete.setVisible(false);
 			}
@@ -80,6 +76,7 @@ public class View_Administrators extends BaseView {
 		
 		
 		btn_confirm_delete.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				panel_delete.setVisible(false);
 			}
@@ -97,7 +94,7 @@ public class View_Administrators extends BaseView {
 		lblToto.setBounds(0, 86, 400, 14);
 		panel_delete.add(lblToto);
 		
-		panel_update.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		panel_update.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
 		panel_update.setBackground(Color.LIGHT_GRAY);
 		panel_update.setBounds(362, 200, 313, 212);
 		panel_update.setLayout(null);
@@ -154,7 +151,7 @@ public class View_Administrators extends BaseView {
 		/**
 		 * Panel_delete
 		 */
-		panel_delete.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		panel_delete.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
 		panel_delete.setBackground(Color.LIGHT_GRAY);
 		panel_delete.setBounds(320, 200, 400, 159);
 		panel_delete.setLayout(null);
@@ -166,6 +163,7 @@ public class View_Administrators extends BaseView {
 		panel_delete.add(lbl_delete_admin);
 		
 		btn_delete_cancel.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				panel_delete.setVisible(false);
 			}
@@ -184,6 +182,7 @@ public class View_Administrators extends BaseView {
 		btn_delete_confirm.setBounds(221, 125, 110, 23);
 		panel_delete.add(btn_delete_confirm);
 		btn_delete_confirm.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				confirmDelete = true;
 				panel_delete.setVisible(false);
@@ -209,6 +208,7 @@ public class View_Administrators extends BaseView {
 			boolean[] columnEditables = new boolean[] {
 				false, false, false, true, true
 			};
+			@Override
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
@@ -267,7 +267,7 @@ public class View_Administrators extends BaseView {
         panel_create_admin.add(textField_passWord);
         textField_passWord.setColumns(10);
         
-        JButton btn_create_administrator = new JButton("Cr�er un administrateur");
+        JButton btn_create_administrator = new JButton("Créer un administrateur");
         btn_create_administrator.setBounds(70, 163, 198, 23);
         panel_create_admin.add(btn_create_administrator);
         
@@ -292,6 +292,7 @@ public class View_Administrators extends BaseView {
 				boolean[] columnEditables = new boolean[] {
 						false, false, false, true, true
 				};
+				@Override
 				public boolean isCellEditable(int row, int column) {
 					return columnEditables[column];
 				}

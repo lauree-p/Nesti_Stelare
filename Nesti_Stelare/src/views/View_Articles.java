@@ -14,15 +14,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.border.LineBorder;
-import javax.swing.border.MatteBorder;
 import javax.swing.table.DefaultTableModel;
 
-import entity.AdminEntity;
 import entity.ArticleEntity;
-import models.Administrators;
 import models.Article;
 import models.Products;
-import models.SuperAdmin;
 import tools.MyRendererAndEditor;
 
 public class View_Articles extends BaseView {
@@ -68,6 +64,7 @@ public class View_Articles extends BaseView {
 			private static final long serialVersionUID = 546831570763595984L;
 			boolean[] columnEditables = new boolean[] { false, false, false, false, false, false, true, true, };
 
+			@Override
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
@@ -196,6 +193,7 @@ public class View_Articles extends BaseView {
 			private static final long serialVersionUID = -8222166176512458254L;
 			boolean[] columnEditables = new boolean[] { false, false };
 
+			@Override
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
@@ -212,6 +210,7 @@ public class View_Articles extends BaseView {
 		oldTable.setModel(new DefaultTableModel(Article.readAll(), nameColumn) {
 			boolean[] columnEditables = new boolean[] { false, false, false, false, false, false, true, true, };
 
+			@Override
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}

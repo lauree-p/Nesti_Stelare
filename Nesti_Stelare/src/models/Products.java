@@ -6,7 +6,8 @@ import java.util.ArrayList;
 
 public class Products {
 
-	public static ArrayList<String[]> arrayRow;
+	public static ArrayList<String[]> arrayIng;
+	public static ArrayList<String[]> arrayUte;
 
 	private static ResultSet resultat = null;
 
@@ -18,7 +19,7 @@ public class Products {
 	public static String[][] readIngredients() {
 
 		ArrayList<String> products = new ArrayList<String>();
-		arrayRow = new ArrayList<String[]>();
+		arrayIng = new ArrayList<String[]>();
 
 		try {
 			MyConnexion.openConnection();
@@ -40,14 +41,14 @@ public class Products {
 		}
 
 		for (int i = 0; i < products.size(); i++) {
-			arrayRow.add(products.get(i).split(" ", 3));
+			arrayIng.add(products.get(i).split(" ", 3));
 		}
 
-		String[][] data = new String[arrayRow.size()][3];
-		for (int i = 0; i < arrayRow.size(); i++) {
-			data[i][0] = arrayRow.get(i)[0];
-			data[i][1] = arrayRow.get(i)[2];
-			data[i][2] = calculQuantity(arrayRow.get(i)[1]);
+		String[][] data = new String[arrayIng.size()][3];
+		for (int i = 0; i < arrayIng.size(); i++) {
+			data[i][0] = arrayIng.get(i)[0];
+			data[i][1] = arrayIng.get(i)[2];
+			data[i][2] = calculQuantity(arrayIng.get(i)[1]);
 
 		}
 
@@ -58,7 +59,7 @@ public class Products {
 	public static String[][] readKitchenUtensils() {
 
 		ArrayList<String> products = new ArrayList<String>();
-		arrayRow = new ArrayList<String[]>();
+		arrayUte = new ArrayList<String[]>();
 
 		try {
 			MyConnexion.openConnection();
@@ -79,13 +80,13 @@ public class Products {
 		}
 
 		for (int i = 0; i < products.size(); i++) {
-			arrayRow.add(products.get(i).split(" ", 2));
+			arrayUte.add(products.get(i).split(" ", 2));
 		}
 
-		String[][] data = new String[arrayRow.size()][2];
-		for (int i = 0; i < arrayRow.size(); i++) {
-			data[i][0] = arrayRow.get(i)[0];
-			data[i][1] = calculQuantity(arrayRow.get(i)[1]);
+		String[][] data = new String[arrayUte.size()][2];
+		for (int i = 0; i < arrayUte.size(); i++) {
+			data[i][0] = arrayUte.get(i)[0];
+			data[i][1] = calculQuantity(arrayUte.get(i)[1]);
 
 		}
 
@@ -166,7 +167,7 @@ public class Products {
 			MyConnexion.openConnection();
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
 			String query = "DELETE FROM `products` WHERE `products`.`Id_products` = " + idProducts + ";";
-
+			
 			declaration.executeUpdate(query);
 			return true;
 		} catch (SQLException e) {
@@ -183,7 +184,7 @@ public class Products {
 			java.sql.Statement declaration = MyConnexion.accessDataBase.createStatement();
 			String query = "UPDATE `ingredients` SET `expiration_time_limit` = '" + expiration_time_limit
 					+ "' WHERE `ingredients`.`id_ingredients` = '" + id_products + "'; ";
-
+		
 			declaration.executeUpdate(query);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -230,7 +231,7 @@ public class Products {
 		}
 		return names;
 	}
-	
+
 	public static ArrayList<String> readNamesUnity() {
 		ArrayList<String> namesUnity = new ArrayList<String>();
 		try {

@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
 
 public class View_App {
 
@@ -28,7 +29,7 @@ public class View_App {
 		frame.setVisible(true);
 		frame.getContentPane().setBackground(new Color(46, 22, 14));
 		frame.setBounds(100, 100, 1280, 720);	
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		// Panel log

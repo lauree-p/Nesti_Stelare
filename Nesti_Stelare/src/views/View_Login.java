@@ -5,12 +5,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.Color;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 
-import java.awt.BorderLayout;
 import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
 
 import entity.AdminEntity;
 import models.Administrators;
@@ -22,8 +20,6 @@ import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 
 public class View_Login {
@@ -39,6 +35,7 @@ public class View_Login {
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					View_Login window = new View_Login();
@@ -66,7 +63,7 @@ public class View_Login {
 		frame.setResizable(false);
 		frame.getContentPane().setBackground(new Color(46, 22, 14));
 		frame.setBounds(100, 100, 496, 400);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		JLabel img = new JLabel(new ImageIcon(View_Login.class.getResource("/img/connect-image.png")));
 		img.setBounds(0, 0, 480, 127);
@@ -121,6 +118,7 @@ public class View_Login {
 		JButton btn_connection = new JButton("SE CONNECTER");
 		btn_connection.setBounds(172, 306, 157, 33);
 		btn_connection.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 
 				String user = name.getText();

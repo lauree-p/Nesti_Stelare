@@ -14,12 +14,14 @@ public class AdminEntity extends BaseEntity {
 	/**
 	 * @return the id
 	 */
+	@Override
 	public int getId() {
 		return id;
 	}
 	/**
 	 * @param id the id to set
 	 */
+	@Override
 	public void setId(int id) {
 		this.id = id;
 	}

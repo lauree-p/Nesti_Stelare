@@ -4,8 +4,6 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
-import entity.BaseEntity;
-
 public abstract class  BaseView {
 	
 	public JPanel panel_update;
