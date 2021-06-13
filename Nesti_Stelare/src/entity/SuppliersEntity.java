@@ -1,4 +1,4 @@
-package models;
+package entity;
 
 public class SuppliersEntity {
 	private String company_name;
